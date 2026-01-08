@@ -236,6 +236,7 @@ public class MarriageMaster extends JavaPlugin implements MarriageMasterPlugin, 
 			}
 
 		}
+		if(config.isAuraSkillsBonusXPEnabled() && getServer().getPluginManager().isPluginEnabled("AuraSkills")) getServer().getPluginManager().registerEvents(new AuraSkillsBonusXpListener(this), this);
 		if(config.isHPRegainEnabled()) getServer().getPluginManager().registerEvents(new RegainHealth(this), this);
 		if(config.isJoinLeaveInfoEnabled()) getServer().getPluginManager().registerEvents(new JoinLeaveInfo(this), this);
 		if(config.isEconomyEnabled()) new EconomyHandler(this);

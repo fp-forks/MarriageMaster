@@ -482,6 +482,36 @@ public class Config extends Configuration implements DatabaseConfiguration, ILan
 	{
 		return getConfigE().getBoolean("BonusXp.McMMO.SplitWithAllPartnersInRange", true) && isMcMMOBonusXPSplitEnabled();
 	}
+
+	public boolean isAuraSkillsBonusXPEnabled()
+	{
+		return getConfigE().getBoolean("BonusXp.AuraSkills.Enable", false);
+	}
+
+	public List<String> getAuraSkillsBonusXpBlockedSources()
+	{
+		return getConfigE().getStringList("BonusXp.AuraSkills.ExcludeSources", new ArrayList<>(0));
+	}
+
+	public List<String> getAuraSkillsBonusXpBlockedSkills()
+	{
+		return getConfigE().getStringList("BonusXp.AuraSkills.ExcludeSkills", new ArrayList<>(0));
+	}
+
+	public double getAuraSkillsBonusXpMultiplier()
+	{
+		return getConfigE().getDouble("BonusXp.AuraSkills.Multiplier", 2);
+	}
+
+	public boolean isAuraSkillsBonusXPSplitEnabled()
+	{
+		return getConfigE().getBoolean("BonusXp.AuraSkills.SplitXp", true);
+	}
+
+	public boolean isAuraSkillsBonusXPSplitWithAllEnabled()
+	{
+		return getConfigE().getBoolean("BonusXp.AuraSkills.SplitWithAllPartnersInRange", true) && isAuraSkillsBonusXPSplitEnabled();
+	}
 	//endregion
 
 	//region HP Regain
