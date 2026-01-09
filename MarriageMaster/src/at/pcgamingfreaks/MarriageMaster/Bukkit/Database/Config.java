@@ -512,6 +512,41 @@ public class Config extends Configuration implements DatabaseConfiguration, ILan
 	{
 		return getConfigE().getBoolean("BonusXp.AuraSkills.SplitWithAllPartnersInRange", true) && isAuraSkillsBonusXPSplitEnabled();
 	}
+
+	public boolean isJobsBonusXPEnabled()
+	{
+		return getConfigE().getBoolean("BonusXp.Jobs.Enable", false);
+	}
+
+	public List<String> getJobsBonusXpBlockedJobs()
+	{
+		return getConfigE().getStringList("BonusXp.Jobs.ExcludeJobs", new ArrayList<>(0));
+	}
+
+	public double getJobsBonusXpMultiplier()
+	{
+		return getConfigE().getDouble("BonusXp.Jobs.Multiplier", 2);
+	}
+
+	public boolean isJobsBonusXPSplitEnabled()
+	{
+		return getConfigE().getBoolean("BonusXp.Jobs.SplitXp", true);
+	}
+
+	public boolean isJobsPaymentEnabled()
+	{
+		return getConfigE().getBoolean("BonusXp.Jobs.Payment.Enable", false);
+	}
+
+	public double getJobsPaymentMultiplier()
+	{
+		return getConfigE().getDouble("BonusXp.Jobs.Payment.Multiplier", 2);
+	}
+
+	public boolean isJobsPaymentSplitEnabled()
+	{
+		return getConfigE().getBoolean("BonusXp.Jobs.Payment.Split", true);
+	}
 	//endregion
 
 	//region HP Regain

@@ -184,6 +184,11 @@ BonusXp:
     SplitXp: true
     # If enabled the xp will be split with all partners that are in range. So each player will receive (xp * multiplier / count_partners_in_range) xp. Requires that SplitXp is enabled.
     SplitWithAllPartnersInRange: false
+  Jobs:
+    Enable: false
+    Multiplier: 2
+    SplitXp: true
+    ExcludeJobs: []
 
 HealthRegain:
   Enable: true

@@ -6,7 +6,7 @@ main: "${bukkitMainClass}"
 version: "${version}"
 api-version: "1.13"
 depend: [${dependencies}]
-softdepend: [ Vault, Minepacks, MinePacks, MVdWPlaceholderAPI, PlaceholderAPI, SkillAPI, mcMMO, AuraSkills, Multiverse-Core ${soft-dependencies} ]
+softdepend: [ Vault, Minepacks, MinePacks, MVdWPlaceholderAPI, PlaceholderAPI, SkillAPI, mcMMO, AuraSkills, Jobs, Multiverse-Core ${soft-dependencies} ]
 folia-supported: true
 
 permissions:
