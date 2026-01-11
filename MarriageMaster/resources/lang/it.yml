@@ -139,6 +139,8 @@ Language:
       ToShort: "&cIl soprannome fornito è troppo corto. Deve essere lungo almeno {MinLength} caratteri."
       ToLong: "&cIl soprannome fornito è troppo lungo. Non può superare i {MaxLength} caratteri."
       AlreadyUsed: "&cIl soprannome fornito è già in uso!"
+      Banned: "&cIl cognome indicato non è consentito."
+      PlayerOffline: "&cImpossibile verificare il consenso al cambio del cognome mentre il giocatore è offline."
     Requests:
       NothingToAccept: "&cNon ci sono richieste aperte da accettare."
       NothingToDeny: "&cNon ci sono richieste aperte da rifiutare."
@@ -438,5 +440,5 @@ LanguageName: "Italiano"
 Author: "tradotto da AI"
 
 # Language file version. Don't touch it!
-Version: 113
+Version: 114
 Revision: 1
