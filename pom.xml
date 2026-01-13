@@ -17,7 +17,7 @@
 
 		<configFileVersion>109</configFileVersion>
 		<configFileVersionBungee>102</configFileVersionBungee>
-		<languageFileVersion>114</languageFileVersion>
+		<languageFileVersion>115</languageFileVersion>
 
 		<sonar.organization>georgh93</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>

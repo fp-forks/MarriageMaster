@@ -95,6 +95,22 @@ Language:
       TooFarAway: "&cYou are too far away to hug your partner. (Max {Distance} blocks)"
       # Placeholders: {Time}, {TimeLeft} in seconds
       Wait: "&cYou have to wait {Time} seconds to hug your partner again."
+    Info:
+      # Placeholders: {Player1Name}, {Player1DisplayName}, {Player2Name}, {Player2DisplayName}, {Surname}, {MagicHeart}, {WeddingDate}, {PriestName}, {PriestDisplayName}, {HasHome}, {PvPEnabled}
+      Headline: "&e--- Marriage Info ---"
+      Footer: "&e---------------------"
+      Player1: "&ePartner 1: {Player1DisplayName}"
+      Player2: "&ePartner 2: {Player2DisplayName}"
+      Surname: "&eSurname: {Surname}"
+      WeddingDate: "&eMarried on: {WeddingDate}"
+      # No Json!!!
+      DateFormat: "yyyy-MM-dd"
+      Priest: "&ePriest: {PriestDisplayName}"
+      NoPriest: "&ePriest: &7none"
+      HasHome: "&eHome set: {HasHome}"
+      PvP: "&ePvP: {PvPEnabled}"
+      Heart: "&eHeart: {MagicHeart}"
+      NotMarried: "{DisplayName}&e is not married."
     Seen:
       # Placeholders: {Name}, {DisplayName}
       CurrentlyOnline: "{DisplayName}&r is currently &aonline&r."
@@ -315,6 +331,7 @@ Language:
       Kiss: "You kiss your partner."
       Hug: "You hug your partner."
       Seen: "Shows when your partner was online the last time."
+      Info: "Shows information about a marriage."
       Marry: "Marry two players."
       MarrySelf: "Sends a marry request to another player."
       Divorce: "Divorces two players."
@@ -392,6 +409,9 @@ Command:
   Seen:
     - seen
     - lastOnline
+  Info:
+    - info
+    - marriageinfo
   PvPOn:
     - pvpon
   PvPOff:
