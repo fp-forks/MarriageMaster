@@ -57,8 +57,8 @@ Language:
       ItemSent: "[{\"text\":\"파트너에게 \",\"color\":\"green\"},{\"text\":\"{ItemAmount} {ItemName}\",\"hoverEvent\":{\"action\":\"show_item\",\"value\":\"{ItemMetaJSON}\"}},{\"text\":\"를 보냈습니다.\"}]"
       # Placeholders: {Name}, {DisplayName}, {ItemAmount}, {ItemName}, {ItemMetaJSON} = Item as JSON for hover event
       ItemReceived: "[{\"text\":\"당신의 \",\"color\":\"green\"},{\"text\":\"파트너가 \",\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"{DisplayName}\"}},{\"text\":\"{ItemAmount} {ItemName}\",\"hoverEvent\":{\"action\":\"show_item\",\"value\":\"{ItemMetaJSON}\"}},{\"text\":\"를 보냈습니다.\"}]"
-      WorldNotAllowed: "&cYour partner is in a world where it is not allowed to receive gifts."
-      ItemNotAllowed: "&cYou are not allowed to gift {ItemName} &cto your partner!"
+      WorldNotAllowed: "&c파트너가 선물을 받을 수 없는 월드에 있습니다."
+      ItemNotAllowed: "&c{ItemName} &c아이템은 파트너에게 선물할 수 없습니다!"
       # Placeholders: {ItemAmount}, {ItemName}, {ItemMetaJSON} = Item as JSON for hover event
       Request:
         Notification: "[\"\",{\"text\":\"{DisplayName}&r 이 당신에게 \"},{\"text\":\"{ItemAmount} {ItemName}\",\"hoverEvent\":{\"action\":\"show_item\",\"value\":\"{ItemMetaJSON}\"}},{\"text\":\"를 보내려고 합니다. \"},{\"text\":\"/marry accept\",\"color\":\"green\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry accept\"}},{\"text\":\"로 수락하거나 \"},{\"text\":\"/marry deny\",\"color\":\"red\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry deny\"}},{\"text\":\"로 거절하십시오.\"}]"
@@ -66,9 +66,11 @@ Language:
         Denied: "파트너의 선물을 거절했습니다."
         DeniedPartner: "당신의 파트너가 선물을 거절했습니다. 아이템이 돌려졌습니다."
         Canceled: "선물을 취소했습니다."
-        CanceledPartner: "당신의 파트너가 선물을 취소했습니다."
-        CanceledDisconnectRequester: "당신의 파트너가 오프라인입니다. 선물이 취소되었습니다."
+        CanceledPartner: "당신의 파트너가 선물을 취소했습니다. 아이템이 돌려졌습니다."
+        CanceledDisconnectRequester: "당신의 파트너가 오프라인입니다. 선물이 취소되었습니다. 아이템이 돌려졌습니다."
         CanceledDisconnectTarget: "당신의 파트너가 오프라인입니다. 선물이 취소되었습니다."
+        RefundInvFull: "&c인벤토리가 꽉 차서 남은 선물 아이템이 땅에 떨어졌습니다!"
+        PartnerAlreadyHasAnOpenRequest: "&c파트너에게 이미 열려 있는 요청이 있습니다. 먼저 수락하거나 거절할 때까지 기다려 주세요."
     Home:
       Deleted: "&a집을 성공적으로 삭제했습니다."
       PlayerNoHome: "&c플레이어가 집을 가지고 있지 않습니다."
@@ -91,6 +93,24 @@ Language:
       GotHugged: "&e파트너가 당신을 안았습니다!"
       GotHugged_SendMethod: "action_bar"
       TooFarAway: "&c파트너와의 거리가 너무 멉니다. (최대 {Distance} 블럭)"
+      # Placeholders: {Time}, {TimeLeft} in seconds
+      Wait: "&c다시 안아주기까지 {Time}초 남았습니다."
+    Info:
+      # Placeholders: {Player1Name}, {Player1DisplayName}, {Player2Name}, {Player2DisplayName}, {Surname}, {MagicHeart}, {WeddingDate}, {PriestName}, {PriestDisplayName}, {HasHome}, {PvPEnabled}
+      Headline: "&e--- 결혼 정보 ---"
+      Footer: "&e---------------------"
+      Player1: "&e파트너 1: {Player1DisplayName}"
+      Player2: "&e파트너 2: {Player2DisplayName}"
+      Surname: "&e성: {Surname}"
+      WeddingDate: "&e결혼일: {WeddingDate}"
+      # No Json!!!
+      DateFormat: "yyyy-MM-dd"
+      Priest: "&e성직자: {PriestDisplayName}"
+      NoPriest: "&e성직자: &7없음"
+      HasHome: "&e집 설정: {HasHome}"
+      PvP: "&ePvP: {PvPEnabled}"
+      Heart: "&e하트: {MagicHeart}"
+      NotMarried: "{DisplayName}&e은(는) 결혼하지 않았습니다."
     Seen:
       # Placeholders: {Name}, {DisplayName}
       CurrentlyOnline: "{DisplayName}&r이 &a온라인&r 입니다."
@@ -104,6 +124,12 @@ Language:
       NoMarriedPlayers: "&c결혼한 플레이어가 없습니다."
       Headline: "&e결혼한 플레이어 리스트&r&f - &r&6페이지 {CurrentPage}/{MaxPage}"
       Footer: "[\"\",{\"text\":\"<<< 이전 <<<\",\"color\":\"gray\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/{MainCommand} {SubCommand} {PrevPage}\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"/{MainCommand} {SubCommand} {PrevPage}\"}},{\"text\":\" 페이지 {CurrentPage}/{MaxPage} \",\"color\":\"gold\"},{\"text\":\">>> 다음 >>>\",\"color\":\"gray\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/{MainCommand} {SubCommand} {NextPage}\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"/{MainCommand} {SubCommand} {NextPage}\"}}]"
+    Partners:
+      Headline: "&e{DisplayName}의 파트너 목록:"
+      Footer: "&e##############################"
+      NotMarried: "{DisplayName}&e은(는) 결혼하지 않았습니다."
+      # Player1 is the player that was queried. Player2 is the partner
+      Format: "&2{Player1DisplayName} {MagicHeart} &2{Player2DisplayName}"
     ListPriests:
       Format: "&2{PriestDisplayName}"
       NoPriestsOnline: "&c접속 중인 성직자가 없습니다."
@@ -111,6 +137,7 @@ Language:
       Footer: "[\"\",{\"text\":\"<<< 이전 <<<\",\"color\":\"gray\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/{MainCommand} {SubCommand} {PrevPage}\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"/{MainCommand} {SubCommand} {PrevPage}\"}},{\"text\":\" 페이지 {CurrentPage}/{MaxPage} \",\"color\":\"gold\"},{\"text\":\">>> 다음 >>>\",\"color\":\"gray\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/{MainCommand} {SubCommand} {NextPage}\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"/{MainCommand} {SubCommand} {NextPage}\"}}]"
     PvP:
       IsDisabled: "&cPvP가 꺼져 있어 PvP를 할 수 없습니다."
+      IsDisabled_SendMethod: "action_bar"
       On: "&a파트너와 PvP를 할 수 있습니다."
       Off: "&a파트너와 PvP를 할 수 없습니다."
     TP:
@@ -150,6 +177,17 @@ Language:
       ToShort: "&c성이 너무 짧습니다. 최소 {MinLength} 글자여야 합니다."
       ToLong: "&c성이 너무 깁니다. 최대 {MaxLength} 글자여야 합니다."
       AlreadyUsed: "&c성이 이미 사용 중 입니다!"
+      Banned: "&c해당 성은 사용할 수 없습니다."
+      Confirm: "[\"\",{\"text\":\"{PriestDisplayName}&r\"},{\"text\":\" 님이 당신의 성을 \",\"color\":\"white\"},{\"text\":\"{Surname}&r\"},{\"text\":\"에서 \",\"color\":\"white\"},{\"text\":\"{NewSurname}&r\",\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"현재 성: {Surname}\"}},{\"text\":\"(으)로 바꾸려고 합니다. \",\"color\":\"white\"},{\"text\":\"/marry accept\",\"color\":\"green\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry accept\"}},{\"text\":\"로 수락하거나 \",\"color\":\"white\"},{\"text\":\"/marry deny\",\"color\":\"red\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry deny\"}},{\"text\":\"로 거절하세요.\",\"color\":\"white\"}]"
+      PlayerOff: "{DisplayName}&r님이 오프라인이 되어 성 변경이 취소되었습니다."
+      PriestOff: "성직자 {DisplayName}&r님이 오프라인이 되어 성 변경이 취소되었습니다."
+      PlayerCancelled: "&c&r&c{PlayerDisplayName}&r&c님이 {NewSurname}&r&c(으)로의 성 변경을 취소했습니다!"
+      PriestCancelled: "&c&r&c{PriestDisplayName}&r&c님이 {NewSurname}&r&c(으)로의 성 변경을 취소했습니다!"
+      YouCancelled: "&a{NewSurname}&r&a(으)로의 성 변경을 취소했습니다!"
+      YouCancelledPriest: "&a{Player1DisplayName}&r&a님과 &r&a{Player2DisplayName}&r&a님의 성을 {NewSurname}&r&a(으)로 변경하는 것을 취소했습니다!"
+      Deny: "{DisplayName}&r&c님이 성 변경을 거절했습니다!"
+      YouDeny: "&a{NewSurname}&r&a(으)로의 성 변경을 거절했습니다."
+      PlayerOffline: "&c플레이어가 오프라인이면 성 변경 동의를 확인할 수 없습니다."
     Requests:
       NothingToAccept: "&c수락할 요청이 없습니다."
       NothingToDeny: "&c거절할 요청이 없습니다."
@@ -157,7 +195,8 @@ Language:
     Marry:
       # Placeholders: {Name}, {DisplayName}.    Keep in mind display names contain colors!
       NotWithHimself: "&c{DisplayName}&r&c 을(를) 자신과 결혼시킬 수 없습니다."
-      AlreadyMarried: "&c이미 결혼한 플레이어를 결혼시킬 수 없습니다."
+      AlreadySamePair: "&c이미 서로 결혼한 플레이어들을 결혼시킬 수 없습니다. &r&c{Player1DisplayName}&r&c은 이미 &r&c{Player2DisplayName}&r&c와 결혼했습니다."
+      AlreadyMarried: "&c이미 결혼한 플레이어를 결혼시킬 수 없습니다. &r&c{DisplayName}&r&c은 이미 결혼했습니다."
       SurnameNeeded: "&c결혼하기 위해서는 성이 필요합니다."
       Married: "&a&r&a{Player1DisplayName}&r&a 과 &r&a{Player2DisplayName}&r&a을(를) 결혼시켰습니다."
       HasMarried: "{PriestDisplayName}&r&a이(가) 당신을 &r{PartnerDisplayName}&r&a과 결혼시켰습니다."
@@ -169,9 +208,11 @@ Language:
       Confirm: "[\"\",{\"text\":\"{PriestDisplayName}&r\"},{\"text\":\" 이 당신을 \",\"color\":\"white\"},{\"text\":\"{PlayerDisplayName}&r\"},{\"text\":\"과 결혼시키려고 합니다. \",\"color\":\"white\"},{\"text\":\"/marry accept\",\"color\":\"green\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry accept\"}},{\"text\":\"로 수락하거나 \",\"color\":\"white\"},{\"text\":\"/marry deny\",\"color\":\"red\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry deny\"}},{\"text\":\"로 거절하세요.\",\"color\":\"white\"}]"
       PriestOff: "성직자 {DisplayName}&r이 오프라인입니다. 웨딩이 취소되었습니다."
       PlayerOff: "{DisplayName}&r이 오프라인입니다. 웨딩이 취소되었습니다."
+      MaxPartnersReached: "{DisplayName}&r님은 이미 최대 파트너 수({MaxPartnerCount})에 도달했습니다."
       Self:
         NotYourself: "&c자기 자신과 결혼할 수 없습니다!"
         NotInRange: "&c플레이어가 범위({Range} 블럭) 안에 없습니다!!"
+        AlreadySamePair: "&c저희는 이미 &r&c{DisplayName}&r&c와 결혼했습니다!"
         AlreadyMarried: "&c이미 &r&c{DisplayName}&r&c와 결혼했습니다!"
         OtherAlreadyMarried: "&c&r&c{DisplayName}&r&c이 이미 결혼해 있습니다!"
         AlreadyOpenRequest: "&c현재 기다리고 있는 요청이 있습니다."
@@ -183,6 +224,8 @@ Language:
         RequestSent: "결혼 요청이 전송되었습니다."
         PlayerOff: "{DisplayName}&r이 현재 오프라인입니다. 결혼식이 취소되었습니다."
         NotOnYourOwn: "&c혼자서는 웨딩을 할 수 없습니다. 성직자에게 웨딩을 요청하십시오."
+        MaxPartnersReached: "이미 최대 파트너 수({MaxPartnerCount})에 도달했습니다."
+        MaxPartnersReachedOther: "{DisplayName}&r님은 이미 최대 파트너 수({MaxPartnerCount})에 도달했습니다."
     Divorce:
       Broadcast: "&a&r&a{PriestDisplayName}&r&a이 &r&a{Player1DisplayName}&r&a과 &r&a{Player2DisplayName}&r&a를 이혼시켰습니다."
       DivorcedPlayer: "&a&r&a{PriestDisplayName}&r&a이 당신을 &r&a{PartnerDisplayName}&r&a에게서 이혼시켰습니다."
@@ -220,6 +263,7 @@ Language:
       SetHomePaid: "&a집 설정에 {Cost} {CurrencyName} 을 사용했습니다."
       TpPaid: "&a이동에 {Cost} {CurrencyName} 을 사용했습니다."
       GiftPaid: "&a파트너에게 아이템을 전송하는데 {Cost} {CurrencyName} 을 사용했습니다."
+      SurnameChangePaid: "&a성을 변경하는데 {Cost} {CurrencyName} 을 사용했습니다 ({Remaining} {CurrencyName} 남음)."
     Admin:
       Reloading: "&1로딩 중 ..."
       Reloaded: "&1로딩 완료!"
@@ -279,6 +323,7 @@ Language:
       Help: "명령어 도움말"
       List: "결혼한 모든 플레이어 리스트 보여주기"
       ListPriests: "현재 온라인인 성직자 보여주기"
+      Partners: "플레이어의 모든 파트너 목록"
       PvP: "파트너와 PvP 상태 바꾸기"
       PvPOn: "파트너와의 PvP 허용"
       PvPOff: "파트너와의 PvP 금지"
@@ -286,6 +331,7 @@ Language:
       Kiss: "파트너에게 키스"
       Hug: "파트너 안기"
       Seen: "파트너가 마지막으로 온라인이었던 시점 보기"
+      Info: "결혼에 대한 정보 보기"
       Marry: "두 플레이어 결혼"
       MarrySelf: "결혼 요청하기"
       Divorce: "두 플레이어 이혼"
@@ -363,6 +409,9 @@ Command:
   Seen:
     - seen
     - lastOnline
+  Info:
+    - info
+    - marriageinfo
   PvPOn:
     - pvpon
   PvPOff:
@@ -371,6 +420,10 @@ Command:
     - list
   ListPriests:
     - listpriests
+  Partners:
+    - partners
+    - listpartners
+    - partnerlist
   Tp:
     - tp
   SetColor:
@@ -408,6 +461,12 @@ Placeholders:
     NoHome: "집 없음"
     Separator: "&r, "
     NoPartnerForSlot: ""
+    Years: "&6{years}&e년 "
+    Months: "&6{months}&e월 "
+    Days: "&6{days}&e일 "
+    Hours: "&6{hours}&e시 "
+    Minutes: "&6{minutes}&e분"
+    TimeMain: "{years}{months}{days}{hours}{minutes}"
   Heart:
     Married: "&c<heart>&f"
     NotMarried: ""
@@ -441,5 +500,5 @@ LanguageName: "Korean"
 Author: "happykrcheese"
 
 # Language file version. Don't touch it!
-Version: 105
+Version: 115
 Revision: 1

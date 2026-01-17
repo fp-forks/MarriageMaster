@@ -1,4 +1,4 @@
-Version: 98
+Version: 115
 # To simplify the customisation and the translation process please check out the editor: https://ptp.pcgamingfreaks.at
 Language:
   NotFromConsole: "&cDit commando kan je niet vanuit de console gebruiken!"
@@ -48,24 +48,30 @@ Language:
       # Placeholders: {SenderDisplayName}, {SenderName}, {ReceiverDisplayName}, {ReceiverName}, {Message}
       Format: "<heart>&r {SenderDisplayName}&r&6 » &r{ReceiverDisplayName}&r&f: &r{Message}"
     Gift:
-      OnlyInSurvival: "&cIn deze spelmodus kan je geen cadeautjes aan je partner geven."
+      # Placeholders: {AllowedGameModes}, {CurrentGameMode}
+      GameModeNotAllowedSender: "&cJe mag geen cadeaus sturen in je huidige spelmodus."
+      # Placeholders: {AllowedGameModes}, {CurrentGameMode}
+      GameModeNotAllowedReceiver: "&cJe partner kan geen cadeaus ontvangen in hun huidige spelmodus."
       NoItemInHand: "&cJe hebt geen voorwerp geselecteerd."
       PartnerInvFull: "&cJe partner heeft geen plek meer."
       # Placeholders: {Name}, {DisplayName}, {ItemAmount}, {ItemName}, {ItemMetaJSON} = Item as JSON for hover event
-      ItemSent: "[{\"text\":\"Je partner heeft \",\"color\":\"green\"},{\"text\":\"{ItemAmount} {ItemName}\",\"hoverEvent\":{\"action\":\"show_item\",\"value\":\"{ItemMetaJSON}\"}},{\"text\":\" van je gekregen.\"}]"
+      ItemSent: "[{\"text\":\"Je hebt je partner \",\"color\":\"green\"},{\"text\":\"{ItemAmount} {ItemName}\",\"hoverEvent\":{\"action\":\"show_item\",\"value\":\"{ItemMetaJSON}\"}},{\"text\":\" gegeven.\"}]"
       # Placeholders: {Name}, {DisplayName}, {ItemAmount}, {ItemName}, {ItemMetaJSON} = Item as JSON for hover event
       ItemReceived: "[{\"text\":\"Je \",\"color\":\"green\"},{\"text\":\"partner\",\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"{DisplayName}\"}},{\"text\":\" heeft je \"},{\"text\":\"{ItemAmount} {ItemName}\",\"hoverEvent\":{\"action\":\"show_item\",\"value\":\"{ItemMetaJSON}\"}},{\"text\":\" gegeven.\"}]"
-      WorldNotAllowed: "&cJe partner bevindt zich in een wereld waar cadeau's niet zijn toegestaan."
+      WorldNotAllowed: "&cJe partner bevindt zich in een wereld waar cadeaus niet zijn toegestaan."
+      ItemNotAllowed: "&cJe mag {ItemName} &cniet aan je partner cadeau doen!"
       # Placeholders: {ItemAmount}, {ItemName}, {ItemMetaJSON} = Item as JSON for hover event
       Request:
         Notification: "[\"\",{\"text\":\"{DisplayName}&r wil je \"},{\"text\":\"{ItemAmount} {ItemName} cadeau geven\",\"hoverEvent\":{\"action\":\"show_item\",\"value\":\"{ItemMetaJSON}\"}},{\"text\":\". Accepteer het cadeau met \"},{\"text\":\"/marry accept\",\"color\":\"green\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry accept\"}},{\"text\":\" of weiger het met \"},{\"text\":\"/marry deny\",\"color\":\"red\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry deny\"}},{\"text\":\".\"}]"
-        WaitForConfirmation: "Je partner heeft het verzoek gekregen om het cadeau in ontvangst te nemen."
+        WaitForConfirmation: "Cadeaunverzoek verzonden naar je partner."
         Denied: "Je hebt het cadeauvoorstel van je partner afgewezen."
-        DeniedPartner: "Je partner heeft het cadeauvoorstel afgewezen."
+        DeniedPartner: "Je partner heeft het cadeauvoorstel afgewezen. Je voorwerp is teruggegeven."
         Canceled: "Je hebt het cadeauvoorstel aan je partner geannuleerd."
-        CanceledPartner: "Je partner heeft je cadeauvoorstel geannuleerd."
-        CanceledDisconnectRequester: "Je partner is offline gegaan, het cadeauvoorstel is geannuleerd."
-        CanceledDisconnectTarget: "Je partner is offline gegaan, het cadeauvoorstel is geannuleerd."
+        CanceledPartner: "Je partner heeft je cadeauvoorstel geannuleerd. Je voorwerp is teruggegeven."
+        CanceledDisconnectRequester: "Je partner is offline gegaan. Cadeauverzoek geannuleerd. Je voorwerp is teruggegeven."
+        CanceledDisconnectTarget: "Je partner is offline gegaan. Cadeauverzoek geannuleerd."
+        RefundInvFull: "&cJe inventaris is vol, overtollige cadeau-items zijn op de grond laten vallen!"
+        PartnerAlreadyHasAnOpenRequest: "&cJe partner heeft al een openstaand verzoek. Wacht even tot ze het accepteren of weigeren."
     Home:
       Deleted: "&aThuislocatie gewist."
       PlayerNoHome: "&cDeze speler heeft nog geen thuislocatie ingesteld."
@@ -88,6 +94,24 @@ Language:
       GotHugged: "&eJe partner heeft je geknuffeld!"
       GotHugged_SendMethod: "action_bar"
       TooFarAway: "&cJe partner is te ver van je vandaan om te kunnen knuffelen, de maximale afstand is {Distance} blokken."
+      # Placeholders: {Time}, {TimeLeft} in seconds
+      Wait: "&cJe moet {Time} seconden wachten voor je je partner weer mag knuffelen."
+    Info:
+      # Placeholders: {Player1Name}, {Player1DisplayName}, {Player2Name}, {Player2DisplayName}, {Surname}, {MagicHeart}, {WeddingDate}, {PriestName}, {PriestDisplayName}, {HasHome}, {PvPEnabled}
+      Headline: "&e--- Huwelijk Informatie ---"
+      Footer: "&e---------------------------"
+      Player1: "&ePartner 1: {Player1DisplayName}"
+      Player2: "&ePartner 2: {Player2DisplayName}"
+      Surname: "&eFamilienaam: {Surname}"
+      WeddingDate: "&eGetrouwd op: {WeddingDate}"
+      # No Json!!!
+      DateFormat: "yyyy-MM-dd"
+      Priest: "&eTrouwambtenaar: {PriestDisplayName}"
+      NoPriest: "&eTrouwambtenaar: &7geen"
+      HasHome: "&eThuis ingesteld: {HasHome}"
+      PvP: "&ePvP: {PvPEnabled}"
+      Heart: "&eHart: {MagicHeart}"
+      NotMarried: "{DisplayName}&e is niet getrouwd."
     Seen:
       # Placeholders: {Name}, {DisplayName}
       CurrentlyOnline: "{DisplayName} is momenteel &aonline&r.&r"
@@ -100,6 +124,12 @@ Language:
       NoMarriedPlayers: "&cEr zijn geen getrouwde stellen."
       Headline: "&eGetrouwde spelers lijst&r&f - &r&6Pagina {CurrentPage} van de {MaxPage}"
       Footer: "[\"\",{\"text\":\"<<< Vorige <<<\",\"color\":\"gray\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/{MainCommand} {SubCommand} {PrevPage}\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"/{MainCommand} {SubCommand} {PrevPage}\"}},{\"text\":\" Pagina {CurrentPage} van de {MaxPage} \",\"color\":\"gold\"},{\"text\":\">>> Volgende >>>\",\"color\":\"gray\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/{MainCommand} {SubCommand} {NextPage}\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"/{MainCommand} {SubCommand} {NextPage}\"}}]"
+    Partners:
+      Headline: "&ePartnerlijst van {DisplayName}:"
+      Footer: "&e##############################"
+      NotMarried: "{DisplayName}&e is niet getrouwd."
+      # Player1 is the player that was queried. Player2 is the partner
+      Format: "&2{Player1DisplayName} <heart> &2{Player2DisplayName}"
     ListPriests:
       Format: "&2{PriestDisplayName}"
       NoPriestsOnline: "&cEr zijn geen trouwambtenaren online."
@@ -107,6 +137,7 @@ Language:
       Footer: "[\"\",{\"text\":\"<<< Vorige <<<\",\"color\":\"gray\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/{MainCommand} {SubCommand} {PrevPage}\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"/{MainCommand} {SubCommand} {PrevPage}\"}},{\"text\":\" Pagina {CurrentPage} van de {MaxPage} \",\"color\":\"gold\"},{\"text\":\">>> Volgende >>>\",\"color\":\"gray\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/{MainCommand} {SubCommand} {NextPage}\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"/{MainCommand} {SubCommand} {NextPage}\"}}]"
     PvP:
       IsDisabled: "&cJe kan je partner niet aanvallen omdat PvP voor partners staat uitgeschakeld."
+      IsDisabled_SendMethod: "action_bar"
       On: "&aPvP tussen partners is ingeschakeld."
       Off: "&aPvP tussen partners is uitgeschakeld."
     TP:
@@ -142,6 +173,17 @@ Language:
       ToShort: "&cDe familienaam moet tenminste {MinLength} karakters lang zijn."
       ToLong: "&cDe familienaam mag maximaal {MaxLength} karakters lang zijn."
       AlreadyUsed: "&cDeze familienaam is al in gebruik!"
+      Banned: "&cDeze familienaam is niet toegestaan."
+      Confirm: "[\"\",{\"text\":\"{PriestDisplayName}&r\"},{\"text\":\" wil je familienaam veranderen van\",\"color\":\"white\"},{\"text\":\"{Surname}&r\"},{\"text\":\" naar \",\"color\":\"white\"},{\"text\":\"{NewSurname}&r\",\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"Huidige familienaam: {Surname}\"}},{\"text\":\". Accepteer het huwelijk met \",\"color\":\"white\"},{\"text\":\"/marry accept\",\"color\":\"green\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry accept\"}},{\"text\":\" of weiger het met \",\"color\":\"white\"},{\"text\":\"/marry deny\",\"color\":\"red\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry deny\"}},{\"text\":\".\",\"color\":\"white\"}]"
+      PlayerOff: "{DisplayName}&r is nu offline, familienaam wijziging geannuleerd."
+      PriestOff: "Trouwambtenaar {DisplayName}&r is nu offline, familienaam wijziging geannuleerd."
+      PlayerCancelled: "&c&r&c{PlayerDisplayName}&r&c heeft de familienaam wijziging naar {NewSurname}&r&c geannuleerd!"
+      PriestCancelled: "&c&r&c{PriestDisplayName}&r&c heeft de familienaam wijziging naar {NewSurname}&r&c geannuleerd!"
+      YouCancelled: "&aJe hebt je familienaam wijziging naar {NewSurname}&r&a geannuleerd!"
+      YouCancelledPriest: "&aJe hebt de familienaam wijziging van &r&a{Player1DisplayName}&r&a en &r&a{Player2DisplayName}&r&a naar {NewSurname}&r&a geannuleerd!"
+      Deny: "{DisplayName}&r&c heeft de familienaam wijziging geweigerd!"
+      YouDeny: "&aJe hebt de familienaam wijziging naar {NewSurname}&r&a geweigerd."
+      PlayerOffline: "&cKan geen toestemming controleren voor familienaam wijziging terwijl de speler offline is."
     Requests:
       NothingToAccept: "&cEr zijn geen openstaande verzoeken om te accepteren."
       NothingToDeny: "&cEr zijn geen openstaande verzoeken om te weigeren."
@@ -149,7 +191,8 @@ Language:
     Marry:
       # Placeholders: {Name}, {DisplayName}.    Keep in mind display names contain colors!
       NotWithHimself: "&cJe kan &r&c{DisplayName}&r&c niet met zichzelf laten trouwen."
-      AlreadyMarried: "&c&r&c{DisplayName}&r&c is al getrouwd."
+      AlreadySamePair: "&cJe kan spelers die al met elkaar getrouwd zijn niet opnieuw trouwen. &r&c{Player1DisplayName}&r&c is al getrouwd met &r&c{Player2DisplayName}&r&c."
+      AlreadyMarried: "&cJe kan geen spelers trouwen die al getrouwd zijn. &r&c{DisplayName}&r&c is al getrouwd."
       SurnameNeeded: "&cHet koppel heeft een familienaam nodig om te kunnen trouwen."
       Married: "&aJe hebt &r&a{Player1DisplayName}&r&a en &r&a{Player2DisplayName}&r&a in de echt verbonden."
       HasMarried: "{PriestDisplayName}&r&a heeft je in de echt verbonden met &r{PartnerDisplayName}&r&a."
@@ -161,9 +204,11 @@ Language:
       Confirm: "[\"\",{\"text\":\"{PriestDisplayName}&r\"},{\"text\":\" wil je in de echt verbinden met  \",\"color\":\"white\"},{\"text\":\"{PlayerDisplayName}&r\"},{\"text\":\". Accepteer je huwelijk met \",\"color\":\"white\"},{\"text\":\"/marry accept\",\"color\":\"green\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry accept\"}},{\"text\":\" of weiger het met \",\"color\":\"white\"},{\"text\":\"/marry deny\",\"color\":\"red\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry deny\"}},{\"text\":\".\",\"color\":\"white\"}]"
       PriestOff: "Trouwambtenaar {DisplayName}&r is nu offline, het huwelijk is afgeblazen."
       PlayerOff: "{DisplayName}&r is nu offline, het huwelijk is afgeblazen."
+      MaxPartnersReached: "{DisplayName}&r heeft al het maximaal toegestane aantal partners bereikt ({MaxPartnerCount})."
       Self:
         NotYourself: "&cJe kan niet met jezelf trouwen."
         NotInRange: "&cDe speler is te ver weg! De maximale afstand is {Range} blokken!"
+        AlreadySamePair: "&cWe zijn al getrouwd met &r&c{DisplayName}&r&c!"
         AlreadyMarried: "&cJe bent al getrouwd met &r&c{DisplayName}&r&c!"
         OtherAlreadyMarried: "&c&r&c{DisplayName}&r&c is al getrouwd!"
         AlreadyOpenRequest: "&cJe hebt al een trouwverzoek dat nog niet beantwoord is."
@@ -175,6 +220,8 @@ Language:
         RequestSent: "Huwelijksaanzoek verstuurd."
         PlayerOff: "{DisplayName}&r is nu offline, het huwelijk is afgeblazen."
         NotOnYourOwn: "&cHet is niet toegestaan je eigen huwelijk te voltrekken. Vraag een trouwambtenaar om jou en je partner in de echt te verbinden."
+        MaxPartnersReached: "Je hebt al het maximaal toegestane aantal partners bereikt ({MaxPartnerCount})."
+        MaxPartnersReachedOther: "{DisplayName}&r heeft al het maximaal toegestane aantal partners bereikt ({MaxPartnerCount})."
     Divorce:
       Broadcast: "&a&r&a{PriestDisplayName}&r&a heeft het huwelijk van &r&a{Player1DisplayName}&r&a en &r&a{Player2DisplayName}&r&a ontbonden."
       DivorcedPlayer: "&a&r&a{PriestDisplayName}&r&a heeft je huwelijk met &r&a{PartnerDisplayName}&r&a ontbonden."
@@ -212,6 +259,7 @@ Language:
       SetHomePaid: "&aJe hebt {Cost} {CurrencyName} betaald om je thuislocatie in te stellen. (Nieuw saldo: {Remaining} {CurrencyName})"
       TpPaid: "&aJe hebt {Cost} {CurrencyName} betaald voor de teleportatie (Nieuw saldo: {Remaining} {CurrencyName})."
       GiftPaid: "&aJe hebt {Cost} {CurrencyName} betaald voor het cadeau aan je partner (Nieuw saldo: {Remaining} {CurrencyName})."
+      SurnameChangePaid: "&aJe hebt {Cost} {CurrencyName} betaald om een familienaam te wijzigen (Nieuw saldo: {Remaining} {CurrencyName})."
     Admin:
       Reloading: "&1Bezig met herladen..."
       Reloaded: "&1Opnieuw ingeladen!"
@@ -249,6 +297,7 @@ Language:
       Help: "Laat alle beschikbare commando's en diens beschrijving zien."
       List: "Een lijst met alle getrouwde spelers."
       ListPriests: "Lijst met alle huidige trouwambtenaren."
+      Partners: "Toon alle partners van een speler."
       PvP: "Zet PvP met je partner aan of uit."
       PvPOn: "Zet PvP met je partner aan."
       PvPOff: "Zet PvP met je partner uit."
@@ -256,6 +305,7 @@ Language:
       Kiss: "Geef je partner een kus."
       Hug: "Geef je partner een knuffel."
       Seen: "Toont wanneer je partner voor het laatst gezien is."
+      Info: "Toont informatie over een huwelijk."
       Marry: "Trouw twee spelers met elkaar."
       MarrySelf: "Verzend een huwelijksaanzoek naar een andere speler."
       Divorce: "Scheidt twee spelers van elkaar."
@@ -266,6 +316,7 @@ Language:
       Accept: "Accepteer het openstaande verzoek."
       Cancel: "Annuleer het openstaande verzoek."
       Deny: "Weiger het openstaande verzoek."
+      SetColor: "Stelt de kleur van het huwelijk in."
       SetPriest: "Benoem een speler tot trouwambtenaar."
       Reload: "Herlaadt de instellingen van de plugin."
       Version: "Geeft details weer over de versie de plugin en diens afhankelijkheden."
@@ -285,6 +336,13 @@ Placeholders:
     NotMarried: "not married"
     NoHome: "no home"
     Separator: "&r, "
+    NoPartnerForSlot: ""
+    Years: "&6{years}&ej "
+    Months: "&6{months}&eM "
+    Days: "&6{days}&ed "
+    Hours: "&6{hours}&eu "
+    Minutes: "&6{minutes}&em"
+    TimeMain: "{years}{months}{days}{hours}{minutes}"
   Heart:
     Married: "&c<heart>&f"
     NotMarried: ""
@@ -410,6 +468,9 @@ Command:
     - lastOnline
     - laatstgezien
     - laatstonline
+  Info:
+    - info
+    - huwelijkinfo
   PvPOn:
     - pvpon
     - pvpaan
@@ -427,8 +488,15 @@ Command:
     - listpriests
     - ambtenaar
     - trouwambtenaar
+  Partners:
+    - partners
+    - partnerlijst
+    - lijstpartners
   Tp:
     - tp
+  SetColor:
+    - setcolor
+    - kleur
   Marry:
     - marry
     - trouw

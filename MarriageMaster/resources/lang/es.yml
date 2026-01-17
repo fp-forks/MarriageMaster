@@ -1,4 +1,4 @@
-Version: 111
+Version: 115
 # To simplify the customisation and the translation process please check out the editor: https://ptp.pcgamingfreaks.at
 Language:
   NotFromConsole: "&c¡Este comando no se puede utilizar desde la consola!"
@@ -97,6 +97,22 @@ Language:
       TooFarAway: "&cEstás demasiado lejos para abrazar a tu pareja. (Máximo {Distance} bloques)"
       # Placeholders: {Time}, {TimeLeft} in seconds
       Wait: "&cTienes que esperar {Time} segundos para volver a abrazar a tu pareja."
+    Info:
+      # Placeholders: {Player1Name}, {Player1DisplayName}, {Player2Name}, {Player2DisplayName}, {Surname}, {MagicHeart}, {WeddingDate}, {PriestName}, {PriestDisplayName}, {HasHome}, {PvPEnabled}
+      Headline: "&e--- Información del matrimonio ---"
+      Footer: "&e----------------------------------"
+      Player1: "&ePareja 1: {Player1DisplayName}"
+      Player2: "&ePareja 2: {Player2DisplayName}"
+      Surname: "&eApellido: {Surname}"
+      WeddingDate: "&eCasado el: {WeddingDate}"
+      # No Json!!!
+      DateFormat: "dd-MM-yyyy"
+      Priest: "&eSacerdote: {PriestDisplayName}"
+      NoPriest: "&eSacerdote: &7ninguno"
+      HasHome: "&eCasa establecida: {HasHome}"
+      PvP: "&ePvP: {PvPEnabled}"
+      Heart: "&eCorazón: {MagicHeart}"
+      NotMarried: "{DisplayName}&e no está casado."
     Seen:
       # Placeholders: {Name}, {DisplayName}
       CurrentlyOnline: "{DisplayName}&r está &aen línea&r."
@@ -110,6 +126,12 @@ Language:
       NoMarriedPlayers: "&cNo hay jugadores casados."
       Headline: "&eLista de jugadores casados&r&f - &r&6mostrando la página {CurrentPage}/{MaxPage}"
       Footer: "[\"\",{\"text\":\"<<< Previo <<<\",\"color\":\"gray\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/{MainCommand} {SubCommand} {PrevPage}\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"/{MainCommand} {SubCommand} {PrevPage}\"}},{\"text\":\" Mostrando Página {CurrentPage}/{MaxPage} \",\"color\":\"gold\"},{\"text\":\">>> Siguiente >>>\",\"color\":\"gray\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/{MainCommand} {SubCommand} {NextPage}\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"/{MainCommand} {SubCommand} {NextPage}\"}}]"
+    Partners:
+      Headline: "&eLista de parejas de {DisplayName}:"
+      Footer: "&e##############################"
+      NotMarried: "{DisplayName}&e no está casado."
+      # Player1 is the player that was queried. Player2 is the partner
+      Format: "&2{Player1DisplayName} {MagicHeart} &2{Player2DisplayName}"
     ListPriests:
       Format: "&2{PriestDisplayName}"
       NoPriestsOnline: "&cNo hay sacerdotes en línea."
@@ -157,6 +179,17 @@ Language:
       ToShort: "&cEl apellido es demasiado corto. Debe tener al menos {MinLength} caracteres."
       ToLong: "&cEl apellido indicado es demasiado largo. No puede tener más de {MaxLength} caracteres."
       AlreadyUsed: "&cEl apellido ya está en uso."
+      Banned: "&cEl apellido indicado no está permitido."
+      Confirm: "[\"\",{\"text\":\"{PriestDisplayName}&r\"},{\"text\":\" quiere cambiar tu apellido de\",\"color\":\"white\"},{\"text\":\"{Surname}&r\"},{\"text\":\" a \",\"color\":\"white\"},{\"text\":\"{NewSurname}&r\",\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"Apellido actual: {Surname}\"}},{\"text\":\". Acepta el cambio con \",\"color\":\"white\"},{\"text\":\"/marry accept\",\"color\":\"green\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry accept\"}},{\"text\":\" o recházalo con \",\"color\":\"white\"},{\"text\":\"/marry deny\",\"color\":\"red\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry deny\"}},{\"text\":\".\",\"color\":\"white\"}]"
+      PlayerOff: "{DisplayName}&r ahora está desconectado, cambio de apellido cancelado."
+      PriestOff: "El sacerdote {DisplayName}&r ahora está desconectado, cambio de apellido cancelado."
+      PlayerCancelled: "&c&r&c{PlayerDisplayName}&r&c canceló el cambio de apellido a {NewSurname}&r&c!"
+      PriestCancelled: "&c&r&c{PriestDisplayName}&r&c canceló el cambio de apellido a {NewSurname}&r&c!"
+      YouCancelled: "&aHas cancelado tu cambio de apellido a {NewSurname}&r&a!"
+      YouCancelledPriest: "&aHas cancelado el cambio de apellido de &r&a{Player1DisplayName}&r&a y &r&a{Player2DisplayName}&r&a a {NewSurname}&r&a!"
+      Deny: "{DisplayName}&r&c rechazó el cambio de apellido!"
+      YouDeny: "&aHas rechazado el cambio de apellido a {NewSurname}&r&a."
+      PlayerOffline: "&cNo se puede verificar el consentimiento para cambiar el apellido mientras el jugador está desconectado."
     Requests:
       NothingToAccept: "&cNo hay ninguna solicitud abierta para aceptar."
       NothingToDeny: "&cNo hay ninguna solicitud abierta para denegar."
@@ -177,6 +210,7 @@ Language:
       Confirm: "[\"\",{\"text\":\"{PriestDisplayName}&r\"},{\"text\":\" quiere casarte con \",\"color\":\"white\"},{\"text\":\"{PlayerDisplayName}&r\"},{\"text\":\". Acepta el matrimonio con \",\"color\":\"white\"},{\"text\":\"/marry accept\",\"color\":\"green\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry accept\"}},{\"text\":\" o recházalo con \",\"color\":\"white\"},{\"text\":\"/marry deny\",\"color\":\"red\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry deny\"}},{\"text\":\".\",\"color\":\"white\"}]"
       PriestOff: "El sacerdote {DisplayName}&r no está en línea, se suspende la boda."
       PlayerOff: "{DisplayName}&r ahora está fuera de línea, se suspende la boda."
+      MaxPartnersReached: "{DisplayName}&r ya ha alcanzado la cantidad máxima permitida de parejas ({MaxPartnerCount})."
       Self:
         NotYourself: "&cNo te puedes casar contigo mismo."
         NotInRange: "&cEl jugador no está al alcance. ¡Necesita estar dentro de {Range} bloques!"
@@ -192,6 +226,8 @@ Language:
         RequestSent: "Solicitud de matrimonio enviada."
         PlayerOff: "{DisplayName}&r ahora está fuera de línea, la boda se canceló."
         NotOnYourOwn: "&cNo puedes realizar tu propia boda. Por favor, pida a un sacerdote que celebre la boda por usted."
+        MaxPartnersReached: "Ya has alcanzado la cantidad máxima permitida de parejas ({MaxPartnerCount})."
+        MaxPartnersReachedOther: "{DisplayName}&r ya ha alcanzado la cantidad máxima permitida de parejas ({MaxPartnerCount})."
     Divorce:
       Broadcast: "&a&r&a{PriestDisplayName}&r&a se ha divorciado a &r&a{Player1DisplayName}&r&a de &r&a{Player2DisplayName}&r&a."
       DivorcedPlayer: "&a&r&a{PriestDisplayName}&r&a te ha divorciado de &r&a{PartnerDisplayName}&r&a."
@@ -279,6 +315,7 @@ Language:
       Help: "Muestra todos los comandos disponibles y su descripción."
       List: "Lista de todos los jugadores casados."
       ListPriests: "Lista de todos los sacerdotes actualmente en línea."
+      Partners: "Lista todas las parejas de un jugador."
       PvP: "Cambia el estado de PvP con la pareja."
       PvPOn: "Permite el PvP con tu pareja."
       PvPOff: "Desactiva el PvP con tu pareja."
@@ -286,6 +323,7 @@ Language:
       Kiss: "Besas a tu pareja."
       Hug: "Abrazas a tu pareja."
       Seen: "Muestra cuándo se conectó su pareja por última vez."
+      Info: "Muestra información sobre un matrimonio."
       Marry: "Casa dos jugadores."
       MarrySelf: "Envía una solicitud de matrimonio a otro jugador."
       Divorce: "Divorcia a dos jugadores."
@@ -320,6 +358,12 @@ Placeholders:
     NoHome: "sin casa"
     Separator: "&r, "
     NoPartnerForSlot: ""
+    Years: "&6{years}&ea "
+    Months: "&6{months}&eM "
+    Days: "&6{days}&ed "
+    Hours: "&6{hours}&eh "
+    Minutes: "&6{minutes}&em"
+    TimeMain: "{years}{months}{days}{hours}{minutes}"
   Heart:
     Married: "&c<heart>&f"
     NotMarried: ""
@@ -411,6 +455,9 @@ Command:
   Seen:
     - seen
     - lastOnline
+  Info:
+    - info
+    - marriageinfo
   PvPOn:
     - pvpon
   PvPOff:
@@ -419,6 +466,10 @@ Command:
     - list
   ListPriests:
     - listpriests
+  Partners:
+    - partners
+    - listpartners
+    - partnerlist
   Tp:
     - tp
   SetColor:

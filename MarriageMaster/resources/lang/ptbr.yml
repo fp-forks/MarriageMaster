@@ -48,7 +48,10 @@ Language:
       # Placeholders: {SenderDisplayName}, {SenderName}, {ReceiverDisplayName}, {ReceiverName}, {Message}
       Format: "<heart>&r {SenderDisplayName}&r&6 => &r{ReceiverDisplayName}&r&f: &r{Message}"
     Gift:
-      OnlyInSurvival: "&cVocê não pode presentar seu parceiro estando no criativo."
+      # Placeholders: {AllowedGameModes}, {CurrentGameMode}
+      GameModeNotAllowedSender: "&cVocê não tem permissão para enviar presentes no seu modo de jogo atual."
+      # Placeholders: {AllowedGameModes}, {CurrentGameMode}
+      GameModeNotAllowedReceiver: "&cSeu parceiro não pode receber presentes no modo de jogo atual dele."
       NoItemInHand: "&cVocê não está segurando um item."
       PartnerInvFull: "&cSeu parceiro está com o inventário cheio no momento."
       # Placeholders: {Name}, {DisplayName}, {ItemAmount}, {ItemName}, {ItemMetaJSON} = Item as JSON for hover event
@@ -56,6 +59,7 @@ Language:
       # Placeholders: {Name}, {DisplayName}, {ItemAmount}, {ItemName}, {ItemMetaJSON} = Item as JSON for hover event
       ItemReceived: "[{\"text\":\"Seu \",\"color\":\"green\"},{\"text\":\"parceiro\",\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"{DisplayName}\"}},{\"text\":\" presenteou você com \"},{\"text\":\"{ItemAmount} {ItemName}\",\"hoverEvent\":{\"action\":\"show_item\",\"value\":\"{ItemMetaJSON}\"}},{\"text\":\".\"}]"
       WorldNotAllowed: "&cSeu parceiro está em um mundo onde não é permitido receber presentes."
+      ItemNotAllowed: "&cVocê não tem permissão para presentear {ItemName} &cpara seu parceiro!"
       # Placeholders: {ItemAmount}, {ItemName}, {ItemMetaJSON} = Item as JSON for hover event
       Request:
         Notification: "[\"\",{\"text\":\"{DisplayName}&r quer presentear você com \"},{\"text\":\"{ItemAmount} {ItemName}\",\"hoverEvent\":{\"action\":\"show_item\",\"value\":\"{ItemMetaJSON}\"}},{\"text\":\". Digite \"},{\"text\":\"/marry accept\",\"color\":\"green\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry accept\"}},{\"text\":\" para aceitar ou \"},{\"text\":\"/marry deny\",\"color\":\"red\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry deny\"}},{\"text\":\" para recusar.\"}]"
@@ -66,6 +70,8 @@ Language:
         CanceledPartner: "Seu parceiro cancelou o presente, o item do presente foi devolvido."
         CanceledDisconnectRequester: "Parece que seu parceiro ficou offline, o item do presente foi devolvido."
         CanceledDisconnectTarget: "Parece que seu parceiro ficou offline, o presente foi cancelado."
+        RefundInvFull: "&cSeu inventário está cheio, os itens restantes do presente foram dropping no chão!"
+        PartnerAlreadyHasAnOpenRequest: "&cSeu parceiro já tem um pedido em aberto. Por favor, espere ele aceitar ou recusar primeiro."
     Home:
       Deleted: "&aO cafofo foi excluído com sucesso."
       PlayerNoHome: "&cO jogador ainda não tem um cafofo."
@@ -88,6 +94,24 @@ Language:
       GotHugged: "&eSeu parceiro te abraçou!"
       GotHugged_SendMethod: "action_bar"
       TooFarAway: "&cVocê está muito longe para abraçar seu parceiro."
+      # Placeholders: {Time}, {TimeLeft} in seconds
+      Wait: "&cVocê precisa esperar {Time} segundos para abraçar seu parceiro novamente."
+    Info:
+      # Placeholders: {Player1Name}, {Player1DisplayName}, {Player2Name}, {Player2DisplayName}, {Surname}, {MagicHeart}, {WeddingDate}, {PriestName}, {PriestDisplayName}, {HasHome}, {PvPEnabled}
+      Headline: "&e--- Informações do Casamento ---"
+      Footer: "&e------------------------------"
+      Player1: "&eParceiro 1: {Player1DisplayName}"
+      Player2: "&eParceiro 2: {Player2DisplayName}"
+      Surname: "&eSobrenome: {Surname}"
+      WeddingDate: "&eCasado em: {WeddingDate}"
+      # No Json!!!
+      DateFormat: "dd-MM-yyyy"
+      Priest: "&ePadre: {PriestDisplayName}"
+      NoPriest: "&ePadre: &7nenhum"
+      HasHome: "&eCafofo definido: {HasHome}"
+      PvP: "&ePvP: {PvPEnabled}"
+      Heart: "&eCoração: {MagicHeart}"
+      NotMarried: "{DisplayName}&e não está casado(a)."
     Seen:
       # Placeholders: {Name}, {DisplayName}
       CurrentlyOnline: "{DisplayName} está atualmente &aonline&r.&r"
@@ -100,6 +124,12 @@ Language:
       NoMarriedPlayers: "&cNão existem jogadores casados no momento."
       Headline: "&eLista de Jogadores Casados&r&f - &r&6Página {CurrentPage}/{MaxPage}"
       Footer: "[\"\",{\"text\":\"<<< Página Anterior <<<\",\"color\":\"gray\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/{MainCommand} {SubCommand} {PrevPage}\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"/{MainCommand} {SubCommand} {PrevPage}\"}},{\"text\":\" Página {CurrentPage}/{MaxPage} \",\"color\":\"gold\"},{\"text\":\">>> Página Seguinte >>>\",\"color\":\"gray\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/{MainCommand} {SubCommand} {NextPage}\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"/{MainCommand} {SubCommand} {NextPage}\"}}]"
+    Partners:
+      Headline: "&eLista de parceiros de {DisplayName}:"
+      Footer: "&e##############################"
+      NotMarried: "{DisplayName}&e não está casado(a)."
+      # Player1 is the player that was queried. Player2 is the partner
+      Format: "&2{Player1DisplayName} <heart> &2{Player2DisplayName}"
     ListPriests:
       Format: "&2{PriestDisplayName}"
       NoPriestsOnline: "&cNão há padres online."
@@ -107,6 +137,7 @@ Language:
       Footer: "[\"\",{\"text\":\"<<< Página Anterior <<<\",\"color\":\"gray\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/{MainCommand} {SubCommand} {PrevPage}\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"/{MainCommand} {SubCommand} {PrevPage}\"}},{\"text\":\" Página {CurrentPage}/{MaxPage} \",\"color\":\"gold\"},{\"text\":\">>> Página Seguinte >>>\",\"color\":\"gray\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/{MainCommand} {SubCommand} {NextPage}\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"/{MainCommand} {SubCommand} {NextPage}\"}}]"
     PvP:
       IsDisabled: "&cO PvP entre parceiros está desativado."
+      IsDisabled_SendMethod: "action_bar"
       On: "&aO PvP entre parceiros foi ativado."
       Off: "&aO PvP entre parceiros foi desativado."
     TP:
@@ -115,7 +146,7 @@ Language:
       TeleportTo: "&aSeu parceiro está se teleportando para você..."
       Unsafe: "&cLocalização insegura detectada, o teleporte entre parceiros foi cancelado."
       ToUnsafe: "&cSeu parceiro estava prestes a teleportar-se para você, mas não a localização era insegura."
-      WorldNotAllowed: "&cYour partner is in a world where tp is not allowed."
+      WorldNotAllowed: "&cSeu parceiro está em um mundo onde o teleporte não é permitido."
       Moved: "&cTeleporte cancelado! Você se moveu!"
       DontMove: "&cTeleportando-se em {Time} segundos! Não se mova!"
       BlockedFrom: "&cO teleporte entre parceiros não é permitido neste local."
@@ -142,6 +173,17 @@ Language:
       ToShort: "&cEste sobrenome é muito curto, por favor, tente novamente."
       ToLong: "&cEste sobrenome é muito longo, por favor, tente novamente."
       AlreadyUsed: "&cEste sobrenome já está em uso!"
+      Banned: "&cEste sobrenome não é permitido."
+      Confirm: "[\"\",{\"text\":\"{PriestDisplayName}&r\"},{\"text\":\" quer mudar seu sobrenome de \",\"color\":\"white\"},{\"text\":\"{Surname}&r\"},{\"text\":\" para \",\"color\":\"white\"},{\"text\":\"{NewSurname}&r\",\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"Sobrenome atual: {Surname}\"}},{\"text\":\". Digite \",\"color\":\"white\"},{\"text\":\"/marry accept\",\"color\":\"green\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry accept\"}},{\"text\":\" para aceitar ou \",\"color\":\"white\"},{\"text\":\"/marry deny\",\"color\":\"red\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry deny\"}},{\"text\":\".\",\"color\":\"white\"}]"
+      PlayerOff: "{DisplayName}&r ficou offline, a mudança de sobrenome foi cancelada."
+      PriestOff: "O padre {DisplayName}&r ficou offline, a mudança de sobrenome foi cancelada."
+      PlayerCancelled: "&c&r&c{PlayerDisplayName}&r&c cancelou a mudança de sobrenome para {NewSurname}&r&c!"
+      PriestCancelled: "&c&r&c{PriestDisplayName}&r&c cancelou a mudança de sobrenome para {NewSurname}&r&c!"
+      YouCancelled: "&aVocê cancelou a mudança de sobrenome para {NewSurname}&r&a!"
+      YouCancelledPriest: "&aVocê cancelou a mudança de sobrenome de &r&a{Player1DisplayName}&r&a e &r&a{Player2DisplayName}&r&a para {NewSurname}&r&a!"
+      Deny: "{DisplayName}&r&c negou a mudança de sobrenome!"
+      YouDeny: "&aVocê negou a mudança de sobrenome para {NewSurname}&r&a."
+      PlayerOffline: "&cNão é possível verificar o consentimento para mudar o sobrenome enquanto o jogador está offline."
     Requests:
       NothingToAccept: "&cNão há pedidos para aceitar."
       NothingToDeny: "&cNão há pedidos para recusar."
@@ -149,6 +191,7 @@ Language:
     Marry:
       # Placeholders: {Name}, {DisplayName}.    Keep in mind display names contain colors!
       NotWithHimself: "&cVocê não pode casar &r&c{DisplayName}&r&c com si mesmo."
+      AlreadySamePair: "&cVocê não pode casar jogadores que já estão casados entre si. &r&c{Player1DisplayName}&r&c já está casado com &r&c{Player2DisplayName}&r&c."
       AlreadyMarried: "&cVocê não pode casar com jogadores que já estão casados. &r&c{DisplayName}&r&c já está casado(a)."
       SurnameNeeded: "&cVocê precisa de um sobrenome para o casal se casar."
       Married: "&aVocê casou &r&a{Player1DisplayName}&r&a com &r&a{Player2DisplayName}&r&a."
@@ -161,6 +204,7 @@ Language:
       Confirm: "[\"\",{\"text\":\"{PriestDisplayName}&r\"},{\"text\":\" quer casar você com \",\"color\":\"white\"},{\"text\":\"{PlayerDisplayName}&r\"},{\"text\":\". Digite \",\"color\":\"white\"},{\"text\":\"/marry accept\",\"color\":\"green\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry accept\"}},{\"text\":\" para aceitar \",\"color\":\"white\"},{\"text\":\"/marry deny\",\"color\":\"red\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry deny\"}},{\"text\":\" para recusar.\",\"color\":\"white\"}]"
       PriestOff: "{DisplayName}&r ficou offline, o casamento foi cancelado."
       PlayerOff: "{DisplayName}&r ficou offline, o casamento foi cancelado."
+      MaxPartnersReached: "{DisplayName}&r já atingiu a quantidade máxima permitida de parceiros ({MaxPartnerCount})."
       Self:
         NotYourself: "&cVocê não pode casar com si mesmo."
         NotInRange: "&cOs 2 jogadores precisam estar em um raio de {Range} blocos!"
@@ -175,6 +219,8 @@ Language:
         RequestSent: "Pedido de casamento enviado com sucesso."
         PlayerOff: "{DisplayName}&r ficou offline, o casamento foi cancelado."
         NotOnYourOwn: "&cSomente padres podem iniciar um casamento."
+        MaxPartnersReached: "Você já atingiu a quantidade máxima permitida de parceiros ({MaxPartnerCount})."
+        MaxPartnersReachedOther: "{DisplayName}&r já atingiu a quantidade máxima permitida de parceiros ({MaxPartnerCount})."
     Divorce:
       Broadcast: "&a&r&a{PriestDisplayName}&r&a divorciou &r&a{Player1DisplayName}&r&a e &r&a{Player2DisplayName}&r&a."
       DivorcedPlayer: "&a&r&a{PriestDisplayName}&r&a divorciou você de &r&a{PartnerDisplayName}&r&a."
@@ -196,9 +242,9 @@ Language:
         PlayerOff: "{DisplayName}&r ficou offline, o divórcio foi cancelado."
         RequestSent: "Pedido de divórcio enviado com sucesso."
         Confirm: "[\"\",{\"text\":\"{DisplayName}&r\"},{\"text\":\" quer se divorciar de você. Digite \",\"color\":\"white\"},{\"text\":\"/marry accept\",\"color\":\"green\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry accept\"}},{\"text\":\" para aceitar ou \",\"color\":\"white\"},{\"text\":\"/marry deny\",\"color\":\"red\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry deny\"}},{\"text\":\" para recusar.\",\"color\":\"white\"}]"
-        Deny: "{DisplayName}&r&c denied your divorce request!"
+        Deny: "{DisplayName}&r&c negou seu pedido de divórcio!"
         YouDeny: "&aVocê recusou o pedido de divórcio de &r&a{DisplayName}&r&a."
-        Cancelled: "{DisplayName}&r&c cancelled his divorce request!"
+        Cancelled: "{DisplayName}&r&c cancelou o pedido de divórcio!"
         YouCancelled: "&aVocê cancelou o divórcio de &r&a{DisplayName}&r&a!"
         NotInRange: "&aOs 2 jogadores precisam estar em um raio de {Range} blocos!"
     Economy:
@@ -212,6 +258,7 @@ Language:
       SetHomePaid: "&aVocê gastou {CurrencyName} {Cost} para definir seu cafofo."
       TpPaid: "&aVocê gastou {CurrencyName} {Cost} para se teleportar."
       GiftPaid: "&aVocê gastou {CurrencyName} {Cost} para presentear seu parceiro."
+      SurnameChangePaid: "&aVocê pagou {Cost} {CurrencyName} para mudar um sobrenome ({Remaining} {CurrencyName} restantes)."
     Admin:
       Reloading: "&1Recarregando plugin..."
       Reloaded: "&1Plugin recarregado com sucesso!"
@@ -249,6 +296,7 @@ Language:
       Help: "Exibe todos os comandos disponíveis."
       List: "Exibe todos os jogadores casados."
       ListPriests: "Exibe todos os padres online."
+      Partners: "Lista todos os parceiros de um jogador."
       PvP: "Ativa/Desativa o PvP entre parceiros."
       PvPOn: "Ativa o PvP entre parceiros."
       PvPOff: "Desativa o PvP entre parceiros."
@@ -256,6 +304,7 @@ Language:
       Kiss: "Beija seu parceiro."
       Hug: "Abraça seu parceiro."
       Seen: "Exibe quando seu parceiro esteve online pela última vez."
+      Info: "Mostra informações sobre um casamento."
       Marry: "Casa 2 jogadores."
       MarrySelf: "Envia um pedido de casamento para outro jogador."
       Divorce: "Divorcia 2 jogadores."
@@ -266,6 +315,7 @@ Language:
       Accept: "Aceita uma pedido em aberto."
       Cancel: "Cancela um pedido em aberto."
       Deny: "Recusa um pedido em aberto."
+      SetColor: "Define a cor do casamento."
       SetPriest: "Promove/Rebaixa um jogador para padre."
       Reload: "Recarrega a configuração do plugin."
       Version: "Imprime os detalhes da versão sobre o plugin e suas dependências."
@@ -330,6 +380,9 @@ Command:
   Seen:
     - seen
     - lastOnline
+  Info:
+    - info
+    - marriageinfo
   PvPOn:
     - pvpon
   PvPOff:
@@ -338,12 +391,20 @@ Command:
     - list
   ListPriests:
     - listpriests
+  Partners:
+    - partners
+    - listpartners
+    - partnerlist
   Tp:
     - tp
+  SetColor:
+    - setcolor
   Marry:
     - marry
   Divorce:
     - divorce
+  SetPriest:
+    - setpriest
   Update:
     - update
   Version:
@@ -370,6 +431,13 @@ Placeholders:
     NotMarried: "???"
     NoHome: "???"
     Separator: "&r, "
+    NoPartnerForSlot: ""
+    Years: "&6{years}&ea "
+    Months: "&6{months}&eM "
+    Days: "&6{days}&ed "
+    Hours: "&6{hours}&eh "
+    Minutes: "&6{minutes}&em"
+    TimeMain: "{years}{months}{days}{hours}{minutes}"
   Heart:
     Married: "&c<heart>&f"
     NotMarried: ""
@@ -402,5 +470,5 @@ LanguageName: "Portuguese-Brazilian"
 Author: "Gustavo_Player (A.K.A G4stavoM1ster) | Traduzido por Gustavo_Player (Vulgo G4stavoM1ster)"
 
 # Language file version. Don't touch it!
-Version: 98
+Version: 115
 Revision: 1

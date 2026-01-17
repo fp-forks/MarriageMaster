@@ -47,6 +47,10 @@ Language:
       # Placeholders: {SenderDisplayName}, {SenderName}, {ReceiverDisplayName}, {ReceiverName}, {Message}, {MagicHeart}
       Format: "{MagicHeart}&r {SenderDisplayName}&r&6 => &r{ReceiverDisplayName}&r&f: &r{Message}"
     Gift:
+      # Placeholders: {AllowedGameModes}, {CurrentGameMode}
+      GameModeNotAllowedSender: "&cคุณไม่ได้รับอนุญาตให้ส่งของขวัญในโหมดเกมปัจจุบันของคุณ."
+      # Placeholders: {AllowedGameModes}, {CurrentGameMode}
+      GameModeNotAllowedReceiver: "&cคู่ของคุณไม่สามารถรับของขวัญในโหมดเกมปัจจุบันของเขาได้."
       OnlyInSurvival: "&cคุณสามารถมอบไอเท็มให้คู่ของคุณได้เมื่อคุณอยู่ในโหมดเอาชีวิตรอดเท่านั้น."
       NoItemInHand: "&cคุณไม่ได้ถือสิ่งของ."
       PartnerInvFull: "&cคู่ของคุณไม่มีพื้นที่ว่าง."
@@ -55,6 +59,7 @@ Language:
       # Placeholders: {Name}, {DisplayName}, {ItemAmount}, {ItemName}, {ItemMetaJSON} = Item as JSON for hover event
       ItemReceived: "[{\"text\":\"Your \",\"color\":\"green\"},{\"text\":\"partner\",\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"{DisplayName}\"}},{\"text\":\" has sent you \"},{\"text\":\"{ItemAmount} {ItemName}\",\"hoverEvent\":{\"action\":\"show_item\",\"value\":\"{ItemMetaJSON}\"}},{\"text\":\".\"}]"
       WorldNotAllowed: "&cคู่ของคุณอยู่ในโลกที่ไม่อนุญาตให้รับของขวัญ."
+      ItemNotAllowed: "&cคุณไม่ได้รับอนุญาตให้มอบ {ItemName} &cให้คู่ของคุณ!"
       # Placeholders: {ItemAmount}, {ItemName}, {ItemMetaJSON} = Item as JSON for hover event
       Request:
         Notification: "[\"\",{\"text\":\"{DisplayName}&r ต้องการให้ของขวัญคุณ \"},{\"text\":\"{ItemAmount} {ItemName}\",\"hoverEvent\":{\"action\":\"show_item\",\"value\":\"{ItemMetaJSON}\"}},{\"text\":\". Accept the gift with \"},{\"text\":\"/marry accept\",\"color\":\"green\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry accept\"}},{\"text\":\" or deny it with \"},{\"text\":\"/marry deny\",\"color\":\"red\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry deny\"}},{\"text\":\".\"}]"
@@ -65,6 +70,8 @@ Language:
         CanceledPartner: "คู่ของคุณยกเลิกคำขอของขวัญ รายการของคุณได้รับคืน."
         CanceledDisconnectRequester: "คู่ของคุณออฟไลน์ คำขอของขวัญถูกยกเลิก รายการของคุณได้รับคืน."
         CanceledDisconnectTarget: "คู่ของคุณออฟไลน์ คำขอของขวัญถูกยกเลิก."
+        RefundInvFull: "&cกระเป๋าของคุณเต็ม ของขวัญที่เหลือถูกทิ้งไว้บนพื้น!"
+        PartnerAlreadyHasAnOpenRequest: "&cคู่ของคุณมีคำขอที่เปิดอยู่แล้ว โปรดรอให้พวกเขายอมรับหรือปฏิเสธก่อน."
     Home:
       Deleted: "&aบ้านถูกลบสำเร็จ."
       PlayerNoHome: "&cผู้เล่นนี้ยังไม่มีบ้าน."
@@ -86,7 +93,25 @@ Language:
       Hugged_SendMethod: "action_bar"
       GotHugged: "&eคู่ของคุณกอดคุณ!"
       GotHugged_SendMethod: "action_bar"
-      TooFarAway: "&คุณอยู่ไกลเกินไปที่จะกอดคู่ของคุณ. (ไกลสุด {Distance} blocks)"
+      TooFarAway: "&cคุณอยู่ไกลเกินไปที่จะกอดคู่ของคุณ. (ไกลสุด {Distance} blocks)"
+      # Placeholders: {Time}, {TimeLeft} in seconds
+      Wait: "&cคุณต้องรอ {Time} วินาทีเพื่อกอดคู่ของคุณอีกครั้ง."
+    Info:
+      # Placeholders: {Player1Name}, {Player1DisplayName}, {Player2Name}, {Player2DisplayName}, {Surname}, {MagicHeart}, {WeddingDate}, {PriestName}, {PriestDisplayName}, {HasHome}, {PvPEnabled}
+      Headline: "&e--- ข้อมูลการแต่งงาน ---"
+      Footer: "&e---------------------"
+      Player1: "&eคู่รัก 1: {Player1DisplayName}"
+      Player2: "&eคู่รัก 2: {Player2DisplayName}"
+      Surname: "&eนามสกุล: {Surname}"
+      WeddingDate: "&eแต่งงานเมื่อ: {WeddingDate}"
+      # No Json!!!
+      DateFormat: "yyyy-MM-dd"
+      Priest: "&eนักบวช: {PriestDisplayName}"
+      NoPriest: "&eนักบวช: &7ไม่มี"
+      HasHome: "&eตั้งบ้านแล้ว: {HasHome}"
+      PvP: "&ePvP: {PvPEnabled}"
+      Heart: "&eหัวใจ: {MagicHeart}"
+      NotMarried: "{DisplayName}&e ไม่ได้แต่งงาน."
     Seen:
       # Placeholders: {Name}, {DisplayName}
       CurrentlyOnline: "{DisplayName}&r ตอนนี้ &aonline&r."
@@ -100,6 +125,12 @@ Language:
       NoMarriedPlayers: "&cไม่มีผู้เล่นที่แต่งงานแล้ว."
       Headline: "&eรายชื่อผู้เล่นที่แต่งงานแล้ว&r&f - &r&6กำลังแสดงหน้า {CurrentPage}/{MaxPage}"
       Footer: "[\"\",{\"text\":\"<<< Previous <<<\",\"color\":\"gray\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/{MainCommand} {SubCommand} {PrevPage}\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"/{MainCommand} {SubCommand} {PrevPage}\"}},{\"text\":\" Showing page {CurrentPage}/{MaxPage} \",\"color\":\"gold\"},{\"text\":\">>> Next >>>\",\"color\":\"gray\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/{MainCommand} {SubCommand} {NextPage}\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"/{MainCommand} {SubCommand} {NextPage}\"}}]"
+    Partners:
+      Headline: "&eรายชื่อคู่ของ {DisplayName}:"
+      Footer: "&e##############################"
+      NotMarried: "{DisplayName}&e ไม่ได้แต่งงาน."
+      # Player1 is the player that was queried. Player2 is the partner
+      Format: "&2{Player1DisplayName} {MagicHeart} &2{Player2DisplayName}"
     ListPriests:
       Format: "&2{PriestDisplayName}"
       NoPriestsOnline: "&cไม่มีนักบวชออนไลน์."
@@ -107,6 +138,7 @@ Language:
       Footer: "[\"\",{\"text\":\"<<< Previous <<<\",\"color\":\"gray\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/{MainCommand} {SubCommand} {PrevPage}\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"/{MainCommand} {SubCommand} {PrevPage}\"}},{\"text\":\" Showing page {CurrentPage}/{MaxPage} \",\"color\":\"gold\"},{\"text\":\">>> Next >>>\",\"color\":\"gray\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/{MainCommand} {SubCommand} {NextPage}\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"/{MainCommand} {SubCommand} {NextPage}\"}}]"
     PvP:
       IsDisabled: "&cคุณไม่สามารถทำร้ายคู่ของคุณได้หากคุณปิดการใช้งาน PvP."
+      IsDisabled_SendMethod: "action_bar"
       On: "&aตอนนี้คุณได้เปิดใช้ PvP กับคู่รักของคุณแล้ว."
       Off: "&aตอนนี้คุณได้ปิดการใช้งาน PvP กับคู่รักของคุณแล้ว."
     TP:
@@ -146,6 +178,17 @@ Language:
       ToShort: "&cนามสกุลที่ระบุสั้นเกินไป ต้องมีความยาวอย่างน้อย {MinLength} ตัวอักษร."
       ToLong: "&cนามสกุลที่ระบุยาวเกินไป ต้องมีความยาวไม่เกิน {MaxLength} ตัวอักษร."
       AlreadyUsed: "&cนามสกุลที่ระบุมีการใช้งานแล้ว!"
+      Banned: "&cนามสกุลที่ระบุไม่ได้รับอนุญาต."
+      Confirm: "[\"\",{\"text\":\"{PriestDisplayName}&r\"},{\"text\":\" ต้องการเปลี่ยนนามสกุลของคุณจาก\",\"color\":\"white\"},{\"text\":\"{Surname}&r\"},{\"text\":\" เป็น \",\"color\":\"white\"},{\"text\":\"{NewSurname}&r\",\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"นามสกุลปัจจุบัน: {Surname}\"}},{\"text\":\". ยอมรับการแต่งงานด้วย \",\"color\":\"white\"},{\"text\":\"/marry accept\",\"color\":\"green\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry accept\"}},{\"text\":\" หรือปฏิเสธด้วย \",\"color\":\"white\"},{\"text\":\"/marry deny\",\"color\":\"red\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry deny\"}},{\"text\":\".\",\"color\":\"white\"}]"
+      PlayerOff: "{DisplayName}&r ขณะนี้ออฟไลน์ การเปลี่ยนนามสกุลถูกยกเลิก."
+      PriestOff: "นักบวช {DisplayName}&r ขณะนี้ออฟไลน์ การเปลี่ยนนามสกุลถูกยกเลิก."
+      PlayerCancelled: "&c&r&c{PlayerDisplayName}&r&c ยกเลิกการเปลี่ยนนามสกุลเป็น {NewSurname}&r&c!"
+      PriestCancelled: "&c&r&c{PriestDisplayName}&r&c ยกเลิกการเปลี่ยนนามสกุลเป็น {NewSurname}&r&c!"
+      YouCancelled: "&aคุณยกเลิกการเปลี่ยนนามสกุลเป็น {NewSurname}&r&a!"
+      YouCancelledPriest: "&aคุณยกเลิกการเปลี่ยนนามสกุลของ &r&a{Player1DisplayName}&r&a และ &r&a{Player2DisplayName}&r&a เป็น {NewSurname}&r&a!"
+      Deny: "{DisplayName}&r&c ปฏิเสธการเปลี่ยนนามสกุล!"
+      YouDeny: "&aคุณปฏิเสธการเปลี่ยนนามสกุลเป็น {NewSurname}&r&a."
+      PlayerOffline: "&cไม่สามารถตรวจสอบความยินยอมเพื่อเปลี่ยนนามสกุลขณะที่ผู้เล่นออฟไลน์."
     Requests:
       NothingToAccept: "&cไม่มีคำขอเปิดให้ยอมรับ."
       NothingToDeny: "&cไม่มีคำขอที่จะปฏิเสธ."
@@ -153,32 +196,37 @@ Language:
     Marry:
       # Placeholders: {Name}, {DisplayName}.    Keep in mind display names contain colors!
       NotWithHimself: "&cคุณไม่สามารถแต่งงาน &r&c{DisplayName}&r&c กับตัวคุณเองได้."
+      AlreadySamePair: "&cคุณไม่สามารถแต่งงานผู้เล่นที่แต่งงานกันอยู่แล้ว &r&c{Player1DisplayName}&r&c แต่งงานกับ &r&c{Player2DisplayName}&r&c อยู่แล้ว."
       AlreadyMarried: "&cคุณไม่สามารถแต่งงานกับผู้เล่นที่แต่งงานแล้วได้ &r&c{DisplayName}&r&c แต่งงานอยู่แล้ว."
       SurnameNeeded: "&cคุณต้องมีนามสกุลสำหรับคู่รักที่จะแต่งงาน."
-      Married: "&aคุณแต่งงานแล้ว &r&a{Player1DisplayName}&r&และ &r&a{Player2DisplayName}&r&a."
-      HasMarried: "{PriestDisplayName}&r&ได้แต่งงาน &r{PartnerDisplayName}&r&a."
-      Broadcast: "{PriestDisplayName}&r&a has married {Player1DisplayName}&r&a with &r{Player2DisplayName}&r&a."
+      Married: "&aคุณแต่งงานแล้ว &r&a{Player1DisplayName}&r&a กับ &r&a{Player2DisplayName}&r&a."
+      HasMarried: "{PriestDisplayName}&r&a ได้แต่งงานคุณกับ &r{PartnerDisplayName}&r&a."
+      Broadcast: "{PriestDisplayName}&r&a ได้แต่งงาน {Player1DisplayName}&r&a กับ &r{Player2DisplayName}&r&a."
       NotInRange: "&cผู้เล่นไม่อยู่ในระยะ! พวกเขาต้องอยู่ในช่วง {Range} blocks!"
-      AlreadyOpenRequest: "{DisplayName}&r&c มีคนหนึ่งที่ไม่ได้ตอบคำขอแต่งงาน."
+      AlreadyOpenRequest: "{DisplayName}&r&c มีคำขอแต่งงานที่ยังไม่ได้ตอบ."
       YouCalledOff: "คุณได้เรียกงานแต่งงานออกไปแล้ว."
       PlayerCalledOff: "{DisplayName}&r เรียกเชิญงานแต่งงาน."
       Confirm: "[\"\",{\"text\":\"{PriestDisplayName}&r\"},{\"text\":\" ต้องการให้คุณแต่งงานกับ \",\"color\":\"white\"},{\"text\":\"{PlayerDisplayName}&r\"},{\"text\":\". ยอมรับการแต่งงานด้วย \",\"color\":\"white\"},{\"text\":\"/marry accept\",\"color\":\"green\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry accept\"}},{\"text\":\" หรือปฏิเสธด้วย \",\"color\":\"white\"},{\"text\":\"/marry deny\",\"color\":\"red\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry deny\"}},{\"text\":\".\",\"color\":\"white\"}]"
-      PriestOff: "Priest {DisplayName}&r ขณะนี้ออฟไลน์งานแต่งงานถูกปิด."
-      PlayerOff: "{DisplayName}&r is now offline, wedding called off."
+      PriestOff: "นักบวช {DisplayName}&r ขณะนี้ออฟไลน์งานแต่งงานถูกปิด."
+      PlayerOff: "{DisplayName}&r ขณะนี้ออฟไลน์งานแต่งงานถูกปิด."
+      MaxPartnersReached: "{DisplayName}&r ได้ถึงจำนวนคู่สูงสุดที่อนุญาตแล้ว ({MaxPartnerCount})."
       Self:
         NotYourself: "&cคุณไม่สามารถแต่งงานกับตัวเองได้."
-        NotInRange: "&cเครื่องเล่นไม่อยู่ในระยะ! เขาต้องอยู่ภายใน {Range} blocks!"
+        NotInRange: "&cผู้เล่นไม่อยู่ในระยะ! ต้องอยู่ภายใน {Range} blocks!"
+        AlreadySamePair: "&cเราแต่งงานกับ &r&c{DisplayName}&r&c อยู่แล้ว!"
         AlreadyMarried: "&cคุณแต่งงานแล้วกับ &r&c{DisplayName}&r&c!"
         OtherAlreadyMarried: "&c&r&c{DisplayName}&r&c แต่งงานอยู่แล้ว!"
-        AlreadyOpenRequest: "&cคุณมีคนหนึ่งที่ไม่ได้ตอบคำขอแต่งงาน."
-        Married: "&aคุณแต่งงานแล้ว &r&a{DisplayName}&r&a."
-        Broadcast: "&a&r&a{Player1DisplayName}&r&a ได้แต่งงานแล้ว &r&a{Player2DisplayName}&r&a."
-        YouCalledOff: "You have called the wedding off."
-        PlayerCalledOff: "{DisplayName}&r ได้เรียกเชิญงานแต่งงาน."
-        Confirm: "[\"\",{\"text\":\"{DisplayName}&r\"},{\"text\":\" อยากแต่งงานกับคุณ ยอมรับการแต่งงานโดย \",\"color\":\"white\"},{\"text\":\"/marry accept\",\"color\":\"green\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry accept\"}},{\"text\":\" หรือปฏิเสธด้วย \",\"color\":\"white\"},{\"text\":\"/marry deny\",\"color\":\"red\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry deny\"}},{\"text\":\".\",\"color\":\"white\"}]"
+        AlreadyOpenRequest: "&cคุณมีคำขอแต่งงานที่ยังไม่ได้ตอบ."
+        Married: "&aคุณแต่งงานแล้วกับ &r&a{DisplayName}&r&a."
+        Broadcast: "&a&r&a{Player1DisplayName}&r&a ได้แต่งงานกับ &r&a{Player2DisplayName}&r&a."
+        YouCalledOff: "คุณได้ยกเลิกงานแต่งงาน."
+        PlayerCalledOff: "{DisplayName}&r ได้ยกเลิกงานแต่งงาน."
+        Confirm: "[\"\",{\"text\":\"{DisplayName}&r\"},{\"text\":\" ต้องการแต่งงานกับคุณ ยอมรับการแต่งงานด้วย \",\"color\":\"white\"},{\"text\":\"/marry accept\",\"color\":\"green\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry accept\"}},{\"text\":\" หรือปฏิเสธด้วย \",\"color\":\"white\"},{\"text\":\"/marry deny\",\"color\":\"red\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry deny\"}},{\"text\":\".\",\"color\":\"white\"}]"
         RequestSent: "ส่งคำขอแต่งงานแล้ว."
         PlayerOff: "{DisplayName}&r ขณะนี้ออฟไลน์งานแต่งงานถูกปิด."
         NotOnYourOwn: "&cคุณไม่สามารถจัดงานแต่งงานของคุณเองได้ โปรดขอให้นักบวชทำพิธีแต่งงานให้คุณ."
+        MaxPartnersReached: "คุณได้ถึงจำนวนคู่สูงสุดที่อนุญาตแล้ว ({MaxPartnerCount})."
+        MaxPartnersReachedOther: "{DisplayName}&r ได้ถึงจำนวนคู่สูงสุดที่อนุญาตแล้ว ({MaxPartnerCount})."
     Divorce:
       Broadcast: "&a&r&a{PriestDisplayName}&r&a ได้หย่าร้าง &r&a{Player1DisplayName}&r&a ออกจาก &r&a{Player2DisplayName}&r&a."
       DivorcedPlayer: "&a&r&a{PriestDisplayName}&r&a ได้หย่าร้างการแต่งงานของคุณกับ &r&a{PartnerDisplayName}&r&a."
@@ -216,6 +264,7 @@ Language:
       SetHomePaid: "&aคุณใช้จ่ายเงิน {Cost} {CurrencyName} เพื่อตั้งค่าบ้านของคุณ (เงินที่เหลือ {Remaining} {CurrencyName})."
       TpPaid: "&aคุณใช้จ่ายเงิน {Cost} {CurrencyName} สำหรับ Teleport (เงินที่เหลือ {Remaining} {CurrencyName})."
       GiftPaid: "&aคุณใช้จ่ายเงิน {Cost} {CurrencyName} สำหรับการมอบสิ่งของให้กับคู่ของคุณ (เงินที่เหลือ {Remaining} {CurrencyName})."
+      SurnameChangePaid: "&aคุณใช้จ่ายเงิน {Cost} {CurrencyName} สำหรับเปลี่ยนนามสกุล (เงินที่เหลือ {Remaining} {CurrencyName})."
     Admin:
       Reloading: "&1Reloading ..."
       Reloaded: "&1Reloaded!"
@@ -275,6 +324,7 @@ Language:
       Help: "แสดงคำสั่งที่มีอยู่ทั้งหมดและคำอธิบาย."
       List: "รายชื่อผู้เล่นที่แต่งงานแล้วทั้งหมด."
       ListPriests: "แสดงรายชื่อนักบวชออนไลน์ทั้งหมดที่ออนไลน์."
+      Partners: "แสดงรายชื่อคู่ทั้งหมดของผู้เล่น"
       PvP: "เปลี่ยนสถานะ PvP กับคู่รัก."
       PvPOn: "เปิดใช้งาน PvP กับคู่รัก"
       PvPOff: "ปิดการใช้งาน PvP กับพันธมิตร."
@@ -282,6 +332,7 @@ Language:
       Kiss: "คุณจูบคู่ของคุณ."
       Hug: "คุณกอดคู่ของคุณ."
       Seen: "แสดงสถานะคู่รักของคุณ ออนไลน์ครั้งล่าสุดตอนไหน."
+      Info: "แสดงข้อมูลเกี่ยวกับการแต่งงาน."
       Marry: "แต่งงานกับผู้เล่นสองคน."
       MarrySelf: "ส่งคำขอแต่งงานไปยังผู้เล่นคนอื่น."
       Divorce: "การหย่าร้างผู้เล่นสองคน."
@@ -359,6 +410,9 @@ Command:
   Seen:
     - seen
     - lastOnline
+  Info:
+    - info
+    - marriageinfo
   PvPOn:
     - pvpon
   PvPOff:
@@ -367,6 +421,10 @@ Command:
     - list
   ListPriests:
     - listpriests
+  Partners:
+    - partners
+    - listpartners
+    - partnerlist
   Tp:
     - tp
   SetColor:
@@ -375,6 +433,8 @@ Command:
     - marry
   Divorce:
     - divorce
+  SetPriest:
+    - setpriest
   Update:
     - update
   Version:
@@ -401,6 +461,13 @@ Placeholders:
     NotMarried: "ไม่แต่งงาน"
     NoHome: "ไม่มีบ้าน"
     Separator: "&r, "
+    NoPartnerForSlot: ""
+    Years: "&6{years}&eปี "
+    Months: "&6{months}&eด "
+    Days: "&6{days}&eว "
+    Hours: "&6{hours}&eชม "
+    Minutes: "&6{minutes}&eน"
+    TimeMain: "{years}{months}{days}{hours}{minutes}"
   Heart:
     Married: "&c<heart>&f"
     NotMarried: ""
@@ -434,5 +501,5 @@ LanguageName: "Thai"
 Author: "GeorgH93"
 
 # Language file version. Don't touch it!
-Version: 102
+Version: 115
 Revision: 1

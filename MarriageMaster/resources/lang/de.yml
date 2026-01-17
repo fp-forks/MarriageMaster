@@ -95,6 +95,22 @@ Language:
       TooFarAway: "&cDu bist zu weit entfernt um deinen Partner zu umarmen. (Maximal {Distance} Blöcke)"
       # Placeholders: {Time}, {TimeLeft} in seconds
       Wait: "&cDu musst {Time} Sekunden warten bevor du deinen Partner erneut umarmen kannst."
+    Info:
+      # Placeholders: {Player1Name}, {Player1DisplayName}, {Player2Name}, {Player2DisplayName}, {Surname}, {MagicHeart}, {WeddingDate}, {PriestName}, {PriestDisplayName}, {HasHome}, {PvPEnabled}
+      Headline: "&e--- Ehe-Info ---"
+      Footer: "&e----------------"
+      Player1: "&ePartner 1: {Player1DisplayName}"
+      Player2: "&ePartner 2: {Player2DisplayName}"
+      Surname: "&eNachname: {Surname}"
+      WeddingDate: "&eGeheiratet am: {WeddingDate}"
+      # No Json!!!
+      DateFormat: "dd.MM.yyyy"
+      Priest: "&ePriester: {PriestDisplayName}"
+      NoPriest: "&ePriester: &7keiner"
+      HasHome: "&eZuhause gesetzt: {HasHome}"
+      PvP: "&ePvP: {PvPEnabled}"
+      Heart: "&eHerz: {MagicHeart}"
+      NotMarried: "{DisplayName}&e ist nicht verheiratet."
     Seen:
       # Placeholders: {Name}, {DisplayName}
       CurrentlyOnline: "{DisplayName}&r ist zur Zeit &aonline&r."
@@ -108,6 +124,12 @@ Language:
       NoMarriedPlayers: "&cEs gibt keine verheirateten Spieler."
       Headline: "&eListe der verheirateten Spieler&r&f - &r&6Seite {CurrentPage}/{MaxPage}&r&f - &r&7/{MainCommand} {SubCommand} <page>"
       Footer: "[\"\",{\"text\":\"<<< Vorherige Seite <<<\",\"color\":\"gray\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/{MainCommand} {SubCommand} {PrevPage}\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"/{MainCommand} {SubCommand} {PrevPage}\"}},{\"text\":\" Seite {CurrentPage}/{MaxPage} \",\"color\":\"gold\"},{\"text\":\">>> Nächste Seite >>>\",\"color\":\"gray\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/{MainCommand} {SubCommand} {NextPage}\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"/{MainCommand} {SubCommand} {NextPage}\"}}]"
+    Partners:
+      Headline: "&ePartnerliste von {DisplayName}:"
+      Footer: "&e##############################"
+      NotMarried: "{DisplayName}&e ist nicht verheiratet."
+      # Player1 is the player that was queried. Player2 is the partner
+      Format: "&2{Player1DisplayName} {MagicHeart} &2{Player2DisplayName}"
     ListPriests:
       Format: "&2{PriestDisplayName}"
       NoPriestsOnline: "&cEs sind gerade keine Priester online."
@@ -155,6 +177,17 @@ Language:
       ToShort: "&cDer angegebene Nachname ist zu kurz. Er muss mindestens {MinLength} Zeichen lang sein."
       ToLong: "&cDer angegebene Nachname ist zu lang. Er darf nicht länger als {MaxLength} Zeichen lang sein."
       AlreadyUsed: "&cDer angegebene Nachname ist bereits in Verwendung!"
+      Banned: "&cDer angegebene Nachname ist nicht erlaubt."
+      Confirm: "[\"\",{\"text\":\"{PriestDisplayName}&r\"},{\"text\":\" möchte deinen Nachnamen von\",\"color\":\"white\"},{\"text\":\"{Surname}&r\"},{\"text\":\" zu \",\"color\":\"white\"},{\"text\":\"{NewSurname}&r\",\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"Aktueller Nachname: {Surname}\"}},{\"text\":\" ändern. Akzeptiere die Änderung mit \",\"color\":\"white\"},{\"text\":\"/marry accept\",\"color\":\"green\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry accept\"}},{\"text\":\" oder lehne sie mit \",\"color\":\"white\"},{\"text\":\"/marry deny\",\"color\":\"red\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry deny\"}},{\"text\":\".\",\"color\":\"white\"}]"
+      PlayerOff: "{DisplayName}&r ist nun offline, Nachnamensänderung abgebrochen."
+      PriestOff: "Priester {DisplayName}&r ist nun offline, Nachnamensänderung abgebrochen."
+      PlayerCancelled: "&c&r&c{PlayerDisplayName}&r&c hat die Nachnamensänderung zu {NewSurname}&r&c abgebrochen!"
+      PriestCancelled: "&c&r&c{PriestDisplayName}&r&c hat die Nachnamensänderung zu {NewSurname}&r&c abgebrochen!"
+      YouCancelled: "&aDu hast deine Nachnamensänderung zu {NewSurname}&r&a abgebrochen!"
+      YouCancelledPriest: "&aDu hast die Nachnamensänderung von &r&a{Player1DisplayName}&r&a und &r&a{Player2DisplayName}&r&a zu {NewSurname}&r&a abgebrochen!"
+      Deny: "{DisplayName}&r&c hat die Nachnamensänderung abgelehnt!"
+      YouDeny: "&aDu hast die Nachnamensänderung zu {NewSurname}&r&a abgelehnt."
+      PlayerOffline: "&cZustimmung zur Nachnamensänderung kann nicht eingeholt werden während der Spieler offline ist."
     Requests:
       NothingToAccept: "&cEs ist keine ausstehende Anfrage zu akzeptieren."
       NothingToDeny: "&cEs ist keine ausstehende Anfrage abzulehnen."
@@ -175,6 +208,7 @@ Language:
       Confirm: "{PriestDisplayName}&r will dich mit {PlayerDisplayName} verheiraten&r. Akzeptiere die Hochzeit mit /marry accept oder lehne sie mit /marry deny ab."
       PriestOff: "Priester {DisplayName}&r ist nun offline. Die Hochzeit wurde abgesagt."
       PlayerOff: "{DisplayName}&r ist nun offline. Die Hochzeit wurde abgesagt."
+      MaxPartnersReached: "{DisplayName}&r hat bereits die maximale Anzahl an Partnern erreicht ({MaxPartnerCount})."
       Self:
         NotYourself: "&cDu darfst dich nicht selbst heiraten."
         NotInRange: "&cDer Spieler ist nicht in Reichweite! Er muss innerhalb von {Range} Blöcken sein!"
@@ -190,6 +224,8 @@ Language:
         RequestSent: "Heiratsanfrage gesendet."
         PlayerOff: "{DisplayName}&r ist nun offline. Die Hochzeit wurde abgesagt."
         NotOnYourOwn: "&cDu kannst nicht deine eigene Hochzeit durchführen. Bitte Frage einen Priester um unterstützung."
+        MaxPartnersReached: "Du hast bereits die maximale Anzahl an Partnern erreicht ({MaxPartnerCount})."
+        MaxPartnersReachedOther: "{DisplayName}&r hat bereits die maximale Anzahl an Partnern erreicht ({MaxPartnerCount})."
     Divorce:
       Broadcast: "&a&r&a{PriestDisplayName}&r&a hat &r&a{Player1DisplayName}&r&a von &r&a{Player2DisplayName}&r&a geschieden."
       DivorcedPlayer: "&a&r&a{PriestDisplayName}&r&a hat deine Hochzeit mit &r&a{PartnerDisplayName}&r&a geschieden."
@@ -286,6 +322,7 @@ Language:
       Help: "Zeigt alle möglichen Befehle und deren Hilfe."
       List: "Zeigt alle verheirateten Spieler an."
       ListPriests: "Zeigt alle Priester die gerade online sind an."
+      Partners: "Listet alle Partner eines Spielers auf."
       PvP: "Ändert den Pvp Status mit deinem Partner."
       PvPOn: "Aktiviert PvP mit deinem Partner."
       PvPOff: "Deaktiviert PvP mit deinem Partner."
@@ -293,6 +330,7 @@ Language:
       Kiss: "Du küsst deinen Partner."
       Hug: "Du umarmst deinen Partner."
       Seen: "Zeigt dir wenn dein Partner zuletzt hier war."
+      Info: "Zeigt Informationen über eine Ehe."
       Marry: "Verheiratet zwei Spieler."
       MarrySelf: "Sendet eine Heiratsanfrage zu einem anderen Spieler."
       Divorce: "Scheidet zwei Spieler."
@@ -440,6 +478,12 @@ Placeholders:
     NoHome: "kein Zuhause"
     Separator: "&r, "
     NoPartnerForSlot: ""
+    Years: "&6{years}&eJ "
+    Months: "&6{months}&eM "
+    Days: "&6{days}&eT "
+    Hours: "&6{hours}&eS "
+    Minutes: "&6{minutes}&em"
+    TimeMain: "{years}{months}{days}{hours}{minutes}"
   Heart:
     Married: "&c<heart>&f"
     NotMarried: ""
@@ -473,5 +517,5 @@ LanguageName: "German"
 Author: "GeorgH93"
 
 # Language file version. Don't touch it!
-Version: 111
+Version: 115
 Revision: 1
