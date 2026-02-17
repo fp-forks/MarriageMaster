@@ -15,9 +15,9 @@
 		<mockito.version>5.11.0</mockito.version>
 		<mavenShade.version>3.5.3</mavenShade.version>
 
-		<configFileVersion>108</configFileVersion>
+		<configFileVersion>109</configFileVersion>
 		<configFileVersionBungee>102</configFileVersionBungee>
-		<languageFileVersion>114</languageFileVersion>
+		<languageFileVersion>115</languageFileVersion>
 
 		<sonar.organization>georgh93</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>

@@ -103,17 +103,25 @@ public class EconomyHandler implements Listener
 		return econ.withdrawPlayer(player.getPlayer(), cost).transactionSuccess();
 	}
 
+	private @NotNull String getCurrencyName()
+	{
+		String currencyName = econ.currencyNamePlural();
+		if(currencyName != null) return currencyName;
+		currencyName = econ.currencyNameSingular();
+		return (currencyName != null) ? currencyName : "";
+	}
+
 	@SuppressWarnings("BooleanMethodIsAlwaysInverted")
 	private boolean basicBillPlayer(MarriagePlayer player, double cost, Message successMessage)
 	{
 		if(hasPlayerEnoughMoney(player, cost) && billPlayer(player, cost))
 		{
-			if(player.isOnline()) player.send(successMessage, cost, econ.getBalance(player.getPlayer()), econ.currencyNamePlural());
+			if(player.isOnline()) player.send(successMessage, cost, econ.getBalance(player.getPlayer()), getCurrencyName());
 			return true;
 		}
 		else
 		{
-			if(player.isOnline()) player.send(messageNotEnough, cost, econ.getBalance(player.getPlayer()), econ.currencyNamePlural());
+			if(player.isOnline()) player.send(messageNotEnough, cost, econ.getBalance(player.getPlayer()), getCurrencyName());
 			return false;
 		}
 	}
@@ -146,8 +154,9 @@ public class EconomyHandler implements Listener
 		{
 			if(billPlayer(player2, cost))
 			{
-				player1.send(success, cost, econ.getBalance(player1.getPlayer()), econ.currencyNamePlural());
-				player2.send(success, cost, econ.getBalance(player2.getPlayer()), econ.currencyNamePlural());
+				String currencyName = getCurrencyName();
+				player1.send(success, cost, econ.getBalance(player1.getPlayer()), currencyName);
+				player2.send(success, cost, econ.getBalance(player2.getPlayer()), currencyName);
 				return true;
 			}
 			else
@@ -156,15 +165,16 @@ public class EconomyHandler implements Listener
 				failedPlayer2 = true;
 			}
 		}
+		String currencyName = getCurrencyName();
 		if(!hasPlayerEnoughMoney(player2, cost) || failedPlayer2)
 		{
 			player1.send(messagePartnerNotEnough);
-			player2.send(messageNotEnough, cost, econ.currencyNamePlural());
+			player2.send(messageNotEnough, cost, currencyName);
 		}
 		else
 		{
 			player2.send(messagePartnerNotEnough);
-			player1.send(messageNotEnough, cost, econ.currencyNamePlural());
+			player1.send(messageNotEnough, cost, currencyName);
 		}
 		if(priest != null) failPriest.send(priest);
 		return false;

@@ -71,6 +71,14 @@ public class VersionCommand extends MarryCommand
 		{
 			sender.sendMessage("mcMMO: " + pl.getDescription().getVersion());
 		}
+		if(plugin.getConfiguration().isAuraSkillsBonusXPEnabled() && (pl = Bukkit.getPluginManager().getPlugin("AuraSkills")) != null && pl.isEnabled())
+		{
+			sender.sendMessage("AuraSkills: " + pl.getDescription().getVersion());
+		}
+		if((plugin.getConfiguration().isJobsBonusXPEnabled() || plugin.getConfiguration().isJobsPaymentEnabled()) && (pl = Bukkit.getPluginManager().getPlugin("Jobs")) != null && pl.isEnabled())
+		{
+			sender.sendMessage("Jobs: " + pl.getDescription().getVersion());
+		}
 		sender.sendMessage("#####  End Marriage Master version info  #####");
 	}
 

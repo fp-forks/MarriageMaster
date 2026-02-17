@@ -6,7 +6,7 @@ main: "${bukkitMainClass}"
 version: "${version}"
 api-version: "1.13"
 depend: [${dependencies}]
-softdepend: [ Vault, Minepacks, MinePacks, MVdWPlaceholderAPI, PlaceholderAPI, SkillAPI, mcMMO, Multiverse-Core ${soft-dependencies} ]
+softdepend: [ Vault, Minepacks, MinePacks, MVdWPlaceholderAPI, PlaceholderAPI, SkillAPI, mcMMO, AuraSkills, Jobs, Multiverse-Core ${soft-dependencies} ]
 folia-supported: true
 
 permissions:
@@ -28,6 +28,7 @@ permissions:
       marry.bypass: true
       marry.home.others: true
       marry.partners.others: true
+      marry.info.others: true
   marry.bypass:
     description: Gives all bypassing permissions
     children:
@@ -55,6 +56,7 @@ permissions:
       marry.kiss: true
       marry.hug: true
       marry.seen: true
+      marry.info: true
       marry.selfmarry: true
       marry.selfdivorce: true
       marry.changesurname: true
@@ -207,6 +209,12 @@ permissions:
     default: op
   marry.partners.others:
     description: Allows to list the partners of a player with the partners command
+    default: op
+  marry.info:
+    description: Allows to view information about your own marriage
+    default: true
+  marry.info.others:
+    description: Allows to view information about other players' marriages
     default: op
   marry.autoaccept.tprequest:
     description: If the permission is granted the player will automatically accept tp requests

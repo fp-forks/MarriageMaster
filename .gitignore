@@ -64,3 +64,4 @@ target/
 !/.idea/dictionaries
 
 .flattened-pom.xml
+.factorypath

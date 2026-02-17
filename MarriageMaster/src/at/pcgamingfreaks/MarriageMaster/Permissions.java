@@ -33,6 +33,8 @@ public class Permissions
 	public static final String HOME_DEL = HOME + ".del";
 	public static final String HOME_OTHERS = HOME + ".others";
 	public static final String HUG = BASE + "hug";
+	public static final String INFO = BASE + "info";
+	public static final String INFO_OTHERS = INFO + ".others";
 	public static final String KISS = BASE + "kiss";
 	public static final String LIST = BASE + "list";
 	public static final String PARTNERS = BASE + "partners";
