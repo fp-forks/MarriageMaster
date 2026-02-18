@@ -69,6 +69,8 @@ Language:
         CanceledPartner: "您的伴侣取消了您送的礼物，物品退回。"
         CanceledDisconnectRequester: "您的伴侣离线，物品退回。"
         CanceledDisconnectTarget: "您的伴侣离线，物品请求取消。"
+        RefundInvFull: "&c您的背包已满，剩余礼物物品已掉落在地上！"
+        PartnerAlreadyHasAnOpenRequest: "&c您的伴侣已有一个待处理的请求。请等待他们先接受或拒绝。"
     Home:
       Deleted: "&a家已删除。"
       PlayerNoHome: "&c玩家没有设置家。"
@@ -90,7 +92,25 @@ Language:
       Hugged_SendMethod: "action_bar"
       GotHugged: "您的伴侣拥抱了您。"
       GotHugged_SendMethod: "action_bar"
-      TooFarAway: "您无法拥抱您的伴侣，最大 {Distance} 格。"
+      TooFarAway: "&c您无法拥抱您的伴侣，最大 {Distance} 格。"
+      # Placeholders: {Time}, {TimeLeft} in seconds
+      Wait: "&c您需要等待 {Time} 秒才能拥抱您的伴侣。"
+    Info:
+      # Placeholders: {Player1Name}, {Player1DisplayName}, {Player2Name}, {Player2DisplayName}, {Surname}, {MagicHeart}, {WeddingDate}, {PriestName}, {PriestDisplayName}, {HasHome}, {PvPEnabled}
+      Headline: "&e--- 婚姻信息 ---"
+      Footer: "&e---------------------"
+      Player1: "&e伴侣 1: {Player1DisplayName}"
+      Player2: "&e伴侣 2: {Player2DisplayName}"
+      Surname: "&e姓氏: {Surname}"
+      WeddingDate: "&e结婚日期: {WeddingDate}"
+      # No Json!!!
+      DateFormat: "yyyy-MM-dd"
+      Priest: "&e牧师: {PriestDisplayName}"
+      NoPriest: "&e牧师: &7无"
+      HasHome: "&e已设置家: {HasHome}"
+      PvP: "&e玩家对战: {PvPEnabled}"
+      Heart: "&e爱心: {MagicHeart}"
+      NotMarried: "{DisplayName}&e 还没结婚。"
     Seen:
       # Placeholders: {Name}, {DisplayName}
       CurrentlyOnline: "伴侣 {DisplayName}&r 目前在线。"
@@ -103,7 +123,13 @@ Language:
       Format: "&2{Player1DisplayName} <heart> &2{Player2DisplayName}"
       NoMarriedPlayers: "&c没有结婚的玩家。"
       Headline: "列表 {CurrentPage} / {MaxPage}"
-      Footer: "[\"\",{\"text\":\"［上一页］ \",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/{MainCommand} {SubCommand} {PrevPage}\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"命令“/{MainCommand} {SubCommand} {PrevPage}”\"}},{\"text\":\" ----- {CurrentPage}/{MaxPage} ------ \"},{\"text\":\"［下一页］\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/{MainCommand} {SubCommand} {NextPage}\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"命令“/{MainCommand} {SubCommand} {NextPage}”\"}}]"
+      Footer: "[\"\",{\"text\":\"［上一页］ \",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/{MainCommand} {SubCommand} {PrevPage}\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"命令"/{MainCommand} {SubCommand} {PrevPage}"\"}},{\"text\":\" ----- {CurrentPage}/{MaxPage} ------ \"},{\"text\":\"［下一页］\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/{MainCommand} {SubCommand} {NextPage}\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"命令"/{MainCommand} {SubCommand} {NextPage}"\"}}]"
+    Partners:
+      Headline: "&e{DisplayName} 的伴侣列表:"
+      Footer: "&e##############################"
+      NotMarried: "{DisplayName}&e 还没结婚。"
+      # Player1 is the player that was queried. Player2 is the partner
+      Format: "&2{Player1DisplayName} <heart> &2{Player2DisplayName}"
     ListPriests:
       Format: "&2牧师 {PriestDisplayName}"
       NoPriestsOnline: "&c没有在线的牧师。"
@@ -149,8 +175,19 @@ Language:
       SetSuccessful: "&a姓氏改变了。"
       SetFailed: "&c更改姓氏失败。"
       ToShort: "&c姓氏太短，它必须不低于 {MinLength} 字符。"
-      ToLong: "&c姓氏太短，它必须不多于 {MaxLength} 字符。"
+      ToLong: "&c姓氏太长，它必须不多于 {MaxLength} 字符。"
       AlreadyUsed: "&c姓氏被占用了。"
+      Banned: "&c该姓氏不被允许。"
+      Confirm: "[\"\",{\"text\":\"{PriestDisplayName}&r\"},{\"text\":\" 想要将您的姓氏从\",\"color\":\"white\"},{\"text\":\"{Surname}&r\"},{\"text\":\" 更改为 \",\"color\":\"white\"},{\"text\":\"{NewSurname}&r\",\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"当前姓氏: {Surname}\"}},{\"text\":\"。接受请输入 \",\"color\":\"white\"},{\"text\":\"/marry accept\",\"color\":\"green\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry accept\"}},{\"text\":\" 或拒绝请输入 \",\"color\":\"white\"},{\"text\":\"/marry deny\",\"color\":\"red\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry deny\"}},{\"text\":\"。\",\"color\":\"white\"}]"
+      PlayerOff: "{DisplayName}&r 现在离线，姓氏更改已取消。"
+      PriestOff: "牧师 {DisplayName}&r 现在离线，姓氏更改已取消。"
+      PlayerCancelled: "&c&r&c{PlayerDisplayName}&r&c 取消了姓氏更改为 {NewSurname}&r&c！"
+      PriestCancelled: "&c&r&c{PriestDisplayName}&r&c 取消了姓氏更改为 {NewSurname}&r&c！"
+      YouCancelled: "&a您取消了姓氏更改为 {NewSurname}&r&a！"
+      YouCancelledPriest: "&a您取消了 &r&a{Player1DisplayName}&r&a 和 &r&a{Player2DisplayName}&r&a 的姓氏更改为 {NewSurname}&r&a！"
+      Deny: "{DisplayName}&r&c 拒绝了姓氏更改！"
+      YouDeny: "&a您拒绝了姓氏更改为 {NewSurname}&r&a。"
+      PlayerOffline: "&c玩家离线时无法确认姓氏更改同意。"
     Requests:
       NothingToAccept: "&c没有要接受的打开请求。"
       NothingToDeny: "&c没有要拒绝的请求。"
@@ -158,6 +195,7 @@ Language:
     Marry:
       # Placeholders: {Name}, {DisplayName}.    Keep in mind display names contain colors!
       NotWithHimself: "&c您不能和玩家 {DisplayName}&r&c 结婚。"
+      AlreadySamePair: "&c您不能让已经结婚的玩家再次结婚。&r&c{Player1DisplayName}&r&c 已经和 &r&c{Player2DisplayName}&r&c 结婚了。"
       AlreadyMarried: "&c您不能和已婚玩家 {DisplayName}&r&c 结婚。"
       SurnameNeeded: "&c您需要一个姓氏才能结婚"
       Married: "&a您将玩家 {Player1DisplayName}&r&a 与玩家 {Player2DisplayName}&r&a 结婚。"
@@ -170,9 +208,11 @@ Language:
       Confirm: "[\"\",{\"text\":\"牧师 {PriestDisplayName} 希望您和玩家 {PlayerDisplayName} 结婚\"},{\"text\":\"&f ［&a接受&f］\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry accept\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"&f［&a接受&f］\"}},{\"text\":\"&f ［&c拒绝&f］\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry deny\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"&f［&c拒绝&f］\"}}]"
       PriestOff: "牧师 {DisplayName}&r 取消婚礼。"
       PlayerOff: "玩家 {DisplayName}&r 现在离线，婚礼取消。"
+      MaxPartnersReached: "{DisplayName}&r 已经达到最大伴侣数量 ({MaxPartnerCount})。"
       Self:
         NotYourself: "&c您不能自己结婚。"
         NotInRange: "&c玩家不在范围内！他必须在 {Range} 格内！"
+        AlreadySamePair: "&c我们已经和 &r&c{DisplayName}&r&c 结婚了！"
         AlreadyMarried: "&c您已经和玩家 {DisplayName}&r&rc 结婚。"
         OtherAlreadyMarried: "&c玩家 {DisplayName}&r&c 已经结婚。"
         AlreadyOpenRequest: "&c您已经有了一个未回应的结婚请求。"
@@ -184,6 +224,8 @@ Language:
         RequestSent: "求婚已发送。"
         PlayerOff: "玩家 {DisplayName}&r 现在离线，婚礼取消。"
         NotOnYourOwn: "&c您无法为自己举行婚礼，请寻找牧师主持婚礼。"
+        MaxPartnersReached: "您已经达到最大伴侣数量 ({MaxPartnerCount})。"
+        MaxPartnersReachedOther: "{DisplayName}&r 已经达到最大伴侣数量 ({MaxPartnerCount})。"
     Divorce:
       Broadcast: "&a牧师 {PriestDisplayName}&r&a 将玩家 {Player1DisplayName}&r&a 与玩家 {Player2DisplayName}&r&a 离婚。"
       DivorcedPlayer: "&a玩家 {PriestDisplayName}&r&a 与玩家 {PartnerDisplayName}&r&a 离婚了。"
@@ -221,6 +263,7 @@ Language:
       SetHomePaid: "&a您为设立婚房而支付了 {Cost} {CurrencyName} ，您的余额还剩 ({Remaining} {CurrencyName} left)."
       TpPaid: "&a您支付了 {Cost} {CurrencyName} 来传送到您的伴侣身边，您的余额还剩 ({Remaining} {CurrencyName} left)."
       GiftPaid: "&a您支付了 {Cost} {CurrencyName} 来把礼物送到您的伴侣背包，您的余额还剩 ({Remaining} {CurrencyName} left)."
+      SurnameChangePaid: "&a您支付了 {Cost} {CurrencyName} 来更改姓氏，您的余额还剩 ({Remaining} {CurrencyName} left)."
     Admin:
       Reloading: "&1重新加载中。"
       Reloaded: "&1配置文件与语言文本重新加载完成。已加载 中文语言包 by Fur_Xia & Freak(Ye_Yang_Dada) & 尹 & YuanYuanOwO"
@@ -280,6 +323,7 @@ Language:
       Help: "显示所有可用命令及其说明"
       List: "列出所有已婚玩家"
       ListPriests: "列出所有在线牧师"
+      Partners: "列出玩家的所有伴侣"
       PvP: "与伴侣更改 玩家对抗玩家 状态"
       PvPOn: "启用与伴侣的 玩家对抗玩家"
       PvPOff: "与伴侣禁用 玩家对抗玩家"
@@ -287,6 +331,7 @@ Language:
       Kiss: "吻您的伴侣"
       Hug: "拥抱您的伴侣"
       Seen: "显示上次您的伴侣在线的时间"
+      Info: "显示婚姻信息"
       Marry: "请求结婚"
       MarrySelf: "向玩家发送结婚请求"
       Divorce: "离婚"
@@ -370,6 +415,9 @@ Command:
   Seen:
     - seen
     - lastOnline
+  Info:
+    - info
+    - marriageinfo
   PvPOn:
     - pvpon
   PvPOff:
@@ -378,6 +426,10 @@ Command:
     - list
   ListPriests:
     - listpriests
+  Partners:
+    - partners
+    - listpartners
+    - partnerlist
   Tp:
     - tp
   SetColor:
@@ -411,6 +463,12 @@ Placeholders:
     NoHome: "未设置爱巢"
     Separator: "&r, "
     NoPartnerForSlot: ""
+    Years: "&6{years}&e年 "
+    Months: "&6{months}&e月 "
+    Days: "&6{days}&e天 "
+    Hours: "&6{hours}&e时 "
+    Minutes: "&6{minutes}&e分"
+    TimeMain: "{years}{months}{days}{hours}{minutes}"
   Heart:
     Married: "&c<heart>&f"
     NotMarried: ""
@@ -443,5 +501,5 @@ LanguageName: "中文 (Chinese)"
 Author: "Fur_Xia & Freak(Ye_Yang_Dada) & 尹 & YuanYuanOwO"
 
 # Language file version. Don't touch it!
-Version: 105
+Version: 115
 Revision: 1

@@ -1,0 +1,507 @@
+# カスタマイズと翻訳プロセスを簡素化するためにエディターをご確認ください: https://ptp.pcgamingfreaks.at
+Language:
+  NotFromConsole: "&cこのコマンドはコンソールから使用できません！"
+  # グローバルワイルドカード: <heart> と <smallheart>
+  Ingame:
+    NoPermission: "&cこの操作を行う権限がありません。"
+    NaN: "&c入力された値は数値ではありません！"
+    NotMarried: "&cあなたは結婚していません。"
+    PartnerOffline: "&cパートナーはオフラインです。"
+    PartnerNotInRange: "&cパートナーが遠すぎます。"
+    TargetPartnerNotFound: "&cターゲットのパートナーが見つかりませんでした！"
+    PlayerNotMarried: "&c\"{PlayerName}\"は結婚していません！"
+    PlayerNotFound: "&c\"{PlayerName}\"が見つかりませんでした！"
+    PlayerNotOnline: "&c\"{PlayerName}\"はオフラインです！"
+    PlayersNotMarried: "&cプレイヤーたちは結婚していません！"
+    MarriageNotExact: "&c申し訳ありませんが、リクエストに一致する結婚が複数あります！"
+    JoinLeaveInfo:
+      # パートナーが1人のプレイヤーにのみ使用されます
+      PartnerOnline: "&aパートナーはオンラインです。"
+      # パートナーが1人のプレイヤーにのみ使用されます
+      PartnerOffline: "&7パートナーはオフラインです。"
+      # 複数のパートナーがいるプレイヤーにのみ使用されます
+      AllPartnersOffline: "&7すべてのパートナーがオフラインです。"
+      # 複数のパートナーがいるプレイヤーにのみ使用されます
+      PartnerOnlineMulti: "&a以下のパートナーがオンラインです: &r&f{OnlinePartners}"
+      # プレースホルダー: {Name}, {DisplayName}.    表示名には色が含まれる可能性があることに注意してください！  JSONは使用不可！！！
+      MultiOnlineFormat: "{DisplayName}"
+      # JSONは使用不可！！！
+      MultiOnlineSeparator: "&r, "
+      # プレースホルダー: {Name}, {DisplayName}
+      PartnerNowOnline: "&aパートナーがオンラインになりました。"
+      # プレースホルダー: {Name}, {DisplayName}
+      PartnerNowOffline: "&7パートナーがオフラインになりました。"
+    Backpack:
+      OnlyInSurvival: "&cサバイバルモードの時のみパートナーのバックパックにアクセスできます。"
+      ShareOn: "&aパートナーとバックパックを共有するようになりました。"
+      ShareOff: "&cパートナーとバックパックを共有しなくなりました。"
+      Opened: "&aパートナーがバックパックを開きました。"
+      ShareDenied: "&cパートナーはバックパックへのアクセスを許可していません。"
+    Chat:
+      Joined: "&aプライベート結婚チャットに切り替えました。"
+      Left: "&aパブリックチャットに切り替えました。"
+      ListeningStarted: "&a結婚チャットの listening を開始しました。"
+      ListeningStopped: "&a結婚チャットの listening を停止しました。"
+      TargetSet: "&aプライベートチャットのターゲットを設定しました。"
+      DisplayNameAll: "すべてのパートナー"
+      # プレースホルダー: {SenderDisplayName}, {SenderName}, {ReceiverDisplayName}, {ReceiverName}, {Message}, {MagicHeart}
+      Format: "{MagicHeart}&r {SenderDisplayName}&r&6 => &r{ReceiverDisplayName}&r&f: &r{Message}"
+    Gift:
+      # プレースホルダー: {AllowedGameModes}, {CurrentGameMode}
+      GameModeNotAllowedSender: "&c現在のゲームモードではプレゼントを送信できません。"
+      # プレースホルダー: {AllowedGameModes}, {CurrentGameMode}
+      GameModeNotAllowedReceiver: "&cパートナーは現在のゲームモードでプレゼントを受け取れません。"
+      NoItemInHand: "&cアイテムを持っていません。"
+      PartnerInvFull: "&cパートナーのインベントリに空きがありません。"
+      # プレースホルダー: {Name}, {DisplayName}, {ItemAmount}, {ItemName}, {ItemMetaJSON} = ホバーイベント用のJSON形式アイテム
+      ItemSent: "[{\"text\":\"パートナーに\",\"color\":\"green\"},{\"text\":\"{ItemAmount} {ItemName}\",\"hoverEvent\":{\"action\":\"show_item\",\"value\":\"{ItemMetaJSON}\"}},{\"text\":\"を送信しました。\"}]"
+      # プレースホルダー: {Name}, {DisplayName}, {ItemAmount}, {ItemName}, {ItemMetaJSON} = ホバーイベント用のJSON形式アイテム
+      ItemReceived: "[{\"text\":\"\",\"color\":\"green\"},{\"text\":\"パートナー\",\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"{DisplayName}\"}},{\"text\":\"から\"},{\"text\":\"{ItemAmount} {ItemName}\",\"hoverEvent\":{\"action\":\"show_item\",\"value\":\"{ItemMetaJSON}\"}},{\"text\":\"を受け取りました。\"}]"
+      WorldNotAllowed: "&cパートナーはプレゼントの受け取りが許可されていないワールドにいます。"
+      ItemNotAllowed: "&c{ItemName} &cをパートナーにプレゼントすることは許可されていません！"
+      # プレースホルダー: {ItemAmount}, {ItemName}, {ItemMetaJSON} = ホバーイベント用のJSON形式アイテム
+      Request:
+        Notification: "[\"\",{\"text\":\"{DisplayName}&rから\"},{\"text\":\"{ItemAmount} {ItemName}\",\"hoverEvent\":{\"action\":\"show_item\",\"value\":\"{ItemMetaJSON}\"}},{\"text\":\"のプレゼントの申し出があります。\"},{\"text\":\"/marry accept\",\"color\":\"green\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry accept\"}},{\"text\":\"で承認するか\"},{\"text\":\"/marry deny\",\"color\":\"red\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry deny\"}},{\"text\":\"で拒否してください。\"}]"
+        WaitForConfirmation: "パートナーにプレゼントリクエストを送信しました。"
+        Denied: "パートナーのプレゼントを拒否しました。"
+        DeniedPartner: "パートナーがプレゼントを拒否しました。アイテムは返却されました。"
+        Canceled: "プレゼントリクエストをキャンセルしました。"
+        CanceledPartner: "パートナーがプレゼントリクエストをキャンセルしました。アイテムは返却されました。"
+        CanceledDisconnectRequester: "パートナーがオフラインになりました。プレゼントリクエストはキャンセルされました。アイテムは返却されました。"
+        CanceledDisconnectTarget: "パートナーがオフラインになりました。プレゼントリクエストはキャンセルされました。"
+        RefundInvFull: "&cインベントリがいっぱいです。残りのプレゼントアイテムは地面にドロップされました！"
+        PartnerAlreadyHasAnOpenRequest: "&cパートナーは既に未処理のリクエストがあります。まず承認または拒否されるまでお待ちください。"
+    Home:
+      Deleted: "&aホームを正常に削除しました。"
+      PlayerNoHome: "&cプレイヤーはまだホームを設定していません。"
+      NoHome: "&cまだホームを設定していません。"
+      TPed: "&aホームにテレポートしました。"
+      Set: "&aホームを保存しました。"
+      BlockedFrom: "&cここからホームにテレポートすることは許可されていません。"
+      BlockedTo: "&cホームへのテレポートは許可されていません。ホームを移動してください。"
+    Kiss:
+      Kissed: "&eパートナーにキスしました！"
+      Kissed_SendMethod: "action_bar"
+      GotKissed: "&eパートナーがキスしてくれました！"
+      GotKissed_SendMethod: "action_bar"
+      TooFarAway: "&cパートナーにキスするには遠すぎます。（最大{Distance}ブロック）"
+      # プレースホルダー: {Time}, {TimeLeft} 秒単位
+      Wait: "&cパートナーにキスするには{Time}秒待つ必要があります。"
+    Hug:
+      Hugged: "&eパートナーをハグしました！"
+      Hugged_SendMethod: "action_bar"
+      GotHugged: "&eパートナーがハグしてくれました！"
+      GotHugged_SendMethod: "action_bar"
+      TooFarAway: "&cパートナーをハグするには遠すぎます。（最大{Distance}ブロック）"
+      # プレースホルダー: {Time}, {TimeLeft} 秒単位
+      Wait: "&cパートナーをハグするには{Time}秒待つ必要があります。"
+    Info:
+      # プレースホルダー: {Player1Name}, {Player1DisplayName}, {Player2Name}, {Player2DisplayName}, {Surname}, {MagicHeart}, {WeddingDate}, {PriestName}, {PriestDisplayName}, {HasHome}, {PvPEnabled}
+      Headline: "&e--- 結婚情報 ---"
+      Footer: "&e---------------------"
+      Player1: "&eパートナー1: {Player1DisplayName}"
+      Player2: "&eパートナー2: {Player2DisplayName}"
+      Surname: "&e名字: {Surname}"
+      WeddingDate: "&e結婚日: {WeddingDate}"
+      # JSONは使用不可！！！
+      DateFormat: "yyyy-MM-dd"
+      Priest: "&e司祭: {PriestDisplayName}"
+      NoPriest: "&e司祭: &7なし"
+      HasHome: "&eホーム設定: {HasHome}"
+      PvP: "&ePvP: {PvPEnabled}"
+      Heart: "&eハート: {MagicHeart}"
+      NotMarried: "{DisplayName}&eは結婚していません。"
+    Seen:
+      # プレースホルダー: {Name}, {DisplayName}
+      CurrentlyOnline: "{DisplayName}&rは現在&aオンライン&rです。"
+      # プレースホルダー: {Name}, {Date}, {Count}, {CountTotalDays}
+      LastSeen: "[\"\",{\"text\":\"{Name}は\"},{\"text\":\"{Date}\",\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"{Count}前\"}},{\"text\":\"に最後にオンラインになりました。\"}]"
+      # JSONは使用不可！！！
+      DateFormat: "yyyy-MM-dd 'at' HH:mm:ss"
+    List:
+      # プレースホルダー: {Player1Name}, {Player1DisplayName}, {Player2Name}, {Player2DisplayName}, {Surname}, {MagicHeart}
+      Format: "&2{Player1DisplayName} {MagicHeart} &2{Player2DisplayName}"
+      NoMarriedPlayers: "&c結婚しているプレイヤーはいません。"
+      Headline: "&e結婚済みプレイヤーリスト&r&f - &r&6{CurrentPage}/{MaxPage}ページを表示中"
+      Footer: "[\"\",{\"text\":\"<<< 前へ <<<\",\"color\":\"gray\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/{MainCommand} {SubCommand} {PrevPage}\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"/{MainCommand} {SubCommand} {PrevPage}\"}},{\"text\":\" {CurrentPage}/{MaxPage}ページを表示中 \",\"color\":\"gold\"},{\"text\":\">>> 次へ >>>\",\"color\":\"gray\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/{MainCommand} {SubCommand} {NextPage}\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"/{MainCommand} {SubCommand} {NextPage}\"}}]"
+    Partners:
+      Headline: "&e{DisplayName}のパートナーリスト:"
+      Footer: "&e##############################"
+      NotMarried: "{DisplayName}&eは結婚していません。"
+      # Player1はクエリされたプレイヤー。Player2はパートナー
+      Format: "&2{Player1DisplayName} {MagicHeart} &2{Player2DisplayName}"
+    ListPriests:
+      Format: "&2{PriestDisplayName}"
+      NoPriestsOnline: "&cオンラインの司祭はいません。"
+      Headline: "&eオンラインの司祭&r&f - &r&6{CurrentPage}/{MaxPage}ページを表示中"
+      Footer: "[\"\",{\"text\":\"<<< 前へ <<<\",\"color\":\"gray\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/{MainCommand} {SubCommand} {PrevPage}\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"/{MainCommand} {SubCommand} {PrevPage}\"}},{\"text\":\" {CurrentPage}/{MaxPage}ページを表示中 \",\"color\":\"gold\"},{\"text\":\">>> 次へ >>>\",\"color\":\"gray\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/{MainCommand} {SubCommand} {NextPage}\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"/{MainCommand} {SubCommand} {NextPage}\"}}]"
+    PvP:
+      IsDisabled: "&cPvPが無効の場合、パートナーを攻撃できません。"
+      IsDisabled_SendMethod: "action_bar"
+      On: "&aパートナーとのPvPを有効にしました。"
+      Off: "&aパートナーとのPvPを無効にしました。"
+    TP:
+      PartnerVanished: "&cパートナーがvanished状態の場合、テレポートを使用できません。"
+      Teleport: "&aパートナーにテレポート中..."
+      TeleportTo: "&aパートナーがあなたにテレポートしています..."
+      Unsafe: "&cテレポートがキャンセルされました！生き残れません！"
+      ToUnsafe: "&cパートナーがあなたにテレポートしようとしましたが、生き残れません！"
+      WorldNotAllowed: "&cパートナーはテレポートが許可されていないワールドにいます。"
+      Moved: "&cテレポートがキャンセルされました！移動しました！"
+      DontMove: "&c{Time}秒後にテレポートします！動かないでください！"
+      BlockedFrom: "&cここからパートナーへのテレポートは許可されていません。"
+      BlockedTo: "&cパートナーがいる場所へのテレポートは許可されていません。"
+      Request:
+        Notification: "[\"\",{\"text\":\"{DisplayName}&rがあなたにテレポートしたがっています。\"},{\"text\":\"/marry accept\",\"color\":\"green\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry accept\"}},{\"text\":\"で承認するか\"},{\"text\":\"/marry deny\",\"color\":\"red\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry deny\"}},{\"text\":\"で拒否してください。\"}]"
+        WaitForConfirmation: "パートナーがテレポートを承認するまでお待ちください。"
+        Denied: "パートナーのテレポートリクエストを拒否しました。"
+        DeniedPartner: "パートナーがテレポートリクエストを拒否しました。"
+        Canceled: "テレポートリクエストをキャンセルしました。"
+        CanceledPartner: "パートナーがテレポートリクエストをキャンセルしました。"
+        CanceledDisconnectRequester: "パートナーがオフラインになりました。テレポートリクエストはキャンセルされました。"
+        CanceledDisconnectTarget: "パートナーがオフラインになりました。テレポートリクエストはキャンセルされました。"
+    SetColor:
+      UnknownColor: "&c色'{Input}'を識別できません！"
+      Set: "色を設定しました。"
+      Selection: '["",{"text":"結婚のハートをどのように見せたいかクリックしてください:"},{"text":"\n"},{"text":" ❤ ","color":"dark_red","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} dark_red"},"hoverEvent":{"action":"show_text","value":"ハートの色を&4暗い赤&rに設定します。"}},{"text":" ❤ ","color":"red","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} red"},"hoverEvent":{"action":"show_text","value":"ハートの色を&c赤&rに設定します。"}},{"text":" ❤ ","color":"gold","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} gold"},"hoverEvent":{"action":"show_text","value":"ハートの色を&6ゴールド&rに設定します。"}},{"text":" ❤ ","color":"yellow","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} yellow"},"hoverEvent":{"action":"show_text","value":"ハートの色を&e黄色&rに設定します。"}},{"text":" ❤ ","color":"dark_green","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} dark_green"},"hoverEvent":{"action":"show_text","value":"ハートの色を&2暗い緑&rに設定します。"}},{"text":" ❤ ","color":"green","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} green"},"hoverEvent":{"action":"show_text","value":"ハートの色を&a緑&rに設定します。"}},{"text":" ❤ ","color":"aqua","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} aqua"},"hoverEvent":{"action":"show_text","value":"ハートの色を&bアクア&rに設定します。"}},{"text":" ❤ ","color":"dark_aqua","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} dark_aqua"},"hoverEvent":{"action":"show_text","value":"ハートの色を&3暗いアクア&rに設定します。"}},{"text":" ❤ ","color":"dark_blue","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} dark_blue"},"hoverEvent":{"action":"show_text","value":"ハートの色を&1暗い青&rに設定します。"}},{"text":" ❤ ","color":"light_purple","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} light_purple"},"hoverEvent":{"action":"show_text","value":"ハートの色を&d明るい紫&rに設定します。"}},{"text":" ❤ ","color":"white","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} white"},"hoverEvent":{"action":"show_text","value":"ハートの色を&f白&rに設定します。"}},{"text":" ❤ ","color":"gray","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} gray"},"hoverEvent":{"action":"show_text","value":"ハートの色を&7灰色&rに設定します。"}},{"text":" ❤ ","color":"dark_gray","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} dark_gray"},"hoverEvent":{"action":"show_text","value":"ハートの色を&8暗い灰色&rに設定します。"}},{"text":" ❤ ","color":"black","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} black"},"hoverEvent":{"action":"show_text","value":"ハートの色を&0黒&rに設定します。"}}]'
+    SetPriest:
+      # プレースホルダー: {Name}, {DisplayName}.    表示名には色が含まれることに注意してください！
+      MadeYouAPriest: "{DisplayName}&r&aがあなたを司祭に任命しました。"
+      YouMadeAPriest: "{DisplayName}&r&aは司祭になりました。"
+      FiredYou: "{DisplayName}&r&cがあなたを司祭から解任しました。"
+      YouFiredAPriest: "{DisplayName}&r&aは司祭ではなくなりました。"
+      PerPermission: "{DisplayName}&r&cは権限で司祭に設定されており、コマンドで解任できません。"
+    Surname:
+      SetSuccessful: "&a名字を変更しました。"
+      SetFailed: "&c名字の変更に失敗しました。"
+      ToShort: "&c入力された名字が短すぎます。最低{MinLength}文字必要です。"
+      ToLong: "&c入力された名字が長すぎます。{MaxLength}文字を超えることはできません。"
+      AlreadyUsed: "&c入力された名字は既に使用されています！"
+      Banned: "&c入力された名字は許可されていません。"
+      Confirm: "[\"\",{\"text\":\"{PriestDisplayName}&r\"},{\"text\":\"があなたの名字を\",\"color\":\"white\"},{\"text\":\"{Surname}&r\"},{\"text\":\"から\",\"color\":\"white\"},{\"text\":\"{NewSurname}&r\",\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"現在の名字: {Surname}\"}},{\"text\":\"に変更したがっています。\",\"color\":\"white\"},{\"text\":\"/marry accept\",\"color\":\"green\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry accept\"}},{\"text\":\"で承認するか\",\"color\":\"white\"},{\"text\":\"/marry deny\",\"color\":\"red\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry deny\"}},{\"text\":\"で拒否してください。\",\"color\":\"white\"}]"
+      PlayerOff: "{DisplayName}&rがオフラインになりました。名字の変更はキャンセルされました。"
+      PriestOff: "司祭{DisplayName}&rがオフラインになりました。名字の変更はキャンセルされました。"
+      PlayerCancelled: "&c&r&c{PlayerDisplayName}&r&cが{NewSurname}&r&cへの名字の変更をキャンセルしました！"
+      PriestCancelled: "&c&r&c{PriestDisplayName}&r&cが{NewSurname}&r&cへの名字の変更をキャンセルしました！"
+      YouCancelled: "&a{NewSurname}&r&aへの名字の変更をキャンセルしました！"
+      YouCancelledPriest: "&a&r&a{Player1DisplayName}&r&aと&r&a{Player2DisplayName}&r&aの{NewSurname}&r&aへの名字の変更をキャンセルしました！"
+      Deny: "{DisplayName}&r&cが名字の変更を拒否しました！"
+      YouDeny: "&a{NewSurname}&r&aへの名字の変更を拒否しました。"
+      PlayerOffline: "&cプレイヤーがオフラインのため、名字の変更の同意を確認できません。"
+    Requests:
+      NothingToAccept: "&c承認する未処理のリクエストがありません。"
+      NothingToDeny: "&c拒否する未処理のリクエストがありません。"
+      NothingToCancel: "&cキャンセルする未処理のリクエストがありません。"
+    Marry:
+      # プレースホルダー: {Name}, {DisplayName}.    表示名には色が含まれることに注意してください！
+      NotWithHimself: "&c&r&c{DisplayName}&r&cを自分自身と結婚させることはできません。"
+      AlreadySamePair: "&c既に互いに結婚しているプレイヤーを結婚させることはできません。&r&c{Player1DisplayName}&r&cは既に&r&c{Player2DisplayName}&r&cと結婚しています。"
+      AlreadyMarried: "&c既に結婚しているプレイヤーを結婚させることはできません。&r&c{DisplayName}&r&cは既に結婚しています。"
+      SurnameNeeded: "&c結婚にはカップルの名字が必要です。"
+      Married: "&a&r&a{Player1DisplayName}&r&aと&r&a{Player2DisplayName}&r&aを結婚させました。"
+      HasMarried: "{PriestDisplayName}&r&aがあなたと&r{PartnerDisplayName}&r&aを結婚させました。"
+      Broadcast: "{PriestDisplayName}&r&aが{Player1DisplayName}&r&aと&r{Player2DisplayName}&r&aを結婚させました。"
+      NotInRange: "&cプレイヤーが範囲内にいません！{Range}ブロック以内にいる必要があります！"
+      AlreadyOpenRequest: "{DisplayName}&r&cは既に未回答の結婚リクエストがあります。"
+      YouCalledOff: "結婚式を中止しました。"
+      PlayerCalledOff: "{DisplayName}&rが結婚式を中止しました。"
+      Confirm: "[\"\",{\"text\":\"{PriestDisplayName}&r\"},{\"text\":\"があなたを\",\"color\":\"white\"},{\"text\":\"{PlayerDisplayName}&r\"},{\"text\":\"と結婚させたがっています。\",\"color\":\"white\"},{\"text\":\"/marry accept\",\"color\":\"green\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry accept\"}},{\"text\":\"で承認するか\",\"color\":\"white\"},{\"text\":\"/marry deny\",\"color\":\"red\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry deny\"}},{\"text\":\"で拒否してください。\",\"color\":\"white\"}]"
+      PriestOff: "司祭{DisplayName}&rがオフラインになりました。結婚式は中止されました。"
+      PlayerOff: "{DisplayName}&rがオフラインになりました。結婚式は中止されました。"
+      MaxPartnersReached: "{DisplayName}&rは既に許可された最大パートナー数（{MaxPartnerCount}）に達しています。"
+      Self:
+        NotYourself: "&c自分自身と結婚することはできません。"
+        NotInRange: "&cプレイヤーが範囲内にいません！{Range}ブロック以内にいる必要があります！"
+        AlreadySamePair: "&c私たちは既に&r&c{DisplayName}&r&cと結婚しています！"
+        AlreadyMarried: "&cあなたは既に&r&c{DisplayName}&r&cと結婚しています！"
+        OtherAlreadyMarried: "&c&r&c{DisplayName}&r&cは既に結婚しています！"
+        AlreadyOpenRequest: "&c未回答の結婚リクエストが既にあります。"
+        Married: "&a&r&a{DisplayName}&r&aと結婚しました。"
+        Broadcast: "&a&r&a{Player1DisplayName}&r&aと&r&a{Player2DisplayName}&r&aが結婚しました。"
+        YouCalledOff: "結婚式を中止しました。"
+        PlayerCalledOff: "{DisplayName}&rが結婚式を中止しました。"
+        Confirm: "[\"\",{\"text\":\"{DisplayName}&r\"},{\"text\":\"があなたと結婚したがっています。\",\"color\":\"white\"},{\"text\":\"/marry accept\",\"color\":\"green\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry accept\"}},{\"text\":\"で承認するか\",\"color\":\"white\"},{\"text\":\"/marry deny\",\"color\":\"red\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry deny\"}},{\"text\":\"で拒否してください。\",\"color\":\"white\"}]"
+        RequestSent: "結婚リクエストを送信しました。"
+        PlayerOff: "{DisplayName}&rがオフラインになりました。結婚式は中止されました。"
+        NotOnYourOwn: "&c自分自身の結婚式を行うことはできません。司祭に結婚式を行ってもらってください。"
+        MaxPartnersReached: "あなたは既に許可された最大パートナー数（{MaxPartnerCount}）に達しています。"
+        MaxPartnersReachedOther: "{DisplayName}&rは既に許可された最大パートナー数（{MaxPartnerCount}）に達しています。"
+    Divorce:
+      Broadcast: "&a&r&a{PriestDisplayName}&r&aが&r&a{Player1DisplayName}&r&aと&r&a{Player2DisplayName}&r&aを離婚させました。"
+      DivorcedPlayer: "&a&r&a{PriestDisplayName}&r&aがあなたと&r&a{PartnerDisplayName}&r&aの結婚を離婚させました。"
+      Divorced: "&a&r&a{Player1DisplayName}&r&aと&r&a{Player2DisplayName}&r&aを離婚させました。"
+      PlayerOff: "{DisplayName}&rがオフラインになりました。離婚はキャンセルされました。"
+      PriestOff: "司祭{DisplayName}&rがオフラインになりました。離婚はキャンセルされました。"
+      PlayerCancelled: "&c&r&c{PlayerDisplayName}&r&cが&r&c{PartnerDisplayName}&r&cとの離婚をキャンセルしました！"
+      PriestCancelled: "&c&r&c{PriestDisplayName}&r&cがあなたと&r&c{PartnerDisplayName}&r&cの離婚をキャンセルしました！"
+      YouCancelled: "&a&r&a{DisplayName}&r&aとの離婚をキャンセルしました！"
+      YouCancelledPriest: "&a&r&a{Player1DisplayName}&r&aと&r&a{Player2DisplayName}&r&aの離婚をキャンセルしました！"
+      Deny: "{DisplayName}&r&cが離婚を拒否しました！"
+      YouDeny: "&a&r&a{DisplayName}&r&aとの離婚を拒否しました。"
+      Confirm: "[\"\",{\"text\":\"{PriestDisplayName}&r\"},{\"text\":\"があなたを\",\"color\":\"white\"},{\"text\":\"{PartnerDisplayName}\"},{\"text\":\"から離婚させたがっています。\",\"color\":\"white\"},{\"text\":\"/marry accept\",\"color\":\"green\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry accept\"}},{\"text\":\"で承認するか\",\"color\":\"white\"},{\"text\":\"/marry deny\",\"color\":\"red\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry deny\"}},{\"text\":\"で拒否してください。\",\"color\":\"white\"}]"
+      NotInRange: "&cプレイヤーが範囲内にいません！{Range}ブロック以内にいる必要があります！"
+      Self:
+        Divorced: "&a&r&a{DisplayName}&r&aと離婚しました。あなたは自由です。"
+        DivorcedPlayer: "{DisplayName}&r&aがあなたと離婚しました。あなたは自由です。"
+        Broadcast: "&a&r&a{Player1DisplayName}&r&aと&r&a{Player2DisplayName}&r&aが離婚しました。"
+        PlayerOff: "{DisplayName}&rがオフラインになりました。離婚はキャンセルされました。"
+        RequestSent: "{DisplayName}&rに離婚リクエストを送信しました。"
+        Confirm: "[\"\",{\"text\":\"{DisplayName}&r\"},{\"text\":\"があなたと離婚したがっています。\",\"color\":\"white\"},{\"text\":\"/marry accept\",\"color\":\"green\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry accept\"}},{\"text\":\"で承認するか\",\"color\":\"white\"},{\"text\":\"/marry deny\",\"color\":\"red\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry deny\"}},{\"text\":\"で拒否してください。\",\"color\":\"white\"}]"
+        Deny: "{DisplayName}&r&cがあなたの離婚リクエストを拒否しました！"
+        YouDeny: "&a&r&a{DisplayName}&r&aの離婚リクエストを拒否しました。"
+        Cancelled: "{DisplayName}&r&cが離婚リクエストをキャンセルしました！"
+        YouCancelled: "&a&r&a{DisplayName}&r&aへの離婚リクエストをキャンセルしました！"
+        NotInRange: "&cパートナーが範囲内にいません！{Range}ブロック以内にいる必要があります！"
+    Economy:
+      NotEnough: "&cお金が足りません！{Cost} {CurrencyName}必要です。"
+      PartnerNotEnough: "&cパートナーのお金が足りません！"
+      PriestMarryNotEnough: "&c結婚させようとしているプレイヤーのお金が足りません。"
+      PriestDivorceNotEnough: "&c離婚させようとしているプレイヤーのお金が足りません。"
+      MarriagePaid: "&a結婚に{Cost} {CurrencyName}支払いました（{Remaining} {CurrencyName}残高）。"
+      DivorcePaid: "&a結婚の解消に{Cost} {CurrencyName}支払いました（{Remaining} {CurrencyName}残高）。"
+      HomeTPPaid: "&aホームテレポートに{Cost} {CurrencyName}支払いました（{Remaining} {CurrencyName}残高）。"
+      SetHomePaid: "&aホームの設定に{Cost} {CurrencyName}支払いました（{Remaining} {CurrencyName}残高）。"
+      TpPaid: "&aテレポートに{Cost} {CurrencyName}支払いました（{Remaining} {CurrencyName}残高）。"
+      GiftPaid: "&aパートナーへのプレゼントに{Cost} {CurrencyName}支払いました（{Remaining} {CurrencyName}残高）。"
+      SurnameChangePaid: "&a名字の変更に{Cost} {CurrencyName}支払いました（{Remaining} {CurrencyName}残高）。"
+    Admin:
+      Reloading: "&1リロード中..."
+      Reloaded: "&1リロード完了！"
+      ReloadingDatabase: '&bデータベースをリロード中 &6.&r&c.&r&a.&r'
+      CheckingForUpdates: "&1アップデートを確認中..."
+      Updated: "&eプラグインがアップデートされました。次回の再起動/リロード時に読み込まれます。"
+      NoUpdate: "&6利用可能なプラグインのアップデートはありません。"
+      UpdateFail: "&cアップデートの確認中に問題が発生しました！コンソールを確認してください！"
+      # お好きなように変更できますが、リンクがプラグインに繋がらなくなっても文句を言わないでください！
+      UpdateAvailable: "[{\"text\":\"アップデートがあります！\\\"\",\"color\":\"green\"},{\"text\":\"https://www.spigotmc.org/resources/marriage-master-mc-1-7-1-9.19273/\",\"color\":\"yellow\",\"underlined\":true,\"clickEvent\":{\"action\":\"open_url\",\"value\":\"https://www.spigotmc.org/resources/marriage-master-mc-1-7-1-9.19273/\"}},{\"text\":\"\\\"からダウンロードしてください！\"}]"
+    Help:
+      Header: "&6### Marriage Master コマンド ###"
+      Footer: "&6#############################"
+      # プレイヤーがパラメータなしで"/marry"コマンドを使用した場合に送信されるメッセージを定義できます（設定でHelpModeをCustomHelpに設定する必要があります）
+      CustomHelp:
+        # 結婚しているプレイヤーに使用されます
+        Married:
+          - " &3__&b&l結婚コマンド&r&3__"
+          - ""
+          - '[{"text":" ➤ ","color":"white"},{"text":"/marry kiss","color":"dark_aqua","bold":true,"underlined":true,"clickEvent":{"action":"run_command","value":"/marry kiss"}},{"text":" パートナーにキスする","color":"aqua"}]'
+          - '[{"text":" ➤ ","color":"yellow"},{"text":"/marry tp","color":"dark_aqua","bold":true,"underlined":true,"clickEvent":{"action":"run_command","value":"/marry tp"}},{"text":" パートナーにテレポート","color":"aqua"}]'
+          - '[{"text":" ➤ ","color":"gold"},{"text":"/marry chat toggle","color":"dark_aqua","bold":true,"underlined":true,"clickEvent":{"action":"run_command","value":"/marry chat toggle"}},{"text":" パートナーとプライベートチャット","color":"aqua"}]'
+          - '[{"text":" ➤ ","color":"gold"},{"text":"/marry gift","color":"dark_aqua","bold":true,"underlined":true,"clickEvent":{"action":"run_command","value":"/marry gift"}},{"text":" パートナーにアイテムをプレゼント","color":"aqua"}]'
+          - '[{"text":"すべてのコマンドのリストを見るには","color":"dark_green"},{"text":"/marry help","color":"dark_aqua","bold":true},{"text":"を使用してください"}]'
+        # 司祭であるプレイヤーに使用されます
+        Priest:
+          - " &3__&b&l結婚&r&3__"
+          - "&b /marry marry <player1> <player2> を使用してプレイヤーを結婚させることができます"
+          - '[{"text":"すべてのコマンドのリストを見るには","color":"dark_green"},{"text":"/marry help","color":"dark_aqua","bold":true},{"text":"を使用してください"}]'
+        # 結婚しておらず、司祭でもないプレイヤーに使用されます
+        Default:
+          - " &3__&b&l結婚&r&3__"
+          - "&cこのコマンドを使用するには結婚している必要があります"
+
+  Commands:
+    HelpFormat: "[\"\",{\"text\":\"/{MainCommand} {SubCommand} {Parameters}\",\"clickEvent\":{\"action\":\"suggest_command\",\"value\":\"/{MainCommand} {SubCommand}\"}},{\"text\":\" - \",\"color\":\"white\"},{\"text\":\"{Description}\",\"color\":\"aqua\"}]"
+    # 色コードは使用しないでください
+    PlayerNameVariable: "プレイヤー名"
+    PartnerNameVariable: "パートナー名"
+    SurnameVariable: "名字"
+    MessageVariable: "メッセージ"
+    Description:
+      Backpack: "パートナーのバックパックを開きます。"
+      BackpackOn: "パートナーにバックパックの使用を許可します。"
+      BackpackOff: "パートナーのバックパックの使用を禁止します。"
+      Chat: "パートナーとプライベートチャットをします。"
+      ChatSetTarget: "プライベートメッセージのターゲットを変更します。変更しない場合、すべてのパートナーがメッセージを受け取ります。"
+      ChatToggle: "チャットをパートナーとのプライベートに切り替えます。"
+      ChatListen: "結婚したプレイヤーからパートナーに送信されたすべてのチャットメッセージを表示します。"
+      Gift: "手にあるアイテムをパートナーにプレゼントします。"
+      Home: "ホームにテレポートします。"
+      HomeOther: "結婚したプレイヤーのホームにテレポートします。"
+      SetHome: "ホームを設定します。"
+      SetHomeOther: "結婚したプレイヤーのホームを設定します。"
+      DelHome: "ホームを削除します。"
+      DelHomeOther: "結婚したプレイヤーのホームを削除します。"
+      Help: "利用可能なすべてのコマンドとその説明を表示します。"
+      List: "すべての結婚したプレイヤーをリストします。"
+      ListPriests: "現在オンラインのすべての司祭をリストします。"
+      Partners: "プレイヤーのすべてのパートナーをリストします"
+      PvP: "パートナーとのPvPステータスを変更します。"
+      PvPOn: "パートナーとのPvPを有効にします。"
+      PvPOff: "パートナーとのPvPを無効にします。"
+      Tp: "パートナーにテレポートします。"
+      Kiss: "パートナーにキスします。"
+      Hug: "パートナーをハグします。"
+      Seen: "パートナーが最後にオンラインだった時刻を表示します。"
+      Info: "結婚に関する情報を表示します。"
+      Marry: "2人のプレイヤーを結婚させます。"
+      MarrySelf: "別のプレイヤーに結婚リクエストを送信します。"
+      Divorce: "2人のプレイヤーを離婚させます。"
+      DivorceSelf: "パートナーと離婚します。"
+      Surname: "カップルの名字を変更します。"
+      SurnameSelf: "パートナーとあなたの名字を変更します。"
+      Update: "アップデートが利用可能かどうかを確認し、ダウンロードします。"
+      Accept: "未処理のリクエストを承認します。"
+      Cancel: "未処理のリクエストをキャンセルします。"
+      Deny: "未処理のリクエストを拒否します。"
+      SetColor: "結婚の色を設定します。"
+      SetPriest: "プレイヤーを司祭に昇格/降格します。"
+      Reload: "プラグインの設定をリロードします。"
+      Version: "プラグインとその依存関係のバージョン詳細を表示します。"
+# リストの最初のオプションがコマンドヘルプに表示されるものになります
+Command:
+  Switches:
+    On:
+      - on
+      - true
+      - yes
+    Off:
+      - off
+      - false
+      - no
+    Toggle:
+      - toggle
+      - switch
+    All:
+      - all
+    Remove:
+      - remove
+      - rm
+      - delete
+      - del
+      - clear
+      - clean
+  Main:
+    - marry
+  Backpack:
+    - backpack
+    - bp
+  Chat:
+    - chat
+  ChatSetTarget:
+    - settarget
+    - target
+  ChatToggle:
+    - chattoggle
+  ChatListen:
+    - listenchat
+    - chatlisten
+  Gift:
+    - gift
+    - send
+    - give
+  Help:
+    - help
+  Home:
+    - home
+  SetHome:
+    - sethome
+    - definehome
+    - savehome
+  DelHome:
+    - delhome
+    - deletehome
+    - unsethome
+  PvP:
+    - pvp
+  Kiss:
+    - kiss
+  Hug:
+    - hug
+  Seen:
+    - seen
+    - lastOnline
+  Info:
+    - info
+    - marriageinfo
+  PvPOn:
+    - pvpon
+  PvPOff:
+    - pvpoff
+  List:
+    - list
+  ListPriests:
+    - listpriests
+  Partners:
+    - partners
+    - listpartners
+    - partnerlist
+  Tp:
+    - tp
+  SetColor:
+    - setcolor
+  Marry:
+    - marry
+  Divorce:
+    - divorce
+  SetPriest:
+    - setpriest
+  Update:
+    - update
+  Version:
+    - version
+  Accept:
+    - accept
+  Cancel:
+    - cancel
+  Deny:
+    - deny
+Dialog:
+  # プレースホルダー: {Planer1Name}, {Player1DisplayName}, {Planer2Name}, {Player2DisplayName}
+  DoYouWant: "{Player1Name}さん、このサーバーで{Player2Name}さんと結婚しますか？"
+  # プレースホルダー: {Planer1Name}, {Player1DisplayName}, {Planer2Name}, {Player2DisplayName}
+  AndDoYouWant: "そして{Player2Name}さん、このサーバーで{Player1Name}さんと結婚しますか？"
+  # プレースホルダー: {Planer1Name}, {Player1DisplayName}, {Planer2Name}, {Player2DisplayName}
+  Married: "ここに{Player1Name}と{Player2Name}を夫婦として宣言します！キスしてください。"
+  YesIWant: "はい、喜んで！"
+  NoIDontWant: "いいえ、しません！"
+# この選択により、プレースホルダーの戻り値を変更できます。お好きなように変更できます。 https://github.com/GeorgH93/MarriageMaster/wiki/Placeholders
+Placeholders:
+  # 何も指定されていない場合に使用されるデフォルトのフォーマットデータ
+  Default:
+    Boolean:
+      True: true
+      False: false
+    NotMarried: "未婚"
+    NoHome: "ホームなし"
+    Separator: "&r, "
+    NoPartnerForSlot: ""
+    Years: "&6{years}&e年 "
+    Months: "&6{months}&eヶ月 "
+    Days: "&6{days}&e日 "
+    Hours: "&6{hours}&e時間 "
+    Minutes: "&6{minutes}&e分"
+    TimeMain: "{years}{months}{days}{hours}{minutes}"
+  Heart:
+    Married: "&c<heart>&f"
+    NotMarried: ""
+  MagicHeart:
+    Married: "<heart>&f"
+    NotMarried: ""
+  Prefix:
+    NotMarried: ""
+  Suffix:
+    NotMarried: ""
+  StatusHeart:
+    Married: "&c<heart>&f"
+    NotMarried: "&7<heart>&f"
+  Home:
+    # 順序: world, x, y, z
+    Married: "%1$s %2$.1f %3$.1f %4$.1f"
+  HomeCoordinates:
+    # 順序: x, y, z
+    Married: "%1$.1f %2$.1f %3$.1f"
+  NearestHome:
+    # 順序: world, x, y, z
+    Married: "%1$s %2$.1f %3$.1f %4$.1f"
+  NearestHomeCoordinates:
+    # 順序: x, y, z
+    Married: "%1$.1f %2$.1f %3$.1f"
+
+
+# 言語ファイルが表す言語の名前
+LanguageName: "日本語"
+# 言語ファイルの作者
+Author: "OpenCode"
+
+# 言語ファイルのバージョン。触らないでください！
+Version: 115
+Revision: 1

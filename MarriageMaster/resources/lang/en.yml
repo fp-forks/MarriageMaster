@@ -70,7 +70,7 @@ Language:
         CanceledDisconnectRequester: "Your partner went offline. Gift request canceled. Your item has been refunded."
         CanceledDisconnectTarget: "Your partner went offline. Gift request canceled."
         RefundInvFull: "&cYour inventory is full, dropped leftover gift items on the ground!"
-        PartnerAlreadyHasAnOpenRequest: "&cYour partner already has an open request. Please wait from them to accept or deny it first."
+        PartnerAlreadyHasAnOpenRequest: "&cYour partner already has an open request. Please wait for them to accept or deny it first."
     Home:
       Deleted: "&aHome successfully deleted."
       PlayerNoHome: "&cThe player doesn't have a home yet."
@@ -152,7 +152,7 @@ Language:
       BlockedFrom: "&cYou are not allowed to teleport to your partner from here."
       BlockedTo: "&cYou are not allowed to teleport to where your partner is."
       Request:
-        Notification: "[\"\",{\"text\":\"{DisplayName}&r wants teleport to you. Accept the teleport with \"},{\"text\":\"/marry accept\",\"color\":\"green\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry accept\"}},{\"text\":\" or deny it with \"},{\"text\":\"/marry deny\",\"color\":\"red\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry deny\"}},{\"text\":\".\"}]"
+        Notification: "[\"\",{\"text\":\"{DisplayName}&r wants to teleport to you. Accept the teleport with \"},{\"text\":\"/marry accept\",\"color\":\"green\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry accept\"}},{\"text\":\" or deny it with \"},{\"text\":\"/marry deny\",\"color\":\"red\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry deny\"}},{\"text\":\".\"}]"
         WaitForConfirmation: "Please wait till your partner accepts the teleport."
         Denied: "You denied the teleport request of your partner."
         DeniedPartner: "Your partner denied the teleport request."
@@ -162,12 +162,12 @@ Language:
         CanceledDisconnectTarget: "Your partner went offline. Teleport request canceled."
     SetColor:
       UnknownColor: "&cUnable to identify color '{Input}'!"
-      Set: "Color set."
-      Selection: '["",{"text":"Please click on how you would like the heart for your marriage to look like:"},{"text":"\n"},{"text":" ❤ ","color":"dark_red","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} dark_red"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to &4dark red&r."}},{"text":" ❤ ","color":"red","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} red"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to &cred&r."}},{"text":" ❤ ","color":"gold","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} gold"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to &6gold&r."}},{"text":" ❤ ","color":"yellow","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} yellow"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to &eyellow&r."}},{"text":" ❤ ","color":"dark_green","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} dark_green"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to &2dark green&r."}},{"text":" ❤ ","color":"green","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} green"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to &agreen&r."}},{"text":" ❤ ","color":"aqua","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} aqua"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to &baqua&r."}},{"text":" ❤ ","color":"dark_aqua","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} dark_aqua"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to &3dark aqua&r."}},{"text":" ❤ ","color":"dark_blue","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} dark_blue"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to &1dark blue&r."}},{"text":" ❤ ","color":"blue","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} blue"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to &9blue&r."}},{"text":" ❤ ","color":"light_purple","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} light_purple"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to &dlight purple&r."}},{"text":" ❤ ","color":"dark_purple","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} dark_purple"},"hoverEvent":{"action":"show_text","value":"Sets the text of the heart to &5dark purple&r."}},{"text":" ❤ ","color":"white","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} white"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to &fwhite&r."}},{"text":" ❤ ","color":"gray","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} gray"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to &7gray&r."}},{"text":" ❤ ","color":"dark_gray","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} dark_gary"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to &8dark gray&r."}},{"text":" ❤ ","color":"black","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} black"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to black."}}]'
+      Set: "&aColor set."
+      Selection: '["",{"text":"Please click on how you would like the heart for your marriage to look:"},{"text":"\n"},{"text":" ❤ ","color":"dark_red","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} dark_red"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to &4dark red&r."}},{"text":" ❤ ","color":"red","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} red"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to &cred&r."}},{"text":" ❤ ","color":"gold","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} gold"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to &6gold&r."}},{"text":" ❤ ","color":"yellow","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} yellow"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to &eyellow&r."}},{"text":" ❤ ","color":"dark_green","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} dark_green"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to &2dark green&r."}},{"text":" ❤ ","color":"green","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} green"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to &agreen&r."}},{"text":" ❤ ","color":"aqua","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} aqua"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to &baqua&r."}},{"text":" ❤ ","color":"dark_aqua","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} dark_aqua"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to &3dark aqua&r."}},{"text":" ❤ ","color":"dark_blue","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} dark_blue"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to &1dark blue&r."}},{"text":" ❤ ","color":"blue","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} blue"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to &9blue&r."}},{"text":" ❤ ","color":"light_purple","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} light_purple"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to &dlight purple&r."}},{"text":" ❤ ","color":"dark_purple","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} dark_purple"},"hoverEvent":{"action":"show_text","value":"Sets the text of the heart to &5dark purple&r."}},{"text":" ❤ ","color":"white","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} white"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to &fwhite&r."}},{"text":" ❤ ","color":"gray","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} gray"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to &7gray&r."}},{"text":" ❤ ","color":"dark_gray","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} dark_gary"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to &8dark gray&r."}},{"text":" ❤ ","color":"black","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} black"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to black."}}]'
     SetPriest:
       # Placeholders: {Name}, {DisplayName}.    Keep in mind display names contain colors!
       MadeYouAPriest: "{DisplayName}&r&a has made you a priest."
-      YouMadeAPriest: "{DisplayName}&r&a now is a priest."
+      YouMadeAPriest: "{DisplayName}&r&a is now a priest."
       FiredYou: "{DisplayName}&r&c has fired you as a priest."
       YouFiredAPriest: "{DisplayName}&r&a is no longer a priest."
       PerPermission: "{DisplayName}&r&c is set as a priest per permission and can't be fired by command."
@@ -178,7 +178,7 @@ Language:
       ToLong: "&cThe given surname is too long. It can't be more than {MaxLength} characters long."
       AlreadyUsed: "&cThe given surname is already in use!"
       Banned: "&cThe given surname is not allowed."
-      Confirm: "[\"\",{\"text\":\"{PriestDisplayName}&r\"},{\"text\":\" wants to change your surname from\",\"color\":\"white\"},{\"text\":\"{Surname}&r\"},{\"text\":\" to \",\"color\":\"white\"},{\"text\":\"{NewSurname}&r\",\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"Current surname: {Surname}\"}},{\"text\":\". Accept the marriage with \",\"color\":\"white\"},{\"text\":\"/marry accept\",\"color\":\"green\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry accept\"}},{\"text\":\" or deny it with \",\"color\":\"white\"},{\"text\":\"/marry deny\",\"color\":\"red\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry deny\"}},{\"text\":\".\",\"color\":\"white\"}]"
+      Confirm: "[\"\",{\"text\":\"{PriestDisplayName}&r\"},{\"text\":\" wants to change your surname from\",\"color\":\"white\"},{\"text\":\"{Surname}&r\"},{\"text\":\" to \",\"color\":\"white\"},{\"text\":\"{NewSurname}&r\",\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"Current surname: {Surname}\"}},{\"text\":\". Accept the surname change with \",\"color\":\"white\"},{\"text\":\"/marry accept\",\"color\":\"green\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry accept\"}},{\"text\":\" or deny it with \",\"color\":\"white\"},{\"text\":\"/marry deny\",\"color\":\"red\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry deny\"}},{\"text\":\".\",\"color\":\"white\"}]"
       PlayerOff: "{DisplayName}&r is now offline, surname change canceled."
       PriestOff: "Priest {DisplayName}&r is now offline, surname change canceled."
       PlayerCancelled: "&c&r&c{PlayerDisplayName}&r&c cancelled the surname change to {NewSurname}&r&c!"
@@ -195,16 +195,16 @@ Language:
     Marry:
       # Placeholders: {Name}, {DisplayName}.    Keep in mind display names contain colors!
       NotWithHimself: "&cYou can't marry &r&c{DisplayName}&r&c with himself."
-      AlreadySamePair: "&cYou can't marry players that are already married to each other. &r&c{Player1DisplayName}&r&c is already married with &r&c{Player2DisplayName}&r&c."
+      AlreadySamePair: "&cYou can't marry players that are already married to each other. &r&c{Player1DisplayName}&r&c is already married to &r&c{Player2DisplayName}&r&c."
       AlreadyMarried: "&cYou can't marry players that are already married. &r&c{DisplayName}&r&c is already married."
       SurnameNeeded: "&cYou need a surname for the couple to marry."
-      Married: "&aYou have married &r&a{Player1DisplayName}&r&a with &r&a{Player2DisplayName}&r&a."
-      HasMarried: "{PriestDisplayName}&r&a has married you with &r{PartnerDisplayName}&r&a."
-      Broadcast: "{PriestDisplayName}&r&a has married {Player1DisplayName}&r&a with &r{Player2DisplayName}&r&a."
+      Married: "&aYou have married &r&a{Player1DisplayName}&r&a to &r&a{Player2DisplayName}&r&a."
+      HasMarried: "{PriestDisplayName}&r&a has married you to &r{PartnerDisplayName}&r&a."
+      Broadcast: "{PriestDisplayName}&r&a has married {Player1DisplayName}&r&a to &r{Player2DisplayName}&r&a."
       NotInRange: "&cThe players are not in range! They need to be within {Range} blocks!"
       AlreadyOpenRequest: "{DisplayName}&r&c has already one not answered marry request."
-      YouCalledOff: "You have called the wedding off."
-      PlayerCalledOff: "{DisplayName}&r called the wedding off."
+      YouCalledOff: "&aYou have called the wedding off."
+      PlayerCalledOff: "&a{DisplayName}&r called the wedding off."
       Confirm: "[\"\",{\"text\":\"{PriestDisplayName}&r\"},{\"text\":\" wants to marry you with \",\"color\":\"white\"},{\"text\":\"{PlayerDisplayName}&r\"},{\"text\":\". Accept the marriage with \",\"color\":\"white\"},{\"text\":\"/marry accept\",\"color\":\"green\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry accept\"}},{\"text\":\" or deny it with \",\"color\":\"white\"},{\"text\":\"/marry deny\",\"color\":\"red\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry deny\"}},{\"text\":\".\",\"color\":\"white\"}]"
       PriestOff: "Priest {DisplayName}&r is now offline, wedding called off."
       PlayerOff: "{DisplayName}&r is now offline, wedding called off."
@@ -212,16 +212,16 @@ Language:
       Self:
         NotYourself: "&cYou can't marry yourself."
         NotInRange: "&cThe player is not in range! They need to be within {Range} blocks!"
-        AlreadySamePair: "&cWe are already married with &r&c{DisplayName}&r&c!"
-        AlreadyMarried: "&cYou are already married with &r&c{DisplayName}&r&c!"
+        AlreadySamePair: "&cWe are already married to &r&c{DisplayName}&r&c!"
+        AlreadyMarried: "&cYou are already married to &r&c{DisplayName}&r&c!"
         OtherAlreadyMarried: "&c&r&c{DisplayName}&r&c is already married!"
         AlreadyOpenRequest: "&cYou have already one not answered marry request."
         Married: "&aYou have married &r&a{DisplayName}&r&a."
         Broadcast: "&a&r&a{Player1DisplayName}&r&a has married &r&a{Player2DisplayName}&r&a."
-        YouCalledOff: "You have called the wedding off."
-        PlayerCalledOff: "{DisplayName}&r called the wedding off."
+        YouCalledOff: "&aYou have called the wedding off."
+        PlayerCalledOff: "&a{DisplayName}&r called the wedding off."
         Confirm: "[\"\",{\"text\":\"{DisplayName}&r\"},{\"text\":\" wants to marry you. Accept the marriage with \",\"color\":\"white\"},{\"text\":\"/marry accept\",\"color\":\"green\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry accept\"}},{\"text\":\" or deny it with \",\"color\":\"white\"},{\"text\":\"/marry deny\",\"color\":\"red\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry deny\"}},{\"text\":\".\",\"color\":\"white\"}]"
-        RequestSent: "Marriage request sent."
+        RequestSent: "&aMarriage request sent."
         PlayerOff: "{DisplayName}&r is now offline, wedding called off."
         NotOnYourOwn: "&cYou can't perform your own wedding. Please ask a priest to perform the wedding for you."
         MaxPartnersReached: "You have already reached the maximum allowed amount of partners ({MaxPartnerCount})."
@@ -239,31 +239,31 @@ Language:
       Deny: "{DisplayName}&r&c denied the divorce!"
       YouDeny: "&aYou denied the divorce from &r&a{DisplayName}&r&a."
       Confirm: "[\"\",{\"text\":\"{PriestDisplayName}&r\"},{\"text\":\" wants to divorce you from \",\"color\":\"white\"},{\"text\":\"{PartnerDisplayName}\"},{\"text\":\". Accept the divorce with \",\"color\":\"white\"},{\"text\":\"/marry accept\",\"color\":\"green\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry accept\"}},{\"text\":\" or deny it with \",\"color\":\"white\"},{\"text\":\"/marry deny\",\"color\":\"red\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry deny\"}},{\"text\":\".\",\"color\":\"white\"}]"
-      NotInRange: "&aThe players are not in range! They need to be within {Range} blocks!"
+      NotInRange: "&cThe players are not in range! They need to be within {Range} blocks!"
       Self:
         Divorced: "&aYou left &r&a{DisplayName}&r&a. You are free now."
         DivorcedPlayer: "{DisplayName}&r&a has left you. You are free now."
         Broadcast: "&a&r&a{Player1DisplayName}&r&a has divorced from &r&a{Player2DisplayName}&r&a."
         PlayerOff: "{DisplayName}&r is now offline, divorce canceled."
-        RequestSent: "Divorce request sent to {DisplayName}&r."
+        RequestSent: "&aDivorce request sent to {DisplayName}&r."
         Confirm: "[\"\",{\"text\":\"{DisplayName}&r\"},{\"text\":\" wants to divorce from you. Accept the divorce with \",\"color\":\"white\"},{\"text\":\"/marry accept\",\"color\":\"green\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry accept\"}},{\"text\":\" or deny it with \",\"color\":\"white\"},{\"text\":\"/marry deny\",\"color\":\"red\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry deny\"}},{\"text\":\".\",\"color\":\"white\"}]"
         Deny: "{DisplayName}&r&c denied your divorce request!"
         YouDeny: "&aYou denied &r&a{DisplayName}&r&a's divorce request."
         Cancelled: "{DisplayName}&r&c cancelled their divorce request!"
         YouCancelled: "&aYou cancelled your divorce request from &r&a{DisplayName}&r&a!"
-        NotInRange: "&aYour partner is not in range! You need to be within {Range} blocks!"
+        NotInRange: "&cYour partner is not in range! You need to be within {Range} blocks!"
     Economy:
       NotEnough: "&cYou don't have enough money! You need {Cost} {CurrencyName} for that."
       PartnerNotEnough: "&cYour partner doesn't have enough money!"
       PriestMarryNotEnough: "&cThe players you are trying to marry don't have enough money."
       PriestDivorceNotEnough: "&cThe players you are trying to divorce don't have enough money."
       MarriagePaid: "&aYou paid {Cost} {CurrencyName} for your marriage ({Remaining} {CurrencyName} left)."
-      DivorcePaid: "&aYou paid {Cost} {CurrencyName} for the annul of your marriage ({Remaining} {CurrencyName} left)."
+      DivorcePaid: "&aYou paid {Cost} {CurrencyName} for the annulment of your marriage ({Remaining} {CurrencyName} left)."
       HomeTPPaid: "&aYou paid {Cost} {CurrencyName} for your home teleport ({Remaining} {CurrencyName} left)."
       SetHomePaid: "&aYou paid {Cost} {CurrencyName} to set your Home ({Remaining} {CurrencyName} left)."
       TpPaid: "&aYou paid {Cost} {CurrencyName} for the Teleport ({Remaining} {CurrencyName} left)."
       GiftPaid: "&aYou have paid {Cost} {CurrencyName} for gifting an item to your partner ({Remaining} {CurrencyName} left)."
-      SurnameChangePaid: "&aYou have paid {Cost} {CurrencyName} to change a surename ({Remaining} {CurrencyName} left)."
+      SurnameChangePaid: "&aYou have paid {Cost} {CurrencyName} to change a surname ({Remaining} {CurrencyName} left)."
     Admin:
       Reloading: "&1Reloading ..."
       Reloaded: "&1Reloaded!"
@@ -285,7 +285,7 @@ Language:
           - ""
           - '[{"text":" ➤ ","color":"white"},{"text":"/marry kiss","color":"dark_aqua","bold":true,"underlined":true,"clickEvent":{"action":"run_command","value":"/marry kiss"}},{"text":" kiss your partner","color":"aqua"}]'
           - '[{"text":" ➤ ","color":"yellow"},{"text":"/marry tp","color":"dark_aqua","bold":true,"underlined":true,"clickEvent":{"action":"run_command","value":"/marry tp"}},{"text":" tp to your partner","color":"aqua"}]'
-          - '[{"text":" ➤ ","color":"gold"},{"text":"/marry chat toggle","color":"dark_aqua","bold":true,"underlined":true,"clickEvent":{"action":"run_command","value":"/marry chat toggle"}},{"text":" talk private whit your partner","color":"aqua"}]'
+          - '[{"text":" ➤ ","color":"gold"},{"text":"/marry chat toggle","color":"dark_aqua","bold":true,"underlined":true,"clickEvent":{"action":"run_command","value":"/marry chat toggle"}},{"text":" talk privately with your partner","color":"aqua"}]'
           - '[{"text":" ➤ ","color":"gold"},{"text":"/marry gift","color":"dark_aqua","bold":true,"underlined":true,"clickEvent":{"action":"run_command","value":"/marry gift"}},{"text":" give your partners things","color":"aqua"}]'
           - '[{"text":"Use ","color":"dark_green"},{"text":"/marry help","color":"dark_aqua","bold":true},{"text":" for full list of all commands"}]'
         # Will be used if the player is a priest
@@ -323,7 +323,7 @@ Language:
       Help: "Shows all available commands and their description."
       List: "Lists all married players."
       ListPriests: "Lists all currently online priests."
-      Partners: "List all partners of a player"
+      Partners: "Lists all partners of a player."
       PvP: "Changes PvP status with partner."
       PvPOn: "Enables PvP with partner."
       PvPOff: "Disables PvP with partner."
@@ -337,7 +337,7 @@ Language:
       Divorce: "Divorces two players."
       DivorceSelf: "To leave your partner."
       Surname: "Changes the surname of a couple."
-      SurnameSelf: "Changes the surname from your partner and you."
+      SurnameSelf: "Changes the surname for you and your partner."
       Update: "Checks if there is an update available and downloads it."
       Accept: "Accepts an open request."
       Cancel: "Cancels an open request."
@@ -345,8 +345,8 @@ Language:
       SetColor: "Sets the color of the marriage."
       SetPriest: "Promotes/Demotes a player to a priest."
       Reload: "Reloads the config of the plugin."
-      Version: "Prints the version details about the plugin and it's dependencies."
-# The fist option in the list will be the one displayed in the commands help
+      Version: "Prints the version details about the plugin and its dependencies."
+# The first option in the list will be the one displayed in the commands help
 Command:
   Switches:
     On:
@@ -445,11 +445,11 @@ Command:
   Deny:
     - deny
 Dialog:
-  # Placeholders: {Planer1Name}, {Player1DisplayName}, {Planer2Name}, {Player2DisplayName}
+  # Placeholders: {Player1Name}, {Player1DisplayName}, {Player2Name}, {Player2DisplayName}
   DoYouWant: "Do you {Player1Name}, want to marry {Player2Name} on this server?"
-  # Placeholders: {Planer1Name}, {Player1DisplayName}, {Planer2Name}, {Player2DisplayName}
+  # Placeholders: {Player1Name}, {Player1DisplayName}, {Player2Name}, {Player2DisplayName}
   AndDoYouWant: "And do you {Player2Name}, want to marry {Player1Name} on this server?"
-  # Placeholders: {Planer1Name}, {Player1DisplayName}, {Planer2Name}, {Player2DisplayName}
+  # Placeholders: {Player1Name}, {Player1DisplayName}, {Player2Name}, {Player2DisplayName}
   Married: "I now pronounce {Player1Name} and {Player2Name} married! You may now kiss."
   YesIWant: "Yes, I will!"
   NoIDontWant: "No, I will not!"

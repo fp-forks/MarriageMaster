@@ -79,6 +79,22 @@ Language:
       GotHugged_SendMethod: "action_bar"
       TooFarAway: "&cSei troppo lontano per abbracciare il tuo partner. (Max {Distance} blocchi)"
       Wait: "&cDevi aspettare {Time} secondi per abbracciare di nuovo il tuo partner."
+    Info:
+      # Placeholders: {Player1Name}, {Player1DisplayName}, {Player2Name}, {Player2DisplayName}, {Surname}, {MagicHeart}, {WeddingDate}, {PriestName}, {PriestDisplayName}, {HasHome}, {PvPEnabled}
+      Headline: "&e--- Info Matrimonio ---"
+      Footer: "&e---------------------"
+      Player1: "&ePartner 1: {Player1DisplayName}"
+      Player2: "&ePartner 2: {Player2DisplayName}"
+      Surname: "&eCognome: {Surname}"
+      WeddingDate: "&eSposati il: {WeddingDate}"
+      # No Json!!!
+      DateFormat: "yyyy-MM-dd"
+      Priest: "&eSacerdote: {PriestDisplayName}"
+      NoPriest: "&eSacerdote: &7nessuno"
+      HasHome: "&eCasa impostata: {HasHome}"
+      PvP: "&ePvP: {PvPEnabled}"
+      Heart: "&eCuore: {MagicHeart}"
+      NotMarried: "{DisplayName}&e non è sposato."
     Seen:
       CurrentlyOnline: "{DisplayName}&r è attualmente &aonline&r."
       LastSeen: '["",{"text":"{Name} è stato visto l''ultima volta il ","extra":[{"text":"{Date}","hoverEvent":{"action":"show_text","value":"{Count} fa"}},{"text":"."}]}]'
@@ -140,6 +156,15 @@ Language:
       ToLong: "&cIl soprannome fornito è troppo lungo. Non può superare i {MaxLength} caratteri."
       AlreadyUsed: "&cIl soprannome fornito è già in uso!"
       Banned: "&cIl cognome indicato non è consentito."
+      Confirm: '["",{"text":"{PriestDisplayName}&r"},{"text":" vuole cambiare il tuo cognome da","color":"white"},{"text":"{Surname}&r"},{"text":" a ","color":"white"},{"text":"{NewSurname}&r","hoverEvent":{"action":"show_text","value":"Cognome attuale: {Surname}"}},{"text":". Accetta il matrimonio con ","color":"white"},{"text":"/marry accept","color":"green","underlined":true,"clickEvent":{"action":"run_command","value":"/marry accept"}},{"text":" o rifiutalo con ","color":"white"},{"text":"/marry deny","color":"red","underlined":true,"clickEvent":{"action":"run_command","value":"/marry deny"}},{"text":".","color":"white"}]'
+      PlayerOff: "{DisplayName}&r è ora offline, cambio del cognome annullato."
+      PriestOff: "Il sacerdote {DisplayName}&r è ora offline, cambio del cognome annullato."
+      PlayerCancelled: "&c&r&c{PlayerDisplayName}&r&c ha annullato il cambio del cognome in {NewSurname}&r&c!"
+      PriestCancelled: "&c&r&c{PriestDisplayName}&r&c ha annullato il cambio del cognome in {NewSurname}&r&c!"
+      YouCancelled: "&aHai annullato il cambio del tuo cognome in {NewSurname}&r&a!"
+      YouCancelledPriest: "&aHai annullato il cambio del cognome di &r&a{Player1DisplayName}&r&a e &r&a{Player2DisplayName}&r&a in {NewSurname}&r&a!"
+      Deny: "{DisplayName}&r&c ha rifiutato il cambio del cognome!"
+      YouDeny: "&aHai rifiutato il cambio del cognome in {NewSurname}&r&a."
       PlayerOffline: "&cImpossibile verificare il consenso al cambio del cognome mentre il giocatore è offline."
     Requests:
       NothingToAccept: "&cNon ci sono richieste aperte da accettare."
@@ -277,6 +302,7 @@ Language:
       Kiss: "Bacia il tuo partner."
       Hug: "Abbraccia il tuo partner."
       Seen: "Mostra quando il tuo partner è stato online l'ultima volta."
+      Info: "Mostra informazioni su un matrimonio."
       Marry: "Sposa due giocatori."
       MarrySelf: "Invia una richiesta di matrimonio a un altro giocatore."
       Divorce: "Divorzia due giocatori."
@@ -407,6 +433,12 @@ Placeholders:
     NoHome: "nessuna casa"
     Separator: "&r, "
     NoPartnerForSlot: ""
+    Years: "&6{years}&ea "
+    Months: "&6{months}&eM "
+    Days: "&6{days}&eg "
+    Hours: "&6{hours}&eo "
+    Minutes: "&6{minutes}&em"
+    TimeMain: "{years}{months}{days}{hours}{minutes}"
   Heart:
     Married: "&c<heart>&f"
     NotMarried: ""
@@ -440,5 +472,5 @@ LanguageName: "Italiano"
 Author: "tradotto da AI"
 
 # Language file version. Don't touch it!
-Version: 114
+Version: 115
 Revision: 1

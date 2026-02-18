@@ -95,6 +95,22 @@ Language:
       TooFarAway: "&cВи занадто далеко, щоб обійняти свого партнера. (Макс. {Distance} блока)"
       # Placeholders: {Time}, {TimeLeft} in seconds
       Wait: "&cВам потрібно почекати {Time} секунд, щоб знову обійняти свого партнера."
+    Info:
+      # Placeholders: {Player1Name}, {Player1DisplayName}, {Player2Name}, {Player2DisplayName}, {Surname}, {MagicHeart}, {WeddingDate}, {PriestName}, {PriestDisplayName}, {HasHome}, {PvPEnabled}
+      Headline: "&e--- Інформація про шлюб ---"
+      Footer: "&e---------------------"
+      Player1: "&eПартнер 1: {Player1DisplayName}"
+      Player2: "&eПартнер 2: {Player2DisplayName}"
+      Surname: "&eПрізвище: {Surname}"
+      WeddingDate: "&eОдружилися: {WeddingDate}"
+      # No Json!!!
+      DateFormat: "yyyy-MM-dd"
+      Priest: "&eСвященик: {PriestDisplayName}"
+      NoPriest: "&eСвященик: &7немає"
+      HasHome: "&eДім встановлено: {HasHome}"
+      PvP: "&ePvP: {PvPEnabled}"
+      Heart: "&eСерце: {MagicHeart}"
+      NotMarried: "{DisplayName}&e не перебуває у шлюбі."
     Seen:
       # Placeholders: {Name}, {DisplayName}
       CurrentlyOnline: "{DisplayName}&r зараз &aв мережі&r.&r"
@@ -161,6 +177,17 @@ Language:
       ToShort: "&cЦе прізвище занадто коротке. Повинно бути не менше {MinLength} символів."
       ToLong: "&cЦе прізвище занадто довге. Воно не може містити більше {MaxLength} символів."
       AlreadyUsed: "&cЦе прізвище вже використовується!"
+      Banned: "&cЦе прізвище заборонено."
+      Confirm: "[\"\",{\"text\":\"{PriestDisplayName}&r\"},{\"text\":\" хоче змінити ваше прізвище з\",\"color\":\"white\"},{\"text\":\"{Surname}&r\"},{\"text\":\" на \",\"color\":\"white\"},{\"text\":\"{NewSurname}&r\",\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"Поточне прізвище: {Surname}\"}},{\"text\":\". Прийняти зміни \",\"color\":\"white\"},{\"text\":\"/marry accept\",\"color\":\"green\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry accept\"}},{\"text\":\" або відхилити \",\"color\":\"white\"},{\"text\":\"/marry deny\",\"color\":\"red\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry deny\"}},{\"text\":\".\",\"color\":\"white\"}]"
+      PlayerOff: "{DisplayName}&r вийшов із мережі, зміну прізвища скасовано."
+      PriestOff: "Священик {DisplayName}&r вийшов із мережі, зміну прізвища скасовано."
+      PlayerCancelled: "&c&r&c{PlayerDisplayName}&r&c скасував зміну прізвища на {NewSurname}&r&c!"
+      PriestCancelled: "&c&r&c{PriestDisplayName}&r&c скасував зміну прізвища на {NewSurname}&r&c!"
+      YouCancelled: "&aВи скасували зміну прізвища на {NewSurname}&r&a!"
+      YouCancelledPriest: "&aВи скасували зміну прізвища &r&a{Player1DisplayName}&r&a та &r&a{Player2DisplayName}&r&a на {NewSurname}&r&a!"
+      Deny: "{DisplayName}&r&c відхилив зміну прізвища!"
+      YouDeny: "&aВи відхилили зміну прізвища на {NewSurname}&r&a."
+      PlayerOffline: "&cНеможливо перевірити згоду на зміну прізвища, поки гравець офлайн."
     Requests:
       NothingToAccept: "&cНемає запиту на прийом."
       NothingToDeny: "&cНемає запиту про відмову."
@@ -433,6 +460,12 @@ Placeholders:
     NoHome: "немає вдома"
     Separator: "&r, "
     NoPartnerForSlot: ""
+    Years: "&6{years}&eр "
+    Months: "&6{months}&eм "
+    Days: "&6{days}&eд "
+    Hours: "&6{hours}&eг "
+    Minutes: "&6{minutes}&eхв"
+    TimeMain: "{years}{months}{days}{hours}{minutes}"
   Heart:
     Married: "&c<heart>&f"
     NotMarried: ""
@@ -466,5 +499,5 @@ LanguageName: "Український"
 Author: "stefanbanderovych2 (Bohdan)"
 
 # Language file version. Don't touch it!
-Version: 113
+Version: 115
 Revision: 1

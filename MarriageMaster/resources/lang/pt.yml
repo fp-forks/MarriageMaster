@@ -1,4 +1,4 @@
-Version: 113
+Version: 115
 # To simplify the customisation and the translation process please check out the editor: https://ptp.pcgamingfreaks.at
 Language:
   NotFromConsole: "&cEsse comando não pode ser usado no console"
@@ -96,6 +96,22 @@ Language:
       TooFarAway: "&cVocê está muito longe para abraçar o seu parceiro. (máximo {Distance} blocos)"
       # Placeholders: {Time}, {TimeLeft} in seconds
       Wait: "&cVocê precisa esperar {Time} segundos para abraçar o seu parceiro novamente."
+    Info:
+      # Placeholders: {Player1Name}, {Player1DisplayName}, {Player2Name}, {Player2DisplayName}, {Surname}, {MagicHeart}, {WeddingDate}, {PriestName}, {PriestDisplayName}, {HasHome}, {PvPEnabled}
+      Headline: "&e--- Informações do Casamento ---"
+      Footer: "&e---------------------"
+      Player1: "&eParceiro 1: {Player1DisplayName}"
+      Player2: "&eParceiro 2: {Player2DisplayName}"
+      Surname: "&eSobrenome: {Surname}"
+      WeddingDate: "&eCasado em: {WeddingDate}"
+      # No Json!!!
+      DateFormat: "yyyy-MM-dd"
+      Priest: "&ePadre: {PriestDisplayName}"
+      NoPriest: "&ePadre: &7nenhum"
+      HasHome: "&eHome definida: {HasHome}"
+      PvP: "&ePvP: {PvPEnabled}"
+      Heart: "&eCoração: {MagicHeart}"
+      NotMarried: "{DisplayName}&e não está casado."
     Seen:
       # Placeholders: {Name}, {DisplayName}
       CurrentlyOnline: "{DisplayName}&r está &aonline&r."
@@ -162,6 +178,17 @@ Language:
       ToShort: "&cO sobrenome fornecido é muito curto. Deve ter pelo menos {MinLength} caracteres."
       ToLong: "&cO sobrenome fornecido é muito longo. Não pode ter mais de {MaxLength} caracteres."
       AlreadyUsed: "&cEsse sobrenome já está em uso!"
+      Banned: "&cEsse sobrenome não é permitido."
+      Confirm: "[\"\",{\"text\":\"{PriestDisplayName}&r\"},{\"text\":\" quer mudar seu sobrenome de\",\"color\":\"white\"},{\"text\":\"{Surname}&r\"},{\"text\":\" para \",\"color\":\"white\"},{\"text\":\"{NewSurname}&r\",\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"Sobrenome atual: {Surname}\"}},{\"text\":\". Aceite o casamento com \",\"color\":\"white\"},{\"text\":\"/marry accept\",\"color\":\"green\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry accept\"}},{\"text\":\" ou recuse com \",\"color\":\"white\"},{\"text\":\"/marry deny\",\"color\":\"red\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry deny\"}},{\"text\":\".\",\"color\":\"white\"}]"
+      PlayerOff: "{DisplayName}&r está offline, mudança de sobrenome cancelada."
+      PriestOff: "Padre {DisplayName}&r está offline, mudança de sobrenome cancelada."
+      PlayerCancelled: "&c&r&c{PlayerDisplayName}&r&c cancelou a mudança de sobrenome para {NewSurname}&r&c!"
+      PriestCancelled: "&c&r&c{PriestDisplayName}&r&c cancelou a mudança de sobrenome para {NewSurname}&r&c!"
+      YouCancelled: "&aVocê cancelou a mudança de sobrenome para {NewSurname}&r&a!"
+      YouCancelledPriest: "&aVocê cancelou a mudança de sobrenome de &r&a{Player1DisplayName}&r&a e &r&a{Player2DisplayName}&r&a para {NewSurname}&r&a!"
+      Deny: "{DisplayName}&r&c recusou a mudança de sobrenome!"
+      YouDeny: "&aVocê recusou a mudança de sobrenome para {NewSurname}&r&a."
+      PlayerOffline: "&cNão é possível verificar o consentimento para mudar o sobrenome enquanto o jogador está offline."
     Requests:
       NothingToAccept: "&cNão existe nenhum pedido para aceitar."
       NothingToDeny: "&cNão existe nenhum pedido para recusar."
@@ -252,12 +279,25 @@ Language:
       Header: "&6### Comandos - Marriage Master ###"
       Footer: "&6#############################"
       # Allows you to define messages that should be sent if the player uses the "/marry" command without any parameters (HelpMode must be set to CustomHelp in the config)
-    CustomHelp:
-  # Will be used if the player is married
-    Married:
-      - '[{"text":"Use ","color":"dark_green"},{"text":"/marry help","color":"dark_aqua","bold":true},{"text":" para uma lista completa de comandos","color":"dark_green"}]'
-    Priest:
-      - '[{"text":"Use ","color":"dark_green"},{"text":"/marry help","color":"dark_aqua","bold":true},{"text":" para uma lista completa de comandos","color":"dark_green"}]'
+      CustomHelp:
+        # Will be used if the player is married
+        Married:
+          - " &3__&b&lComandos de Casamento&r&3__"
+          - ""
+          - '[{"text":" ➤ ","color":"white"},{"text":"/marry kiss","color":"dark_aqua","bold":true,"underlined":true,"clickEvent":{"action":"run_command","value":"/marry kiss"}},{"text":" beije seu parceiro","color":"aqua"}]'
+          - '[{"text":" ➤ ","color":"yellow"},{"text":"/marry tp","color":"dark_aqua","bold":true,"underlined":true,"clickEvent":{"action":"run_command","value":"/marry tp"}},{"text":" teleporte para seu parceiro","color":"aqua"}]'
+          - '[{"text":" ➤ ","color":"gold"},{"text":"/marry chat toggle","color":"dark_aqua","bold":true,"underlined":true,"clickEvent":{"action":"run_command","value":"/marry chat toggle"}},{"text":" converse em privado com seu parceiro","color":"aqua"}]'
+          - '[{"text":" ➤ ","color":"gold"},{"text":"/marry gift","color":"dark_aqua","bold":true,"underlined":true,"clickEvent":{"action":"run_command","value":"/marry gift"}},{"text":" dê itens ao seu parceiro","color":"aqua"}]'
+          - '[{"text":"Use ","color":"dark_green"},{"text":"/marry help","color":"dark_aqua","bold":true},{"text":" para uma lista completa de comandos"}]'
+        # Will be used if the player is a priest
+        Priest:
+          - " &3__&b&lCasamento&r&3__"
+          - "&b Você pode casar jogadores usando /marry marry <jogador1> <jogador2>"
+          - '[{"text":"Use ","color":"dark_green"},{"text":"/marry help","color":"dark_aqua","bold":true},{"text":" para uma lista completa de comandos"}]'
+        # Will be used if the player is neither married nor a priest
+        Default:
+          - " &3__&b&lCasamento&r&3__"
+          - "&cVocê precisa estar casado para usar este comando"
 
   Commands:
     HelpFormat: "[\"\",{\"text\":\"/{MainCommand} {SubCommand} {Parameters}\",\"clickEvent\":{\"action\":\"suggest_command\",\"value\":\"/{MainCommand} {SubCommand}\"}},{\"text\":\" - \",\"color\":\"white\"},{\"text\":\"{Description}\",\"color\":\"aqua\"}]"
@@ -292,6 +332,7 @@ Language:
       Kiss: "Você beija o seu parceiro."
       Hug: "Você abraça o seu parceiro."
       Seen: "Mostra quando o seu parceiro esteve online a ultima vez."
+      Info: "Mostra informações sobre um casamento."
       Marry: "Casa dois jogadores."
       MarrySelf: "Envia um pedido de casamento para outro jogador"
       Divorce: "Divorcia dois jogadores"
@@ -326,6 +367,12 @@ Placeholders:
     NoHome: "sem homes"
     Separator: "&r, "
     NoPartnerForSlot: ""
+    Years: "&6{years}&ea "
+    Months: "&6{months}&eM "
+    Days: "&6{days}&ed "
+    Hours: "&6{hours}&eh "
+    Minutes: "&6{minutes}&em"
+    TimeMain: "{years}{months}{days}{hours}{minutes}"
   Heart:
     Married: "&c<heart>&f"
     NotMarried: ""
@@ -354,111 +401,3 @@ Placeholders:
 LanguageName: "Portuguese"
 Author: "DG0837"
 Revision: "1"
-# To simplify the customisation and the translation process please check out the editor: https://ptp.pcgamingfreaks.at
-Language:
-  # Global Wildcards: <heart> and <smallheart>
-  Ingame:
-    Help:
-      # Allows you to define messages that should be sent if the player uses the "/marry" command without any parameters (HelpMode must be set to CustomHelp in the config)
-      CustomHelp:
-        # Will be used if the player is married
-        Married:
-        # Will be used if the player is a priest
-        Priest:
-        # Will be used if the player is neither married nor a priest
-        Default:
-# The fist option in the list will be the one displayed in the commands help
-Command:
-  Switches:
-    On:
-      - on
-      - true
-      - yes
-    Off:
-      - off
-      - false
-      - no
-    Toggle:
-      - toggle
-      - switch
-    All:
-      - all
-    Remove:
-      - remove
-      - rm
-      - delete
-      - del
-      - clear
-      - clean
-  Main:
-    - marry
-  Backpack:
-    - backpack
-    - bp
-  Chat:
-    - chat
-  ChatSetTarget:
-    - settarget
-    - target
-  ChatToggle:
-    - chattoggle
-  ChatListen:
-    - listenchat
-    - chatlisten
-  Gift:
-    - gift
-    - send
-    - give
-  Help:
-    - help
-  Home:
-    - home
-  SetHome:
-    - sethome
-    - definehome
-    - savehome
-  DelHome:
-    - delhome
-    - deletehome
-    - unsethome
-  PvP:
-    - pvp
-  Kiss:
-    - kiss
-  Hug:
-    - hug
-  Seen:
-    - seen
-    - lastOnline
-  PvPOn:
-    - pvpon
-  PvPOff:
-    - pvpoff
-  List:
-    - list
-  ListPriests:
-    - listpriests
-  Partners:
-    - partners
-    - listpartners
-    - partnerlist
-  Tp:
-    - tp
-  SetColor:
-    - setcolor
-  Marry:
-    - marry
-  Divorce:
-    - divorce
-  SetPriest:
-    - setpriest
-  Update:
-    - update
-  Version:
-    - version
-  Accept:
-    - accept
-  Cancel:
-    - cancel
-  Deny:
-    - deny

@@ -95,6 +95,20 @@ Language:
       TooFarAway: "&cВы слишком далеко, чтобы обнять своего партнера. (Макс. {Distance} блока)"
       # Placeholders: {Time}, {TimeLeft} in seconds
       Wait: "&cВам нужно подождать {Time} секунд, чтобы снова обнять своего партнера."
+    Info:
+      Headline: "&e--- Информация о браке ---"
+      Footer: "&e---------------------"
+      Player1: "&eПартнёр 1: {Player1DisplayName}"
+      Player2: "&eПартнёр 2: {Player2DisplayName}"
+      Surname: "&eФамилия: {Surname}"
+      WeddingDate: "&eДата свадьбы: {WeddingDate}"
+      DateFormat: "dd-MM-yyyy"
+      Priest: "&eСвященник: {PriestDisplayName}"
+      NoPriest: "&eСвященник: &7нет"
+      HasHome: "&eДом установлен: {HasHome}"
+      PvP: "&ePvP: {PvPEnabled}"
+      Heart: "&eСердце: {MagicHeart}"
+      NotMarried: "{DisplayName}&e не состоит в браке."
     Seen:
       # Placeholders: {Name}, {DisplayName}
       CurrentlyOnline: "{DisplayName}&r сейчас &aв сети&r.&r"
@@ -161,6 +175,17 @@ Language:
       ToShort: "&cДанная фамилия слишком короткая. Должно быть не менее {MinLength} символов."
       ToLong: "&cДанная фамилия слишком длинная. Она не может содержать больше {MaxLength} символов."
       AlreadyUsed: "&cДанная фамилия уже используется!"
+      Banned: "&cДанная фамилия не разрешена."
+      Confirm: "[\"\",{\"text\":\"{PriestDisplayName}&r\"},{\"text\":\" хочет изменить вашу фамилию с\",\"color\":\"white\"},{\"text\":\"{Surname}&r\"},{\"text\":\" на \",\"color\":\"white\"},{\"text\":\"{NewSurname}&r\",\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"Текущая фамилия: {Surname}\"}},{\"text\":\". Принять \",\"color\":\"white\"},{\"text\":\"/marry accept\",\"color\":\"green\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry accept\"}},{\"text\":\" или отклонить \",\"color\":\"white\"},{\"text\":\"/marry deny\",\"color\":\"red\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry deny\"}},{\"text\":\".\",\"color\":\"white\"}]"
+      PlayerOff: "{DisplayName}&r вышел из сети, изменение фамилии отменено."
+      PriestOff: "Священник {DisplayName}&r вышел из сети, изменение фамилии отменено."
+      PlayerCancelled: "&c&r&c{PlayerDisplayName}&r&c отменил изменение фамилии на {NewSurname}&r&c!"
+      PriestCancelled: "&c&r&c{PriestDisplayName}&r&c отменил изменение фамилии на {NewSurname}&r&c!"
+      YouCancelled: "&aВы отменили изменение фамилии на {NewSurname}&r&a!"
+      YouCancelledPriest: "&aВы отменили изменение фамилии &r&a{Player1DisplayName}&r&a и &r&a{Player2DisplayName}&r&a на {NewSurname}&r&a!"
+      Deny: "{DisplayName}&r&c отклонил изменение фамилии!"
+      YouDeny: "&aВы отклонили изменение фамилии на {NewSurname}&r&a."
+      PlayerOffline: "&cНевозможно проверить согласие на изменение фамилии, пока игрок не в сети."
     Requests:
       NothingToAccept: "&cНет запроса на прием."
       NothingToDeny: "&cНет запроса об отказе."
@@ -304,6 +329,7 @@ Language:
       Kiss: "Поцеловать своего партнера."
       Hug: "Обнять своего партнера."
       Seen: "Показывает, когда ваш партнер был в сети в последний раз."
+      Info: "Показывает информацию о браке."
       Marry: "Женить двух игроков."
       MarrySelf: "Отправляет запрос на брак другому игроку."
       Divorce: "Разводит двух игроков."
@@ -433,6 +459,12 @@ Placeholders:
     NoHome: "Нет дома"
     Separator: "&r, "
     NoPartnerForSlot: ""
+    Years: "&6{years}&eг "
+    Months: "&6{months}&eм "
+    Days: "&6{days}&eд "
+    Hours: "&6{hours}&eч "
+    Minutes: "&6{minutes}&eмин"
+    TimeMain: "{years}{months}{days}{hours}{minutes}"
   Heart:
     Married: "&c<heart>&f"
     NotMarried: ""
@@ -466,5 +498,5 @@ LanguageName: "Russian"
 Author: "maz1lovo (Semyon)"
 
 # Language file version. Don't touch it!
-Version: 113
+Version: 115
 Revision: 1

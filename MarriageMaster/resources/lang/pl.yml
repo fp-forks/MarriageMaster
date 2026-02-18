@@ -47,14 +47,18 @@ Language:
       # Placeholders: {SenderDisplayName}, {SenderName}, {ReceiverDisplayName}, {ReceiverName}, {Message}, {MagicHeart}
       Format: "{MagicHeart}&r {SenderDisplayName}&r&6 => &r{ReceiverDisplayName}&r&f: &r{Message}"
     Gift:
-      OnlyInSurvival: "&cMożesz dawać prezenty partnerowi tylko w trybie Przetrwania."
+      # Placeholders: {AllowedGameModes}, {CurrentGameMode}
+      GameModeNotAllowedSender: "&cNie możesz wysyłać prezentów w swoim obecnym trybie gry."
+      # Placeholders: {AllowedGameModes}, {CurrentGameMode}
+      GameModeNotAllowedReceiver: "&cTwój partner nie może otrzymywać prezentów w swoim obecnym trybie gry."
       NoItemInHand: "&cNie trzymasz żadnego przedmiotu."
       PartnerInvFull: "&cTwój partner nie ma miejsca w ekwipunku."
       # Placeholders: {Name}, {DisplayName}, {ItemAmount}, {ItemName}, {ItemMetaJSON} = Item as JSON for hover event
       ItemSent: "[{\"text\":\"Wysłałeś \",\"color\":\"green\"},{\"text\":\"{ItemAmount} {ItemName}\",\"hoverEvent\":{\"action\":\"show_item\",\"value\":\"{ItemMetaJSON}\"}},{\"text\":\".\"}]"
       # Placeholders: {Name}, {DisplayName}, {ItemAmount}, {ItemName}, {ItemMetaJSON} = Item as JSON for hover event
       ItemReceived: "[{\"text\":\"Twój \",\"color\":\"green\"},{\"text\":\"partner\",\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"{DisplayName}\"}},{\"text\":\" wysłał Ci \"},{\"text\":\"{ItemAmount} {ItemName}\",\"hoverEvent\":{\"action\":\"show_item\",\"value\":\"{ItemMetaJSON}\"}},{\"text\":\".\"}]"
-      WorldNotAllowed: "&cTój partner jest na mapie na której nie można otrzymywać prezentów"
+      WorldNotAllowed: "&cTwój partner jest na mapie na której nie można otrzymywać prezentów."
+      ItemNotAllowed: "&cNie możesz podarować {ItemName} &cswojemu partnerowi!"
       # Placeholders: {ItemAmount}, {ItemName}, {ItemMetaJSON} = Item as JSON for hover event
       Request:
         Notification: "[\"\",{\"text\":\"{DisplayName}&r chce podarować Ci prezent \"},{\"text\":\"{ItemAmount} {ItemName}\",\"hoverEvent\":{\"action\":\"show_item\",\"value\":\"{ItemMetaJSON}\"}},{\"text\":\". Zaakceptuj \"},{\"text\":\"/marry accept\",\"color\":\"green\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry accept\"}},{\"text\":\" lub odmów używając \"},{\"text\":\"/marry deny\",\"color\":\"red\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry deny\"}},{\"text\":\".\"}]"
@@ -65,6 +69,8 @@ Language:
         CanceledPartner: "Twój partner anulował wysyłkę prezentu. Twój przedmiot został zwrócony."
         CanceledDisconnectRequester: "Twój partner jest Offline. Wysyłanie prezentu zostało anulowane. Przedmiot został zwrócony."
         CanceledDisconnectTarget: "Twój partner jest Offline. Wysyłanie prezentu zostało anulowane."
+        RefundInvFull: "&cTwój ekwipunek jest pełny, pozostałe przedmioty z prezentu zostały wyrzucone na ziemię!"
+        PartnerAlreadyHasAnOpenRequest: "&cTwój partner ma już otwartą prośbę. Poczekaj aż ją zaakceptuje lub odrzuci."
     Home:
       Deleted: "&aDom został usunięty."
       PlayerNoHome: "&cGracz nie ma jeszcze ustawionego domu."
@@ -87,6 +93,24 @@ Language:
       GotHugged: "&eTwój partner Cię przytulił"
       GotHugged_SendMethod: "action_bar"
       TooFarAway: "&cJesteś za daleko aby przytulić partnera. (Maksymalna odległość to {Distance} bloków)"
+      # Placeholders: {Time}, {TimeLeft} in seconds
+      Wait: "&cMusisz poczekać {Time} sekund aby ponownie przytulić partnera."
+    Info:
+      # Placeholders: {Player1Name}, {Player1DisplayName}, {Player2Name}, {Player2DisplayName}, {Surname}, {MagicHeart}, {WeddingDate}, {PriestName}, {PriestDisplayName}, {HasHome}, {PvPEnabled}
+      Headline: "&e--- Informacje o małżeństwie ---"
+      Footer: "&e---------------------------------"
+      Player1: "&ePartner 1: {Player1DisplayName}"
+      Player2: "&ePartner 2: {Player2DisplayName}"
+      Surname: "&eNazwisko: {Surname}"
+      WeddingDate: "&eData ślubu: {WeddingDate}"
+      # No Json!!!
+      DateFormat: "yyyy-MM-dd"
+      Priest: "&eKapłan: {PriestDisplayName}"
+      NoPriest: "&eKapłan: &7brak"
+      HasHome: "&eDom ustawiony: {HasHome}"
+      PvP: "&ePvP: {PvPEnabled}"
+      Heart: "&eSerce: {MagicHeart}"
+      NotMarried: "{DisplayName}&e nie jest w związku."
     Seen:
       # Placeholders: {Name}, {DisplayName}
       CurrentlyOnline: "{DisplayName} jest aktualnie &aonline&r.&r"
@@ -100,6 +124,12 @@ Language:
       NoMarriedPlayers: "&cNie ma graczy w związkach małżeńskich."
       Headline: "&eLista związków małżeńskich&r&f - &r&6strona {CurrentPage}/{MaxPage}"
       Footer: "[\"\",{\"text\":\"<<< Poprzednia <<<\",\"color\":\"gray\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/{MainCommand} {SubCommand} {PrevPage}\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"/{MainCommand} {SubCommand} {PrevPage}\"}},{\"text\":\" Strona {CurrentPage}/{MaxPage} \",\"color\":\"gold\"},{\"text\":\">>> Następna >>>\",\"color\":\"gray\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/{MainCommand} {SubCommand} {NextPage}\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"/{MainCommand} {SubCommand} {NextPage}\"}}]"
+    Partners:
+      Headline: "&eLista partnerów gracza {DisplayName}:"
+      Footer: "&e###################################"
+      NotMarried: "{DisplayName}&e nie jest w związku."
+      # Player1 is the player that was queried. Player2 is the partner
+      Format: "&2{Player1DisplayName} {MagicHeart} &2{Player2DisplayName}"
     ListPriests:
       Format: "&2{PriestDisplayName}"
       NoPriestsOnline: "&cNie ma żadnego kapłana Online"
@@ -107,9 +137,12 @@ Language:
       Footer: "[\"\",{\"text\":\"<<< Poprzednia <<<\",\"color\":\"gray\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/{MainCommand} {SubCommand} {PrevPage}\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"/{MainCommand} {SubCommand} {PrevPage}\"}},{\"text\":\" Strona {CurrentPage}/{MaxPage} \",\"color\":\"gold\"},{\"text\":\">>> Następna >>>\",\"color\":\"gray\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/{MainCommand} {SubCommand} {NextPage}\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"/{MainCommand} {SubCommand} {NextPage}\"}}]"
     PvP:
       IsDisabled: "&cNie możesz zranić partnera gdy masz wyłączone PvP."
+      IsDisabled_SendMethod: "action_bar"
       On: "&aWłączyłeś PvP ze swoim partnerem."
       Off: "&aWyłączyłeś PvP ze swoim partnerem."
     TP:
+      IsDisabled: "&cNie możesz się teleportować jeśli masz wyłączone PvP."
+      IsDisabled_SendMethod: "action_bar"
       PartnerVanished: "&cNie możesz się teleportować jeśli partner używa vanisha."
       Teleport: "&aTeleportacja do partnera..."
       TeleportTo: "&aPartner się do Ciebie teleportuje..."
@@ -146,6 +179,17 @@ Language:
       ToShort: "&cNazwisko jest za krótkie. Musi mieć minimum {MinLength} znaków."
       ToLong: "&cNazwisko jest za długie. Nie może mieć więcej niż {MaxLength} znaków."
       AlreadyUsed: "&cNazwisko jest już w użyciu!"
+      Banned: "&cTo nazwisko jest niedozwolone."
+      Confirm: "[\"\",{\"text\":\"{PriestDisplayName}&r\"},{\"text\":\" chce zmienić Twoje nazwisko z\",\"color\":\"white\"},{\"text\":\"{Surname}&r\"},{\"text\":\" na \",\"color\":\"white\"},{\"text\":\"{NewSurname}&r\",\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"Obecne nazwisko: {Surname}\"}},{\"text\":\". Zaakceptuj \",\"color\":\"white\"},{\"text\":\"/marry accept\",\"color\":\"green\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry accept\"}},{\"text\":\" lub odrzuć \",\"color\":\"white\"},{\"text\":\"/marry deny\",\"color\":\"red\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry deny\"}},{\"text\":\".\",\"color\":\"white\"}]"
+      PlayerOff: "{DisplayName}&r jest offline, zmiana nazwiska anulowana."
+      PriestOff: "Kapłan {DisplayName}&r jest offline, zmiana nazwiska anulowana."
+      PlayerCancelled: "&c&r&c{PlayerDisplayName}&r&c anulował zmianę nazwiska na {NewSurname}&r&c!"
+      PriestCancelled: "&c&r&c{PriestDisplayName}&r&c anulował zmianę nazwiska na {NewSurname}&r&c!"
+      YouCancelled: "&aAnulowałeś zmianę nazwiska na {NewSurname}&r&a!"
+      YouCancelledPriest: "&aAnulowałeś zmianę nazwiska &r&a{Player1DisplayName}&r&a i &r&a{Player2DisplayName}&r&a na {NewSurname}&r&a!"
+      Deny: "{DisplayName}&r&c odrzucił zmianę nazwiska!"
+      YouDeny: "&aOdrzuciłeś zmianę nazwiska na {NewSurname}&r&a."
+      PlayerOffline: "&cNie można sprawdzić zgody na zmianę nazwiska gdy gracz jest offline."
     Requests:
       NothingToAccept: "&cNie ma nic do zaakceptowania."
       NothingToDeny: "&cNie ma nic do odrzucenia."
@@ -153,6 +197,7 @@ Language:
     Marry:
       # Placeholders: {Name}, {DisplayName}.    Keep in mind display names contain colors!
       NotWithHimself: "&cNie możesz wziąć ślubu &r&c{DisplayName}&r&c z nim samym."
+      AlreadySamePair: "&cNie możesz wziąć ślubu graczom, którzy już są ze sobą w związku. &r&c{Player1DisplayName}&r&c jest już w związku z &r&c{Player2DisplayName}&r&c."
       AlreadyMarried: "&cNie możesz dać ślubu graczom, którzy są już w związku. &r&c{DisplayName}&r&c jest już w związku."
       SurnameNeeded: "&cPotrzebujesz nazwiska aby zawrzeć małżeństwo."
       Married: "&aWziąłeś ślub &r&a{Player1DisplayName}&r&a z &r&a{Player2DisplayName}&r&a."
@@ -165,9 +210,11 @@ Language:
       Confirm: "[\"\",{\"text\":\"{PriestDisplayName}&r\"},{\"text\":\" chce udzielić Ci ślubu z \",\"color\":\"white\"},{\"text\":\"{PlayerDisplayName}&r\"},{\"text\":\". Akceptuj wpisując \",\"color\":\"white\"},{\"text\":\"/marry accept\",\"color\":\"green\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry accept\"}},{\"text\":\" lub odrzuć wpisując \",\"color\":\"white\"},{\"text\":\"/marry deny\",\"color\":\"red\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry deny\"}},{\"text\":\".\",\"color\":\"white\"}]"
       PriestOff: "Kapłan {DisplayName}&r wylogował się, ślub odwołany."
       PlayerOff: "{DisplayName}&r wylogował się, ślub odwołany."
+      MaxPartnersReached: "{DisplayName}&r osiągnął już maksymalną dozwoloną liczbę partnerów ({MaxPartnerCount})."
       Self:
         NotYourself: "&cNie możesz poślubić samego siebie."
         NotInRange: "&cGracz nie jest w Twoim zasięgu! Musi być w promieniu {Range} bloków!"
+        AlreadySamePair: "&cJesteśmy już w związku z &r&c{DisplayName}&r&c!"
         AlreadyMarried: "&cJesteś już w małżeństwie z &r&c{DisplayName}&r&c!"
         OtherAlreadyMarried: "&c&r&c{DisplayName}&r&c jest już w małżeństwie!"
         AlreadyOpenRequest: "&cMasz nieodpowiedziane prośby o ślub."
@@ -179,6 +226,8 @@ Language:
         RequestSent: "Wysłano prośbę o małżeństwo"
         PlayerOff: "{DisplayName}&r wylogował się, ślub odwołany."
         NotOnYourOwn: "&cNie możesz wykonać swojego ślubu. Poproś kapłana o zrobienie go za Ciebie."
+        MaxPartnersReached: "Osiągnąłeś już maksymalną dozwoloną liczbę partnerów ({MaxPartnerCount})."
+        MaxPartnersReachedOther: "{DisplayName}&r osiągnął już maksymalną dozwoloną liczbę partnerów ({MaxPartnerCount})."
     Divorce:
       Broadcast: "&a&r&a{PriestDisplayName}&r&a unieważnił małżeństwo &r&a{Player1DisplayName}&r&a z &r&a{Player2DisplayName}&r&a."
       DivorcedPlayer: "&a&r&a{PriestDisplayName}&r&a unieważnił Twoje małżeństwo z &r&a{PartnerDisplayName}&r&a."
@@ -275,6 +324,7 @@ Language:
       Help: "Pokazuje wszystkie dostępne komendy i jej opisy."
       List: "Lista osób w związku małżeńskim"
       ListPriests: "Lista wszystkich dostępnych kapłanów."
+      Partners: "Wyświetla listę wszystkich partnerów gracza"
       PvP: "Zmienia ustawienia PvP z graczem"
       PvPOn: "Włącza PvP z partnerem"
       PvPOff: "Wyłącza PvP z partnerem"
@@ -282,6 +332,7 @@ Language:
       Kiss: "Całujesz partnera"
       Hug: "Przytulasz partnera"
       Seen: "Pokazuje kiedy ostatnio Twój partner był online."
+      Info: "Wyświetla informacje o małżeństwie."
       Marry: "Daje ślub dwóm graczom."
       MarrySelf: "Wysyła prośbę o ślub do innego gracza."
       Divorce: "Rozwodzi dwóch graczy."
@@ -357,6 +408,9 @@ Command:
   Seen:
     - seen
     - lastOnline
+  Info:
+    - info
+    - marriageinfo
   PvPOn:
     - pvpon
   PvPOff:
@@ -365,6 +419,10 @@ Command:
     - list
   ListPriests:
     - listpriests
+  Partners:
+    - partners
+    - listpartners
+    - partnerlist
   Tp:
     - tp
   SetColor:
@@ -396,9 +454,16 @@ Placeholders:
     Boolean:
       True: true
       False: false
-    NotMarried: "not married"
-    NoHome: "no home"
+    NotMarried: "nie w związku"
+    NoHome: "brak domu"
     Separator: "&r, "
+    NoPartnerForSlot: ""
+    Years: "&6{years}&el "
+    Months: "&6{months}&em "
+    Days: "&6{days}&ed "
+    Hours: "&6{hours}&eg "
+    Minutes: "&6{minutes}&em"
+    TimeMain: "{years}{months}{days}{hours}{minutes}"
   Heart:
     Married: "&c<heart>&f"
     NotMarried: ""
@@ -431,5 +496,5 @@ LanguageName: "Polish"
 Author: "DzikiSzogun"
 
 # Language file version. Don't touch it!
-Version: 101
+Version: 115
 Revision: 1

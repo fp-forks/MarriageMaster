@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2023 GeorgH93
+ *   Copyright (C) 2026 GeorgH93
  *
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -117,7 +117,7 @@ public class MySQL<MARRIAGE_PLAYER extends MarriagePlayerDataBase, MARRIAGE exte
 							                                      "CONSTRAINT fk_{TMarriages}_{TPlayers}_{FPriest} FOREIGN KEY ({FPriest}) REFERENCES {TPlayers} ({FPlayerID}) ON DELETE SET NULL ON UPDATE CASCADE\n)" + getEngine() + ";"),
 					queryTHomes = replacePlaceholders("CREATE TABLE IF NOT EXISTS {THomes} (\n{FMarryID} INT UNSIGNED NOT NULL,\n{FHomeX} DOUBLE NOT NULL,\n{FHomeY} DOUBLE NOT NULL,\n{FHomeZ} DOUBLE NOT NULL,\n" +
 							                                  "{FHomeYaw} FLOAT NOT NULL DEFAULT 0,\n{FHomePitch} FLOAT NOT NULL DEFAULT 0,\n{FHomeWorld} VARCHAR(45) NOT NULL DEFAULT 'world',\n" +
-							                                  ((useBungee) ? "{FHomeServer} VARCHAR(45) DEFAULT NULL,\n" : "") + "PRIMARY KEY ({FMarryID}),\n" +
+							                                  "{FHomeServer} VARCHAR(45) DEFAULT NULL,\nPRIMARY KEY ({FMarryID}),\n" +
 							                                  "CONSTRAINT fk_{THomes}_{TMarriages}_{FMarryID} FOREIGN KEY ({FMarryID}) REFERENCES {TMarriages} ({FMarryID}) ON DELETE CASCADE ON UPDATE CASCADE\n)" + getEngine() + ";");
 			DBTools.updateDB(connection, queryTPlayers);
 			DBTools.updateDB(connection, queryTMarriages);

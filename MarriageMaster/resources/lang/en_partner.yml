@@ -36,7 +36,7 @@ Language:
       ShareOn: "&aYou now share your backpack with your partner."
       ShareOff: "&cYou are no longer sharing your backpack with your partner."
       Opened: "&aYour partner has opened your backpack."
-      ShareDenied: "&cYour partner doesn't give you access to his backpack."
+      ShareDenied: "&cYour partner doesn't give you access to their backpack."
     Chat:
       Joined: "&aYou have set your chat to the private partnership chat."
       Left: "&aYou have set your chat to public chat."
@@ -88,6 +88,24 @@ Language:
       GotHugged: "&eYour partner has fist-bumped you!"
       GotHugged_SendMethod: "action_bar"
       TooFarAway: "&cYou are too far away to fist-bump your partner. (Max {Distance} blocks)"
+      # Placeholders: {Time}, {TimeLeft} in seconds
+      Wait: "&cYou have to wait {Time} seconds to fist-bump your partner again."
+    Info:
+      # Placeholders: {Player1Name}, {Player1DisplayName}, {Player2Name}, {Player2DisplayName}, {Surname}, {MagicHeart}, {WeddingDate}, {PriestName}, {PriestDisplayName}, {HasHome}, {PvPEnabled}
+      Headline: "&e--- Partnership Info ---"
+      Footer: "&e---------------------"
+      Player1: "&ePartner 1: {Player1DisplayName}"
+      Player2: "&ePartner 2: {Player2DisplayName}"
+      Surname: "&eBusiness Name: {Surname}"
+      WeddingDate: "&ePartnership formed on: {WeddingDate}"
+      # No Json!!!
+      DateFormat: "yyyy-MM-dd"
+      Priest: "&eLawyer: {PriestDisplayName}"
+      NoPriest: "&eLawyer: &7none"
+      HasHome: "&eHome set: {HasHome}"
+      PvP: "&ePvP: {PvPEnabled}"
+      Heart: "&eHeart: {MagicHeart}"
+      NotMarried: "{DisplayName}&e is not in a partnership."
     Seen:
       # Placeholders: {Name}, {DisplayName}
       CurrentlyOnline: "{DisplayName}&r is currently &aonline&r."
@@ -101,6 +119,12 @@ Language:
       NoMarriedPlayers: "&cThere are no partnered players."
       Headline: "&ePartnered players list&r&f - &r&6showing page {CurrentPage}/{MaxPage}"
       Footer: "[\"\",{\"text\":\"<<< Previous <<<\",\"color\":\"gray\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/{MainCommand} {SubCommand} {PrevPage}\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"/{MainCommand} {SubCommand} {PrevPage}\"}},{\"text\":\" Showing page {CurrentPage}/{MaxPage} \",\"color\":\"gold\"},{\"text\":\">>> Next >>>\",\"color\":\"gray\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/{MainCommand} {SubCommand} {NextPage}\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"/{MainCommand} {SubCommand} {NextPage}\"}}]"
+    Partners:
+      Headline: "&ePartner list of {DisplayName}:"
+      Footer: "&e##############################"
+      NotMarried: "{DisplayName}&e is not in a partnership."
+      # Player1 is the player that was queried. Player2 is the partner
+      Format: "&2{Player1DisplayName} {MagicHeart} &2{Player2DisplayName}"
     ListPriests:
       Format: "&2{PriestDisplayName}"
       NoPriestsOnline: "&cThere are no lawyers online."
@@ -122,7 +146,7 @@ Language:
       BlockedFrom: "&cYou are not allowed to teleport to your partner from here."
       BlockedTo: "&cYou are not allowed to teleport to where your partner is."
       Request:
-        Notification: "[\"\",{\"text\":\"{DisplayName}&r wants teleport to you. Accept the teleport with \"},{\"text\":\"/partner accept\",\"color\":\"green\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/marry accept\"}},{\"text\":\" or deny it with \"},{\"text\":\"/partner deny\",\"color\":\"red\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/partner deny\"}},{\"text\":\".\"}]"
+        Notification: "[\"\",{\"text\":\"{DisplayName}&r wants to teleport to you. Accept the teleport with \"},{\"text\":\"/partner accept\",\"color\":\"green\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/partner accept\"}},{\"text\":\" or deny it with \"},{\"text\":\"/partner deny\",\"color\":\"red\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/partner deny\"}},{\"text\":\".\"}]"
         WaitForConfirmation: "Please wait till your partner accepts the teleport."
         Denied: "You denied the teleport request of your partner."
         DeniedPartner: "Your partner denied the teleport request."
@@ -132,12 +156,12 @@ Language:
         CanceledDisconnectTarget: "Your partner went offline. Teleport request canceled."
     SetColor:
       UnknownColor: "&cUnable to identify color '{Input}'!"
-      Set: "Color set."
-      Selection: '["",{"text":"Please click on how you would like the heart for your marriage to look like:"},{"text":"\n"},{"text":" ❤ ","color":"dark_red","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} dark_red"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to &4dark red&r."}},{"text":" ❤ ","color":"red","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} red"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to &cred&r."}},{"text":" ❤ ","color":"gold","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} gold"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to &6gold&r."}},{"text":" ❤ ","color":"yellow","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} yellow"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to &eyellow&r."}},{"text":" ❤ ","color":"dark_green","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} dark_green"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to &2dark green&r."}},{"text":" ❤ ","color":"green","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} green"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to &agreen&r."}},{"text":" ❤ ","color":"aqua","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} aqua"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to &baqua&r."}},{"text":" ❤ ","color":"dark_aqua","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} dark_aqua"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to &3dark aqua&r."}},{"text":" ❤ ","color":"dark_blue","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} dark_blue"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to &1dark blue&r."}},{"text":" ❤ ","color":"blue","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} blue"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to &9blue&r."}},{"text":" ❤ ","color":"light_purple","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} light_purple"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to &dlight purple&r."}},{"text":" ❤ ","color":"dark_purple","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} dark_purple"},"hoverEvent":{"action":"show_text","value":"Sets the text of the heart to &5dark purple&r."}},{"text":" ❤ ","color":"white","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} white"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to &fwhite&r."}},{"text":" ❤ ","color":"gray","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} gray"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to &7gray&r."}},{"text":" ❤ ","color":"dark_gray","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} dark_gary"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to &8dark gray&r."}},{"text":" ❤ ","color":"black","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} black"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to black."}}]'
+      Set: "&aColor set."
+      Selection: '["",{"text":"Please click on how you would like the heart for your partnership to look:"},{"text":"\n"},{"text":" ❤ ","color":"dark_red","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} dark_red"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to &4dark red&r."}},{"text":" ❤ ","color":"red","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} red"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to &cred&r."}},{"text":" ❤ ","color":"gold","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} gold"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to &6gold&r."}},{"text":" ❤ ","color":"yellow","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} yellow"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to &eyellow&r."}},{"text":" ❤ ","color":"dark_green","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} dark_green"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to &2dark green&r."}},{"text":" ❤ ","color":"green","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} green"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to &agreen&r."}},{"text":" ❤ ","color":"aqua","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} aqua"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to &baqua&r."}},{"text":" ❤ ","color":"dark_aqua","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} dark_aqua"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to &3dark aqua&r."}},{"text":" ❤ ","color":"dark_blue","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} dark_blue"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to &1dark blue&r."}},{"text":" ❤ ","color":"blue","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} blue"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to &9blue&r."}},{"text":" ❤ ","color":"light_purple","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} light_purple"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to &dlight purple&r."}},{"text":" ❤ ","color":"dark_purple","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} dark_purple"},"hoverEvent":{"action":"show_text","value":"Sets the text of the heart to &5dark purple&r."}},{"text":" ❤ ","color":"white","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} white"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to &fwhite&r."}},{"text":" ❤ ","color":"gray","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} gray"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to &7gray&r."}},{"text":" ❤ ","color":"dark_gray","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} dark_gary"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to &8dark gray&r."}},{"text":" ❤ ","color":"black","clickEvent":{"action":"run_command","value":"/{MainCmdAlias} {SubCmdAlias} black"},"hoverEvent":{"action":"show_text","value":"Sets the color of the heart to black."}}]'
     SetPriest:
       # Placeholders: {Name}, {DisplayName}.    Keep in mind display names contain colors!
       MadeYouAPriest: "{DisplayName}&r&a has made you a lawyer."
-      YouMadeAPriest: "{DisplayName}&r&a now is a lawyer."
+      YouMadeAPriest: "{DisplayName}&r&a is now a lawyer."
       FiredYou: "{DisplayName}&r&c has fired you as a lawyer."
       YouFiredAPriest: "{DisplayName}&r&a is no longer a lawyer."
       PerPermission: "{DisplayName}&r&c is set as a lawyer by permission. You can't fire them by command!"
@@ -147,6 +171,17 @@ Language:
       ToShort: "&cThe given business name is too short. It has to be at least {MinLength} characters long."
       ToLong: "&cThe given business name is too long. It can't be more than {MaxLength} characters long."
       AlreadyUsed: "&cThe given business name is already in use!"
+      Banned: "&cThe given business name is not allowed."
+      Confirm: "[\"\",{\"text\":\"{PriestDisplayName}&r\"},{\"text\":\" wants to change your business name from\",\"color\":\"white\"},{\"text\":\"{Surname}&r\"},{\"text\":\" to \",\"color\":\"white\"},{\"text\":\"{NewSurname}&r\",\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"Current business name: {Surname}\"}},{\"text\":\". Accept the partnership with \",\"color\":\"white\"},{\"text\":\"/partner accept\",\"color\":\"green\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/partner accept\"}},{\"text\":\" or deny it with \",\"color\":\"white\"},{\"text\":\"/partner deny\",\"color\":\"red\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/partner deny\"}},{\"text\":\".\",\"color\":\"white\"}]"
+      PlayerOff: "{DisplayName}&r is now offline, business name change canceled."
+      PriestOff: "Lawyer {DisplayName}&r is now offline, business name change canceled."
+      PlayerCancelled: "&c&r&c{PlayerDisplayName}&r&c cancelled the business name change to {NewSurname}&r&c!"
+      PriestCancelled: "&c&r&c{PriestDisplayName}&r&c cancelled the business name change to {NewSurname}&r&c!"
+      YouCancelled: "&aYou cancelled your business name change to {NewSurname}&r&a!"
+      YouCancelledPriest: "&aYou cancelled the business name change of &r&a{Player1DisplayName}&r&a and &r&a{Player2DisplayName}&r&a to {NewSurname}&r&a!"
+      Deny: "{DisplayName}&r&c denied the business name change!"
+      YouDeny: "&aYou denied the business name change to {NewSurname}&r&a."
+      PlayerOffline: "&cCan't check for consent to change business name while player is offline."
     Requests:
       NothingToAccept: "&cThere is no open request to accept."
       NothingToDeny: "&cThere is no open request to deny."
@@ -161,11 +196,12 @@ Language:
       Broadcast: "{PriestDisplayName}&r&a has partnered {Player1DisplayName}&r&a with &r{Player2DisplayName}&r&a."
       NotInRange: "&cThe players are not in range! They need to be within {Range} blocks!"
       AlreadyOpenRequest: "{DisplayName}&r&c has already one not answered partnership request."
-      YouCalledOff: "You have called the partnership off."
-      PlayerCalledOff: "{DisplayName}&r called the partnership off."
+      YouCalledOff: "&aYou have called the partnership off."
+      PlayerCalledOff: "&a{DisplayName}&r called the partnership off."
       Confirm: "[\"\",{\"text\":\"{PriestDisplayName}&r\"},{\"text\":\" wants to partner you with \",\"color\":\"white\"},{\"text\":\"{PlayerDisplayName}&r\"},{\"text\":\". Accept the partnership with \",\"color\":\"white\"},{\"text\":\"/partner accept\",\"color\":\"green\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/partner accept\"}},{\"text\":\" or deny it with \",\"color\":\"white\"},{\"text\":\"/partner deny\",\"color\":\"red\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/partner deny\"}},{\"text\":\".\",\"color\":\"white\"}]"
-      PriestOff: "Priest {DisplayName}&r is now offline, partnership called off."
+      PriestOff: "Lawyer {DisplayName}&r is now offline, partnership called off."
       PlayerOff: "{DisplayName}&r is now offline, partnership called off."
+      MaxPartnersReached: "{DisplayName}&r has already reached the maximum allowed amount of partners ({MaxPartnerCount})."
       Self:
         NotYourself: "&cYou can't partner with yourself."
         NotInRange: "&cThe player is not in range! He needs to be within {Range} blocks!"
@@ -174,16 +210,18 @@ Language:
         AlreadyOpenRequest: "&cYou already have one unanswered partnership request."
         Married: "&aYou have partnered with &r&a{DisplayName}&r&a."
         Broadcast: "&a&r&a{Player1DisplayName}&r&a has formed a partnership with &r&a{Player2DisplayName}&r&a."
-        YouCalledOff: "You have called the partnership off."
-        PlayerCalledOff: "{DisplayName}&r called the partnership off."
+        YouCalledOff: "&aYou have called the partnership off."
+        PlayerCalledOff: "&a{DisplayName}&r called the partnership off."
         Confirm: "[\"\",{\"text\":\"{DisplayName}&r\"},{\"text\":\" wants to form a partnership with you. Accept the partnership with \",\"color\":\"white\"},{\"text\":\"/partner accept\",\"color\":\"green\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/partner accept\"}},{\"text\":\" or deny it with \",\"color\":\"white\"},{\"text\":\"/partner deny\",\"color\":\"red\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/partner deny\"}},{\"text\":\".\",\"color\":\"white\"}]"
-        RequestSent: "Partnership request sent."
+        RequestSent: "&aPartnership request sent."
         PlayerOff: "{DisplayName}&r is now offline, partnership called off."
         NotOnYourOwn: "&cYou can't legalize your own partnership. Please ask a lawyer to legalize the partnership for you."
+        MaxPartnersReached: "You have already reached the maximum allowed amount of partners ({MaxPartnerCount})."
+        MaxPartnersReachedOther: "{DisplayName}&r has already reached the maximum allowed amount of partners ({MaxPartnerCount})."
     Divorce:
       Broadcast: "&a&r&a{PriestDisplayName}&r&a has dissolved the partnership between &r&a{Player1DisplayName}&r&a and &r&a{Player2DisplayName}&r&a."
       DivorcedPlayer: "&a&r&a{PriestDisplayName}&r&a has dissolved your partnership with &r&a{PartnerDisplayName}&r&a."
-      Divorced: "&aYou have dissolved the partnership between  &r&a{Player1DisplayName}&r&a and &r&a{Player2DisplayName}&r&a."
+      Divorced: "&aYou have dissolved the partnership between &r&a{Player1DisplayName}&r&a and &r&a{Player2DisplayName}&r&a."
       PlayerOff: "{DisplayName}&r is now offline, dissolution of partnership canceled."
       PriestOff: "Lawyer {DisplayName}&r is now offline, dissolution of partnership canceled."
       PlayerCancelled: "&c&r&c{PlayerDisplayName}&r&c cancelled the dissolution of their partnership with &r&c{PartnerDisplayName}&r&c!"
@@ -193,19 +231,19 @@ Language:
       Deny: "{DisplayName}&r&c refused to dissolve the partnership!"
       YouDeny: "&aYou refused to dissolve your partnership with &r&a{DisplayName}&r&a."
       Confirm: "[\"\",{\"text\":\"{PriestDisplayName}&r\"},{\"text\":\" wants to dissolve your partnership with \",\"color\":\"white\"},{\"text\":\"{PartnerDisplayName}\"},{\"text\":\". Accept the dissolution with \",\"color\":\"white\"},{\"text\":\"/partner accept\",\"color\":\"green\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/partner accept\"}},{\"text\":\" or deny it with \",\"color\":\"white\"},{\"text\":\"/partner deny\",\"color\":\"red\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/partner deny\"}},{\"text\":\".\",\"color\":\"white\"}]"
-      NotInRange: "&aThe players are not in range! They need to be within {Range} blocks!"
+      NotInRange: "&cThe players are not in range! They need to be within {Range} blocks!"
       Self:
         Divorced: "&aYou left &r&a{DisplayName}&r&a. You are free now."
         DivorcedPlayer: "{DisplayName}&r&a has left your partnership. You are free now."
         Broadcast: "&a&r&a{Player1DisplayName}&r&a has dissolved their partnership with &r&a{Player2DisplayName}&r&a."
         PlayerOff: "{DisplayName}&r is now offline, dissolution of partnership canceled."
-        RequestSent: "Dissolution request sent to {DisplayName}&r."
+        RequestSent: "&aDissolution request sent to {DisplayName}&r."
         Confirm: "[\"\",{\"text\":\"{DisplayName}&r\"},{\"text\":\" wants to dissolve your partnership. Accept with \",\"color\":\"white\"},{\"text\":\"/partner accept\",\"color\":\"green\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/partner accept\"}},{\"text\":\" or deny it with \",\"color\":\"white\"},{\"text\":\"/partner deny\",\"color\":\"red\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/partner deny\"}},{\"text\":\".\",\"color\":\"white\"}]"
         Deny: "{DisplayName}&r&c denied your dissolution request!"
         YouDeny: "&aYou denied &r&a{DisplayName}&r&a's dissolution request."
         Cancelled: "{DisplayName}&r&c cancelled their dissolution request!"
         YouCancelled: "&aYou cancelled your request to dissolve your partnership with &r&a{DisplayName}&r&a!"
-        NotInRange: "&aYour partner is not in range! You need to be within {Range} blocks!"
+        NotInRange: "&cYour partner is not in range! You need to be within {Range} blocks!"
     Economy:
       NotEnough: "&cYou don't have enough money! You need {Cost} {CurrencyName} for that."
       PartnerNotEnough: "&cYour partner doesn't have enough money!"
@@ -230,11 +268,11 @@ Language:
     Help:
       Header: "&6### Partnership Commands ###"
       Footer: "&6#############################"
-      # Allows you to define messages that should be sent if the player uses the "/marry" command without any parameters (HelpMode must be set to CustomHelp in the config)
+      # Allows you to define messages that should be sent if the player uses the "/partner" command without any parameters (HelpMode must be set to CustomHelp in the config)
       CustomHelp:
         # Will be used if the player is married
         Married:
-          - " &3__&b&lMarry Commands&r&3__"
+          - " &3__&b&lPartnership Commands&r&3__"
           - ""
           - '[{"text":" ➤ ","color":"white"},{"text":"/partner fistbump","color":"dark_aqua","bold":true,"underlined":true,"clickEvent":{"action":"run_command","value":"/partner fistbump"}},{"text":" fist-bump your partner","color":"aqua"}]'
           - '[{"text":" ➤ ","color":"yellow"},{"text":"/partner tp","color":"dark_aqua","bold":true,"underlined":true,"clickEvent":{"action":"run_command","value":"/partner tp"}},{"text":" tp to your partner","color":"aqua"}]'
@@ -243,9 +281,9 @@ Language:
           - '[{"text":"Use ","color":"dark_green"},{"text":"/partner help","color":"dark_aqua","bold":true},{"text":" for full list of all commands"}]'
         # Will be used if the player is a priest
         Priest:
-          - " &3__&b&lMarry&r&3__"
+          - " &3__&b&lPartnership&r&3__"
           - "&b You can partner players by using /partner partner <player1> <player2>"
-          - '[{"text":"Use ","color":"dark_green"},{"text":"/marry help","color":"dark_aqua","bold":true},{"text":" for full list of all commands"}]'
+          - '[{"text":"Use ","color":"dark_green"},{"text":"/partner help","color":"dark_aqua","bold":true},{"text":" for full list of all commands"}]'
         # Will be used if the player is neither married nor a priest
         Default:
           - " &3__&b&lPartnership&r&3__"
@@ -271,15 +309,17 @@ Language:
       SetHome: "Sets your home."
       SetHomeOther: "Sets the home of a partnership."
       DelHome: "Deletes your home."
-      DelHomeOther: "Deletes the home of a married player."
+      DelHomeOther: "Deletes the home of a partnered player."
       Help: "Shows all available commands and their description."
       List: "Lists all partnered players."
       ListPriests: "Lists all currently online lawyers."
+      Partners: "Lists all partners of a player."
+      Info: "Shows information about a partnership."
       PvP: "Changes PvP status with partner."
       PvPOn: "Enables PvP with partner."
       PvPOff: "Disables PvP with partner."
       Tp: "Teleports you to your partner."
-      Kiss: "You kiss your partner."
+      Kiss: "You shake hands with your partner."
       Hug: "You fist-bump your partner."
       Seen: "Shows when your partner was online the last time."
       Marry: "Form a partnership between two players."
@@ -293,10 +333,10 @@ Language:
       Cancel: "Cancels an open request."
       Deny: "Denies an open request."
       SetColor: "Sets the color of the partnership."
-      SetPriest: "Promotes/Demotes a player to/from laywer."
+      SetPriest: "Promotes/Demotes a player to/from lawyer."
       Reload: "Reloads the config of the plugin."
       Version: "Prints the version details about the plugin and its dependencies."
-# The fist option in the list will be the one displayed in the commands help
+# The first option in the list will be the one displayed in the commands help
 Command:
   Switches:
     On:
@@ -401,6 +441,13 @@ Placeholders:
     NotMarried: "not partnered"
     NoHome: "no home"
     Separator: "&r, "
+    NoPartnerForSlot: ""
+    Years: "&6{years}&ey "
+    Months: "&6{months}&eM "
+    Days: "&6{days}&ed "
+    Hours: "&6{hours}&eh "
+    Minutes: "&6{minutes}&em"
+    TimeMain: "{years}{months}{days}{hours}{minutes}"
   Heart:
     Married: "&c<heart>&f"
     NotMarried: ""
@@ -433,5 +480,5 @@ LanguageName: "English-Partnership"
 Author: "GeorgH93 and Momshroom"
 
 # Language file version. Don't touch it!
-Version: 103
+Version: 115
 Revision: 1
