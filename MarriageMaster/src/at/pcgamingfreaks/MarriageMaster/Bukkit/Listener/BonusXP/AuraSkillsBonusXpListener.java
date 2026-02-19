@@ -21,17 +21,14 @@ import at.pcgamingfreaks.ConsoleColor;
 import at.pcgamingfreaks.MarriageMaster.Bukkit.API.Marriage;
 import at.pcgamingfreaks.MarriageMaster.Bukkit.API.MarriagePlayer;
 import at.pcgamingfreaks.MarriageMaster.Bukkit.MarriageMaster;
-
 import dev.aurelium.auraskills.api.AuraSkillsApi;
 import dev.aurelium.auraskills.api.event.skill.XpGainEvent;
 import dev.aurelium.auraskills.api.skill.Skill;
 import dev.aurelium.auraskills.api.source.XpSource;
-
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
-
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -99,6 +96,6 @@ public class AuraSkillsBonusXpListener implements Listener, IBonusXpListener<XpG
 	public void splitWithPartner(@NotNull XpGainEvent event, @NotNull Player partner, double xp, @Nullable Skill skill, @NotNull MarriagePlayer player, @NotNull Marriage marriage)
 	{
 		if(skill == null) return;
-		auraSkills.getUser(partner.getUniqueId()).addSkillXp(skill, xp);
+		auraSkills.getUser(partner.getUniqueId()).addSkillXpRaw(skill, xp);
 	}
 }
