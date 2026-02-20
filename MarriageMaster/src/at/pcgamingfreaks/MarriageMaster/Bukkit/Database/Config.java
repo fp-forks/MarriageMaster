@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2023 GeorgH93
+ *   Copyright (C) 2026 GeorgH93
  *
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -22,7 +22,6 @@ import at.pcgamingfreaks.Bukkit.MinecraftMaterial;
 import at.pcgamingfreaks.Bukkit.Util.Utils;
 import at.pcgamingfreaks.Config.Configuration;
 import at.pcgamingfreaks.Config.ILanguageConfiguration;
-import at.pcgamingfreaks.Config.YamlFileUpdateMethod;
 import at.pcgamingfreaks.ConsoleColor;
 import at.pcgamingfreaks.MarriageMaster.Bukkit.MarriageMaster;
 import at.pcgamingfreaks.MarriageMaster.Bukkit.Range;
@@ -54,12 +53,6 @@ public class Config extends Configuration implements DatabaseConfiguration, ILan
 	public Config(final @NotNull MarriageMaster plugin)
 	{
 		super(plugin, new Version(MagicValues.CONFIG_VERSION));
-	}
-
-	@Override
-	protected @Nullable YamlFileUpdateMethod getYamlUpdateMode()
-	{
-		return YamlFileUpdateMethod.UPGRADE;
 	}
 
 	@Override
@@ -98,7 +91,15 @@ public class Config extends Configuration implements DatabaseConfiguration, ILan
 		return EnumSet.copyOf(modes);
 	}
 
+	private Set<String> toLowercaseSet(final @NotNull List<String> list)
+	{
+		HashSet<String> set = new HashSet<>();
+		list.forEach(s -> set.add(s.toLowerCase(Locale.ENGLISH)));
+		return set;
+	}
+
 	//region Getter
+	@SuppressWarnings("SameParameterValue")
 	private boolean getAutoableBoolean(final @NotNull String key, final @NotNull String defaultValue, boolean autoValue)
 	{
 		String val = getConfigE().getString(key, defaultValue).trim().toLowerCase(Locale.ENGLISH);
@@ -221,12 +222,7 @@ public class Config extends Configuration implements DatabaseConfiguration, ILan
 
 	public Set<String> getSurnameBannedNames()
 	{
-		Set<String> badNames = new HashSet<>();
-		for (String name : getConfigE().getStringList("Marriage.Surnames.BannedNames", new LinkedList<>()))
-		{
-			badNames.add(name.toLowerCase(Locale.ROOT));
-		}
-		return badNames;
+		return toLowercaseSet(getConfigE().getStringList("Marriage.Surnames.BannedNames", new LinkedList<>()));
 	}
 
 	public SurnameConfirmationMode getSurnameConfirmationMode()
@@ -255,12 +251,7 @@ public class Config extends Configuration implements DatabaseConfiguration, ILan
 
 	public Set<String> getTpFilteredWorlds()
 	{
-		Set<String> blackListedWorlds = new HashSet<>();
-		for(String world : getConfigE().getStringList("Teleport.FilteredWorlds", new LinkedList<>()))
-		{
-			blackListedWorlds.add(world.toLowerCase(Locale.ENGLISH));
-		}
-		return blackListedWorlds;
+		return toLowercaseSet(getConfigE().getStringList("Marriage.Surnames.BannedNames", new LinkedList<>()));
 	}
 
 	public boolean isTPListBlockList()
@@ -352,12 +343,7 @@ public class Config extends Configuration implements DatabaseConfiguration, ILan
 
 	public Set<String> getGiftBlackListedWorlds()
 	{
-		Set<String> blackListedWorlds = new HashSet<>();
-		for(String world : getConfigE().getStringList("Gift.BlacklistedWorlds", new LinkedList<>()))
-		{
-			blackListedWorlds.add(world.toLowerCase(Locale.ENGLISH));
-		}
-		return blackListedWorlds;
+		return toLowercaseSet(getConfigE().getStringList("Gift.BlacklistedWorlds", new LinkedList<>()));
 	}
 
 	public boolean isGiftItemFilterEnabled()
@@ -488,14 +474,14 @@ public class Config extends Configuration implements DatabaseConfiguration, ILan
 		return getConfigE().getBoolean("BonusXp.AuraSkills.Enable", false);
 	}
 
-	public List<String> getAuraSkillsBonusXpBlockedSources()
+	public Set<String> getAuraSkillsBonusXpBlockedSources()
 	{
-		return getConfigE().getStringList("BonusXp.AuraSkills.ExcludeSources", new ArrayList<>(0));
+		return toLowercaseSet(getConfigE().getStringList("BonusXp.AuraSkills.ExcludeSources", new ArrayList<>(0)));
 	}
 
-	public List<String> getAuraSkillsBonusXpBlockedSkills()
+	public Set<String> getAuraSkillsBonusXpBlockedSkills()
 	{
-		return getConfigE().getStringList("BonusXp.AuraSkills.ExcludeSkills", new ArrayList<>(0));
+		return toLowercaseSet(getConfigE().getStringList("BonusXp.AuraSkills.ExcludeSkills", new ArrayList<>(0)));
 	}
 
 	public double getAuraSkillsBonusXpMultiplier()
@@ -518,9 +504,9 @@ public class Config extends Configuration implements DatabaseConfiguration, ILan
 		return getConfigE().getBoolean("BonusXp.Jobs.Enable", false);
 	}
 
-	public List<String> getJobsBonusXpBlockedJobs()
+	public Set<String> getJobsBonusXpBlockedJobs()
 	{
-		return getConfigE().getStringList("BonusXp.Jobs.ExcludeJobs", new ArrayList<>(0));
+		return toLowercaseSet(getConfigE().getStringList("BonusXp.Jobs.ExcludeJobs", new ArrayList<>(0)));
 	}
 
 	public double getJobsBonusXpMultiplier()
@@ -562,12 +548,7 @@ public class Config extends Configuration implements DatabaseConfiguration, ILan
 
 	public Set<String> getHPRegainBlackListedWorlds()
 	{
-		Set<String> blackListedWorlds = new HashSet<>();
-		for(String world : getConfigE().getStringList("HealthRegain.BlacklistedWorlds", new LinkedList<>()))
-		{
-			blackListedWorlds.add(world.toLowerCase(Locale.ENGLISH));
-		}
-		return blackListedWorlds;
+		return toLowercaseSet(getConfigE().getStringList("HealthRegain.BlacklistedWorlds", new LinkedList<>()));
 	}
 	//endregion
 

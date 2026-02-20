@@ -44,16 +44,13 @@ import java.util.Set;
 public class JobsBonusXpListener implements Listener
 {
 	private final MarriageMaster plugin;
-	private final Set<String> blockedJobs = new HashSet<>();
+	private final Set<String> blockedJobs;
 
 	public JobsBonusXpListener(@NotNull MarriageMaster plugin)
 	{
 		this.plugin = plugin;
+		blockedJobs = plugin.getConfiguration().getJobsBonusXpBlockedJobs();
 
-		for(String job : plugin.getConfiguration().getJobsBonusXpBlockedJobs())
-		{
-			blockedJobs.add(job.toLowerCase(Locale.ENGLISH));
-		}
 
 		plugin.getLogger().info(ConsoleColor.GREEN + "Jobs hooked" + ConsoleColor.RESET);
 	}

@@ -21,10 +21,12 @@ import at.pcgamingfreaks.ConsoleColor;
 import at.pcgamingfreaks.MarriageMaster.Bukkit.API.Marriage;
 import at.pcgamingfreaks.MarriageMaster.Bukkit.API.MarriagePlayer;
 import at.pcgamingfreaks.MarriageMaster.Bukkit.MarriageMaster;
+
 import dev.aurelium.auraskills.api.AuraSkillsApi;
 import dev.aurelium.auraskills.api.event.skill.XpGainEvent;
 import dev.aurelium.auraskills.api.skill.Skill;
 import dev.aurelium.auraskills.api.source.XpSource;
+
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -32,7 +34,6 @@ import org.bukkit.event.Listener;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
 
@@ -40,8 +41,8 @@ public class AuraSkillsBonusXpListener implements Listener, IBonusXpListener<XpG
 {
 	private final AuraSkillsApi auraSkills;
 	private final IBonusXpCalculator<XpGainEvent, Skill> calculator;
-	private final Set<String> blockedSources = new HashSet<>();
-	private final Set<String> blockedSkills = new HashSet<>();
+	private final Set<String> blockedSources;
+	private final Set<String> blockedSkills;
 
 	public AuraSkillsBonusXpListener(@NotNull MarriageMaster plugin)
 	{
@@ -51,15 +52,8 @@ public class AuraSkillsBonusXpListener implements Listener, IBonusXpListener<XpG
 		else
 			calculator = new NearestPartnerBonusXpCalculator<>(plugin, plugin.getConfiguration().getAuraSkillsBonusXpMultiplier(), plugin.getConfiguration().isAuraSkillsBonusXPSplitEnabled(), this);
 
-		for(String source : plugin.getConfiguration().getAuraSkillsBonusXpBlockedSources())
-		{
-			blockedSources.add(source.toLowerCase(Locale.ENGLISH));
-		}
-
-		for(String skill : plugin.getConfiguration().getAuraSkillsBonusXpBlockedSkills())
-		{
-			blockedSkills.add(skill.toLowerCase(Locale.ENGLISH));
-		}
+		blockedSources = plugin.getConfiguration().getAuraSkillsBonusXpBlockedSources();
+		blockedSkills = plugin.getConfiguration().getAuraSkillsBonusXpBlockedSkills();
 
 		plugin.getLogger().info(ConsoleColor.GREEN + "AuraSkills hooked" + ConsoleColor.RESET);
 	}
@@ -95,7 +89,6 @@ public class AuraSkillsBonusXpListener implements Listener, IBonusXpListener<XpG
 	@Override
 	public void splitWithPartner(@NotNull XpGainEvent event, @NotNull Player partner, double xp, @Nullable Skill skill, @NotNull MarriagePlayer player, @NotNull Marriage marriage)
 	{
-		if(skill == null) return;
 		auraSkills.getUser(partner.getUniqueId()).addSkillXpRaw(skill, xp);
 	}
 }
