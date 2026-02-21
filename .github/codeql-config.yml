@@ -1,0 +1,4 @@
+filter:
+  # Exclude the specific rule responsible for the warning
+  - exclude:
+      id: java/missing-override-annotation

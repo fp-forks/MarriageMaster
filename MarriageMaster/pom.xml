@@ -36,10 +36,6 @@
 			<id>CodeMC</id>
 			<url>https://repo.codemc.org/repository/maven-public/</url>
 		</repository>
-		<repository> <!-- for Jobs -->
-			<id>jitpack.io</id>
-			<url>https://jitpack.io</url>
-		</repository>
 	</repositories>
 
 	<pluginRepositories>
@@ -155,7 +151,7 @@
 		<dependency>
 			<groupId>com.github.Zrips</groupId>
 			<artifactId>Jobs</artifactId>
-			<version>v5.2.6.3</version>
+			<version>5.2.6.4</version>
 			<scope>provided</scope>
 		</dependency>
 		<!-- region unit test dependencies -->
