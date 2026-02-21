@@ -75,7 +75,7 @@ public class VersionCommand extends MarryCommand
 		{
 			sender.sendMessage("AuraSkills: " + pl.getDescription().getVersion());
 		}
-		if((plugin.getConfiguration().isJobsBonusXPEnabled() || plugin.getConfiguration().isJobsPaymentEnabled()) && (pl = Bukkit.getPluginManager().getPlugin("Jobs")) != null && pl.isEnabled())
+		if(plugin.getConfiguration().isJobsBonusXPEnabled() && (pl = Bukkit.getPluginManager().getPlugin("Jobs")) != null && pl.isEnabled())
 		{
 			sender.sendMessage("Jobs: " + pl.getDescription().getVersion());
 		}

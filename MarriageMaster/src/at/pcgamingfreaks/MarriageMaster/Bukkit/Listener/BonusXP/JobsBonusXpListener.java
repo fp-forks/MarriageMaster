@@ -24,8 +24,6 @@ import at.pcgamingfreaks.MarriageMaster.Bukkit.MarriageMaster;
 
 import com.gamingmesh.jobs.Jobs;
 import com.gamingmesh.jobs.api.JobsExpGainEvent;
-import com.gamingmesh.jobs.api.JobsPaymentEvent;
-import com.gamingmesh.jobs.container.CurrencyType;
 import com.gamingmesh.jobs.container.Job;
 import com.gamingmesh.jobs.container.JobsPlayer;
 
@@ -37,20 +35,22 @@ import org.bukkit.event.Listener;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
 
-public class JobsBonusXpListener implements Listener
+public class JobsBonusXpListener implements Listener, IBonusXpListener<JobsExpGainEvent, Job>
 {
-	private final MarriageMaster plugin;
 	private final Set<String> blockedJobs;
+	private final IBonusXpCalculator<JobsExpGainEvent, Job> calculator;
 
 	public JobsBonusXpListener(@NotNull MarriageMaster plugin)
 	{
-		this.plugin = plugin;
 		blockedJobs = plugin.getConfiguration().getJobsBonusXpBlockedJobs();
 
+		if(plugin.getConfiguration().isAuraSkillsBonusXPSplitWithAllEnabled())
+			calculator = new AllPartnersInRangeBonusXpCalculator<>(plugin, plugin.getConfiguration().getJobsBonusXpMultiplier(), this);
+		else
+			calculator = new NearestPartnerBonusXpCalculator<>(plugin, plugin.getConfiguration().getJobsBonusXpMultiplier(), plugin.getConfiguration().isJobsBonusXPSplitEnabled(), this);
 
 		plugin.getLogger().info(ConsoleColor.GREEN + "Jobs hooked" + ConsoleColor.RESET);
 	}
@@ -58,83 +58,27 @@ public class JobsBonusXpListener implements Listener
 	@EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
 	public void onJobsExpGain(@NotNull JobsExpGainEvent event)
 	{
-		Job job = event.getJob();
+		final Job job = event.getJob();
 		if(isJobBlocked(job)) return;
-
-		Player player = event.getPlayer().getPlayer();
+		final Player player = event.getPlayer().getPlayer();
 		if(player == null) return;
 
-		MarriagePlayer marriagePlayer = plugin.getPlayerData(player);
-		Marriage marriage = marriagePlayer.getNearestPartnerMarriageData();
-		if(marriage == null) return;
-
-		MarriagePlayer partner = marriage.getPartner(marriagePlayer);
-		if(partner == null || !partner.isOnline() || !marriage.inRangeSquared(plugin.getConfiguration().getRangeSquared(at.pcgamingfreaks.MarriageMaster.Bukkit.Range.BonusXP))) return;
-
-		double multiplier = plugin.getConfiguration().getJobsBonusXpMultiplier();
-		if(plugin.getConfiguration().isJobsBonusXPSplitEnabled())
-		{
-			multiplier *= 0.5f;
-		}
-
-		double xp = event.getExp() * multiplier;
-		event.setExp(xp);
-
-		if(plugin.getConfiguration().isJobsBonusXPSplitEnabled())
-		{
-			JobsPlayer jobsPartner = Jobs.getPlayerManager().getJobsPlayer(partner.getPlayerOnline());
-			if(jobsPartner != null)
-			{
-				Jobs.getPlayerManager().addExperience(jobsPartner, job, xp);
-			}
-		}
+		calculator.process(event, player, event.getExp() ,job);
 	}
 
-	@EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
-	public void onJobsPayment(@NotNull JobsPaymentEvent event)
+	@Override
+	public void setEventExp(@NotNull JobsExpGainEvent event, double xp, @Nullable Job job, @NotNull MarriagePlayer player, @NotNull Marriage marriage)
 	{
-		Player player = event.getPlayer().getPlayer();
-		if(player == null) return;
+		event.setExp(xp);
+	}
 
-		MarriagePlayer marriagePlayer = plugin.getPlayerData(player);
-		Marriage marriage = marriagePlayer.getNearestPartnerMarriageData();
-		if(marriage == null) return;
-
-		MarriagePlayer partner = marriage.getPartner(marriagePlayer);
-		if(partner == null || !partner.isOnline() || !marriage.inRangeSquared(plugin.getConfiguration().getRangeSquared(at.pcgamingfreaks.MarriageMaster.Bukkit.Range.BonusXP))) return;
-
-		double multiplier = plugin.getConfiguration().getJobsPaymentMultiplier();
-		if(plugin.getConfiguration().isJobsPaymentSplitEnabled())
+	@Override
+	public void splitWithPartner(@NotNull JobsExpGainEvent event, @NotNull Player partner, double xp, @Nullable Job job, @NotNull MarriagePlayer player, @NotNull Marriage marriage)
+	{
+		JobsPlayer jobsPartner = Jobs.getPlayerManager().getJobsPlayer(partner);
+		if(jobsPartner != null)
 		{
-			multiplier *= 0.5f;
-		}
-
-		double money = event.get(CurrencyType.MONEY);
-		if(money > 0)
-		{
-			double boostedMoney = money * multiplier;
-			event.set(CurrencyType.MONEY, boostedMoney);
-
-			if(plugin.getConfiguration().isJobsPaymentSplitEnabled())
-			{
-				Jobs.getEconomy().getEconomy().depositPlayer(partner.getPlayerOnline(), boostedMoney);
-			}
-		}
-
-		double points = event.get(CurrencyType.POINTS);
-		if(points > 0)
-		{
-			double boostedPoints = points * multiplier;
-			event.set(CurrencyType.POINTS, boostedPoints);
-
-			if(plugin.getConfiguration().isJobsPaymentSplitEnabled())
-			{
-				JobsPlayer jobsPartner = Jobs.getPlayerManager().getJobsPlayer(partner.getPlayerOnline());
-				if(jobsPartner != null)
-				{
-					jobsPartner.addPoints(boostedPoints);
-				}
-			}
+			Jobs.getPlayerManager().addExperience(jobsPartner, job, xp);
 		}
 	}
 

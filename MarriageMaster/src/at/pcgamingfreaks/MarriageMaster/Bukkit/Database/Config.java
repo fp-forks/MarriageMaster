@@ -518,21 +518,6 @@ public class Config extends Configuration implements DatabaseConfiguration, ILan
 	{
 		return getConfigE().getBoolean("BonusXp.Jobs.SplitXp", true);
 	}
-
-	public boolean isJobsPaymentEnabled()
-	{
-		return getConfigE().getBoolean("BonusXp.Jobs.Payment.Enable", false);
-	}
-
-	public double getJobsPaymentMultiplier()
-	{
-		return getConfigE().getDouble("BonusXp.Jobs.Payment.Multiplier", 2);
-	}
-
-	public boolean isJobsPaymentSplitEnabled()
-	{
-		return getConfigE().getBoolean("BonusXp.Jobs.Payment.Split", true);
-	}
 	//endregion
 
 	//region HP Regain
