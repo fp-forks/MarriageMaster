@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2022 GeorgH93
+ *   Copyright (C) 2026 GeorgH93
  *
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -26,12 +26,10 @@ import at.pcgamingfreaks.MarriageMaster.Bukkit.API.MarriagePlayer;
 import at.pcgamingfreaks.MarriageMaster.Bukkit.API.MarryCommand;
 import at.pcgamingfreaks.MarriageMaster.Bukkit.CommonMessages;
 import at.pcgamingfreaks.MarriageMaster.Bukkit.MarriageMaster;
-import at.pcgamingfreaks.MarriageMaster.MagicValues;
 import at.pcgamingfreaks.MarriageMaster.Permissions;
 import at.pcgamingfreaks.Message.MessageColor;
 import at.pcgamingfreaks.Message.MessageFormat;
 import at.pcgamingfreaks.Util.StringUtils;
-
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.CommandSender;
@@ -346,7 +344,7 @@ public class ChatCommand extends MarryCommand implements Listener
 			return;
 		}
 
-		String magicHeart = MagicValues.RED_HEART;
+		msg = cleanupMessage(msg, sender);
 
 		//region Fire Event
 		if(recipients.size() == 1)
@@ -355,7 +353,6 @@ public class ChatCommand extends MarryCommand implements Listener
 			Bukkit.getPluginManager().callEvent(marryChatEvent);
 			if(marryChatEvent.isCancelled()) return;
 			msg = marryChatEvent.getMessage();
-			magicHeart = recipients.get(0).getMagicHeart();
 		}
 		else
 		{
@@ -367,12 +364,10 @@ public class ChatCommand extends MarryCommand implements Listener
 			{
 				//noinspection ConstantConditions
 				recipient = recipients.get(0).getPartner(sender).getPlayerOnline();
-				magicHeart = recipients.get(0).getMagicHeart();
 			}
 		}
 		//endregion
-
-		msg = cleanupMessage(msg, sender);
+		final String magicHeart = recipients.get(0).getMagicHeart();
 
 		// Send the message
 		List<Player> playerRecipients = collectRecipientPlayers(sender, recipient, recipients);
