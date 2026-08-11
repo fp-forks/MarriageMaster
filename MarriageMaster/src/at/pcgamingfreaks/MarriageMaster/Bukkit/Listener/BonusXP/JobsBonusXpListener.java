@@ -47,7 +47,7 @@ public class JobsBonusXpListener implements Listener, IBonusXpListener<JobsExpGa
 	{
 		blockedJobs = plugin.getConfiguration().getJobsBonusXpBlockedJobs();
 
-		if(plugin.getConfiguration().isAuraSkillsBonusXPSplitWithAllEnabled())
+		if(plugin.getConfiguration().isJobsBonusXPSplitWithAllEnabled())
 			calculator = new AllPartnersInRangeBonusXpCalculator<>(plugin, plugin.getConfiguration().getJobsBonusXpMultiplier(), this);
 		else
 			calculator = new NearestPartnerBonusXpCalculator<>(plugin, plugin.getConfiguration().getJobsBonusXpMultiplier(), plugin.getConfiguration().isJobsBonusXPSplitEnabled(), this);
